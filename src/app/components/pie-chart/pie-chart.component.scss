@@ -1,0 +1,23 @@
+.full-height {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+}
+
+.datagrid-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+}
+
+.datagrid-container clr-datagrid {
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.datagrid-container .datagrid {
+  display: flex;
+}

@@ -1,0 +1,17 @@
+<div class="bd-example">
+  <it-pagination
+    [alignment]="alignment"
+    [currentPage]="currentPage"
+    [pageNumbers]="pageNumbers"
+    [currentChanger]="changerValue"
+    [changerValues]="changerValues"
+    [showJumpToPage]="showJumpToPage"
+    (pageEvent)="pageChange($event)"
+    (changerEvent)="changerEvent($event)"
+    [simpleMode]="simpleMode"
+  >
+  </it-pagination>
+  <p [class]="'total-items ' + alignment" *ngIf="showTotalItems">
+    Totale {{ pager.total_items }} elementi
+  </p>
+</div>

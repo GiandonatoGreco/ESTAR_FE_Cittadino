@@ -1,0 +1,27 @@
+<div class="accordion" id="accordionExample1">
+  <div class="accordion-item" *ngFor="let item of accordionItems; index as i">
+    <h2 class="accordion-header" [id]="'heading' + i">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#collapse' + i"
+        aria-expanded="true"
+        aria-controls="collapse1"
+      >
+        {{ item.title }}
+      </button>
+    </h2>
+    <div
+      [id]="'collapse' + i"
+      [ngClass]="{ collapse: 'collapse', true: 'accordion-collapse' }"
+      [attr.data-bs-parent]="collapse ? '#accordionExample1' : ''"
+      role="region"
+      [attr.aria-labelledby]="'heading' + i"
+    >
+      <div class="accordion-body">
+        {{ item.text }}
+      </div>
+    </div>
+  </div>
+</div>

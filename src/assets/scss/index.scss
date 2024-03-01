@@ -1,0 +1,14 @@
+// colors & constants
+@import "./colors.scss";
+@import "./variables.scss";
+// Importazione libreria SCSS di bootstrap-italia
+@import "bootstrap-italia/src/scss/bootstrap-italia";
+
+// geosearch
+@import "./geosearch.scss";
+
+// it-components
+@import "./it-header.scss";
+@import "./it-icon.scss";
+@import "./it-notification.scss";
+@import "./it-select.scss";

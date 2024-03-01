@@ -1,0 +1,20 @@
+<it-modal closeButton="false" id="modal-confirm">
+  <ng-container modalTitle>{{ title }}</ng-container>
+  <ng-container description>Descrizione scopo della modale.</ng-container>
+
+  <p>Font Titillium 16px. Leading 24px. omnis iste natus error.</p>
+
+  <ng-container footer>
+    <button
+      itButton="outline-primary"
+      size="sm"
+      type="button"
+      data-bs-dismiss="modal"
+    >
+      {{ cancelLabel }}
+    </button>
+    <button itButton="primary" size="sm" type="button" data-bs-dismiss="modal">
+      {{ confirmLabel }}
+    </button>
+  </ng-container>
+</it-modal>

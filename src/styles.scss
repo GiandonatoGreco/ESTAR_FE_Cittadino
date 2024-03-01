@@ -1,0 +1,24 @@
+// Import libreria css di leaflet
+@import "leaflet/dist/leaflet.css";
+@import "./assets/scss/index.scss";
+
+.rbt {
+  font-family: Roboto, sans-serif;
+}
+.rbt-600 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+}
+
+html,
+body {
+  height: 100%;
+
+  &.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+body {
+  margin: 0;
+}

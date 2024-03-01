@@ -1,0 +1,10 @@
+@import "../assets/scss/variables.scss";
+
+nav {
+  display: flex;
+  gap: 12px;
+}
+
+main {
+  min-height: calc(100vh - $header-height - $footer-height);
+}

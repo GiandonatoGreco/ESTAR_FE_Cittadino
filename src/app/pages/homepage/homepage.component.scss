@@ -1,0 +1,14 @@
+.btns-wrapper {
+  margin-bottom: 1rem;
+
+  > * {
+    margin-right: 1rem;
+  }
+}
+
+form {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}

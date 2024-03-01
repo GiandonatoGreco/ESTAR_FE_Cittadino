@@ -1,0 +1,106 @@
+<h1>Lista componenti riutilizzabili</h1>
+<h2>Buttons</h2>
+<div class="btns-wrapper">
+  <app-btn icon="user" btnText="Primary"></app-btn>
+  <app-btn
+    itBtn="outline-primary"
+    btnText="Outline primary"
+    icon="plus"
+  ></app-btn>
+  <app-btn
+    [disabled]="true"
+    itBtn="success"
+    btnText="success disabled"
+    icon="check-circle"
+    classes="pt-3 pb-3"
+  ></app-btn>
+  <app-btn
+    itBtn="outline-danger"
+    btnText="Outline danger"
+    icon="check-circle"
+    iconPosition="right"
+    size="xs"
+    [onClick]="callback"
+  ></app-btn>
+</div>
+<h2>Texts</h2>
+<p class="rbt">
+  Per gestione font / tags soluzione provvisoria: inserire classi globali
+  <span class="rbt-600">rbt</span> o <span class="rbt-600">rbt-600</span> per
+  inserire font Roboto
+</p>
+<p>In caso contrario, il font di default è Titilium Web</p>
+<h2>Selects</h2>
+<form>
+  <!-- IT-SELECT -->
+  <it-select
+    id="default-select"
+    label="Etichetta it-select"
+    [options]="options"
+    defaultOption="Seleziona un elemento"
+  >
+  </it-select>
+  <!-- BS-SELECT -->
+  <div class="select-wrapper">
+    <label for="defaultSelectDisabled">Etichetta bs</label>
+    <select id="defaultSelectDisabled" class="shadow-sm">
+      <option selected="" value="">Scegli un'opzione</option>
+      <option value="Value 1">Opzione 1</option>
+      <option value="Value 2">Opzione 2</option>
+      <option value="Value 3">Opzione 3</option>
+      <option value="Value 4">Opzione 4</option>
+      <option value="Value 5">Opzione 5</option>
+    </select>
+  </div>
+  <app-custom-autocomplete
+    label="Custom Autocomplete"
+    placeholder="Cerca"
+    [onChangeItem]="onChangeItem"
+    [autocompleteOptions]="autocompleteOptions"
+  ></app-custom-autocomplete>
+</form>
+<h2>Accordion</h2>
+<app-accordion
+  [accordionItems]="accordionItems"
+  [collapse]="true"
+></app-accordion>
+<h2>Modali</h2>
+<!-- <app-btn btnText="Apri modale" [onClick]="exampleModal.toggle()"></app-btn> -->
+<div class="btns-wrapper">
+  <app-btn
+    btnText="Apri modale conferma"
+    data-bs-toggle="modal"
+    data-bs-target="#modal-confirm"
+  ></app-btn>
+  <app-btn
+    btnText="Apri modale notifica"
+    itBtn="outline-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#modal-notification"
+  ></app-btn>
+</div>
+<h2>Pagination</h2>
+<app-pagination
+  alignment="center"
+  [pager]="pager"
+  [callback]="pagerCallback"
+  [showJumpToPage]="true"
+  [showChanger]="true"
+  [showTotalItems]="true"
+  [simpleMode]="false"
+></app-pagination>
+<h2>Charts</h2>
+<div class="row">
+  <div class="col-5">
+    <app-bar-chart [data]="barChartData"></app-bar-chart>
+  </div>
+  <div class="col-5 offset-2">
+    <app-pie-chart [data]="pieChartData"></app-pie-chart>
+  </div>
+</div>
+
+<!-- modals -->
+<app-modal-confirm
+  title="Modale di conferma"
+  confirmLabel="Continua"
+></app-modal-confirm>

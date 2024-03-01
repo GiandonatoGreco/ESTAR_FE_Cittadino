@@ -1,0 +1,8 @@
+<it-chip
+  *ngIf="showChip"
+  [showCloseButton]="true"
+  [icon]="chip.icon"
+  [label]="chip.label"
+  [color]="chip.color"
+  (closeEvent)="close()"
+></it-chip>

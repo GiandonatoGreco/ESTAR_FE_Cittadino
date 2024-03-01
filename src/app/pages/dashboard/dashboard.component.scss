@@ -1,0 +1,11 @@
+@import "../../../styles.scss";
+
+.doctor-info {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: $border-radius-sm;
+  border: 1px solid $border-color;
+}

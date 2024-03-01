@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Mario Rossi",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Piazza Duomo",
+        "suite": "Apt. 556",
+        "city": "Firenze",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 43.7735,
+          "lng": 11.2558
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Luigi Verdi",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Siena",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 43.3186,
+          "lng": 11.3306
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Paolo Monicelli",
+      "username": "__",
+      "email": "paolo.monicelli@medico.it",
+      "address": {
+        "street": "Via Giuseppe Garibaldi, 30",
+        "suite": "__",
+        "city": "Pisa",
+        "zipcode": "56124",
+        "geo": {
+          "lat": 43.7228,
+          "lng": 10.4017
+        }
+      },
+      "phone": "+39 333 5049 402",
+      "website": "__",
+      "company": {
+        "name": "__",
+        "catchPhrase": "__",
+        "bs": "__"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Giulia Monicelli",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Luuca",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 43.8376,
+          "lng": 10.4951
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<button
+  [itButton]="itBtn"
+  [size]="size"
+  [disabled]="disabled"
+  (click)="onClick()"
+  [type]="type"
+  [class]="classes"
+>
+  <it-icon
+    *ngIf="icon && iconPosition === 'left'"
+    [name]="icon"
+    [color]="getIconColor()"
+  ></it-icon>
+  <span [class]="icon ? iconPosition : ''">
+    {{ btnText }}
+  </span>
+  <it-icon
+    *ngIf="icon && iconPosition === 'right'"
+    [name]="icon"
+    [color]="getIconColor()"
+  ></it-icon>
+</button>

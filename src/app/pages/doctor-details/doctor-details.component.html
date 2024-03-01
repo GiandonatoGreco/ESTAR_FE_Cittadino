@@ -1,0 +1,16 @@
+<it-breadcrumb separator="/">
+  <it-breadcrumb-item
+    *ngFor="let item of crumbs"
+    class="me-1"
+    [href]="item.link"
+    [iconName]="item.icon"
+  >
+    {{ item.label }}
+  </it-breadcrumb-item>
+</it-breadcrumb>
+<h1>Dettaglio medico</h1>
+<p>{{ docDetail?.name }}</p>
+<p>{{ docDetail?.email }}</p>
+<p>{{ docDetail?.phone }}</p>
+<p>{{ docDetail?.address?.city }}, {{ docDetail?.address?.street }}</p>
+<p>{{ docDetail?.website }}</p>

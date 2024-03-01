@@ -1,0 +1,8 @@
+.notification.top-fix {
+  @include media-breakpoint-up(md) {
+    left: unset;
+    transform: unset;
+    top: 120px;
+    right: 40px;
+  }
+}

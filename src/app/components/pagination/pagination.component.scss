@@ -1,0 +1,15 @@
+.total-items {
+  margin-top: -2rem;
+  font-size: 1rem;
+  color: #5d7083;
+  margin-bottom: 1rem;
+  font-weight: 700;
+
+  &.center {
+    text-align: center;
+  }
+
+  &.end {
+    text-align: end;
+  }
+}

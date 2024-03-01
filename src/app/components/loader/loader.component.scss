@@ -1,0 +1,33 @@
+$animation-duration: 400ms;
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  // start showing spinner half animation duration:
+  // if loading is fast spinner does not appear at all
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.spinner-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn $animation-duration ease-in-out;
+
+  .progress-spinner {
+    width: 100px;
+  }
+}

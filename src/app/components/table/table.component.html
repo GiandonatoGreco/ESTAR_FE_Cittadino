@@ -1,0 +1,30 @@
+<it-table striped="true" [hover]="hover">
+  <ng-container thead>
+    <tr>
+      <th scope="col" *ngFor="let h of heading">
+        {{ h }}
+        <span class="icons-wrapper">
+          <it-icon
+            name="expand"
+            svgClass="arrow-table up"
+            (click)="orderBy(h, 'asc')"
+          ></it-icon>
+          <it-icon
+            name="expand"
+            svgClass="arrow-table down"
+            (click)="orderBy(h, 'desc')"
+          ></it-icon>
+        </span>
+      </th>
+    </tr>
+  </ng-container>
+  <ng-container tbody>
+    <!-- cycle on rows  -->
+    <tr *ngFor="let item of rows; index as i" (click)="onClickRow(item)">
+      <!-- cycle on headings for each row -->
+      <td *ngFor="let h of heading">
+        {{ item[h] }}
+      </td>
+    </tr>
+  </ng-container>
+</it-table>
