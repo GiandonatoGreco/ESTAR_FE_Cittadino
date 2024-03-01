@@ -1,54 +1,38 @@
 <it-header
-  slimTitle="Ente di appartenenza"
-  [loginStyle]="isLogged ? 'none' : 'full'"
+  slimTitle="Regione Toscana"
   [light]="false"
-  [showSearch]="true"
+  [showSearch]="false"
   [sticky]="true"
-  [megamenu]="true"
-  (loginClick)="onClickLogin()"
+  [megamenu]="false"
+  (loginClick)="false"
 >
   <ul class="link-list" slimLinkList>
-    <li><a class="dropdown-item list-item" href="#">Link 1</a></li>
-    <li>
-      <a class="list-item" href="#" aria-current="page">Link 2 (Attivo)</a>
+    <li class="link-item d-flex align-items-center">
+      <img class="slim-header-icon bell" src="../../../assets/img/icons/bell.svg">
+      <a class="link-item-text" href="#">Notifiche</a>
     </li>
-    <li *ngIf="isLogged">
+    <li class="link-item d-flex align-items-center">
+      <img class="slim-header-icon bell" src="../../../assets/img/icons/info.svg">
+      <a class="link-item-text" href="#">Contatti</a>
+    </li>
+    <li class="link-item d-flex align-items-center">
+      <img class="slim-header-icon bell" src="../../../assets/img/icons/user-circle.svg">
+      <a class="link-item-text" href="#">Gloria Rossi</a>
+    </li>
+    <!--li *ngIf="isLogged">
       <a class="list-item" href="#" aria-current="page" (click)="logout()"
         >Logout</a
       >
-    </li>
+    </li-->
   </ul>
   <ng-container brand>
     <a href="#">
-      <it-icon name="pa"></it-icon>
+      <img class="it-brand-logo-img" aria-hidden="true" src="../../../assets/img/logo_regione_toscana.png" />
       <div class="it-brand-text">
-        <div class="it-brand-title">Nome dell'Istituzione</div>
-        <div class="it-brand-tagline d-none d-md-block">
-          Tag line dell'Istituzione
-        </div>
+        <div class="it-brand-title">Portale cambio medico</div>
       </div>
     </a>
   </ng-container>
-  <div class="it-socials d-none d-md-flex" rightZone>
-    <span>Seguici su</span>
-    <ul>
-      <li>
-        <a href="#" aria-label="Facebook" target="_blank">
-          <it-icon name="facebook"></it-icon>
-        </a>
-      </li>
-      <li>
-        <a href="#" aria-label="Github" target="_blank">
-          <it-icon name="github"></it-icon>
-        </a>
-      </li>
-      <li>
-        <a href="#" aria-label="Twitter" target="_blank">
-          <it-icon name="twitter"></it-icon>
-        </a>
-      </li>
-    </ul>
-  </div>
   <ng-container navItems>
     <it-navbar-item *ngFor="let link of links"
       ><a

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-tutorial": {
+    "portale-del-cittadino": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-tutorial",
+            "outputPath": "dist/portale-del-cittadino",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -100,13 +100,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-tutorial:build:production"
+              "buildTarget": "portale-del-cittadino:build:production"
             },
             "mock": {
-              "buildTarget": "ng-tutorial:build:mock"
+              "buildTarget": "portale-del-cittadino:build:mock"
             },
             "dev": {
-              "buildTarget": "ng-tutorial:build:dev"
+              "buildTarget": "portale-del-cittadino:build:dev"
             }
           },
           "defaultConfiguration": "production"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ng-tutorial:build"
+            "buildTarget": "portale-del-cittadino:build"
           }
         },
         "test": {
@@ -130,5 +130,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

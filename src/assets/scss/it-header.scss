@@ -5,3 +5,48 @@
   a.nav-link.active.focus--mouse {
   border-color: white !important;
 }
+
+
+/* SLIM HEADER */
+.it-header-slim-wrapper {
+  background-color: $slim-header-bg;
+
+  .it-header-slim-wrapper-content {
+    padding: 12px 18px;
+
+    .navbar-brand {
+      padding: 0 !important;
+    }
+
+    .link-list-wrapper {
+      .link-list {
+        height: fit-content !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+
+        .link-item {
+          padding: 0 24px;
+          border-right: 1px solid #fff;
+
+          .slim-header-icon {
+            width: 24px;
+            height: 24px;
+          }
+
+          .link-item-text {
+            font-size: 16px;
+            line-height: normal;
+            padding: 0;
+            margin-left: 10px;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+}
+/* END SLIM HEADER */

@@ -7,6 +7,6 @@ import { NotificationPosition } from 'design-angular-kit';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'ng-tutorial';
+  title = 'portale-del-cittadino';
   notificationPosition = NotificationPosition.Top;
 }
