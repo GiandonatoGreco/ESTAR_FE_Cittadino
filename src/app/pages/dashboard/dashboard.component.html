@@ -1,5 +1,60 @@
-<h1>Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}</h1>
-<div class="doctor-info">
-  <h4>Il tuo medico attuale</h4>
-  <p>{{ currentDoctor.name }}</p>
-</div>
+<h1 class="container">Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}</h1>
+<section class="doctor-info">
+  <div class="container">
+    <h4>Il tuo medico attuale</h4>
+    <h3>{{ currentDoctor.name }}</h3>
+    <div class="separator"></div>
+    <div>
+      <p class="label">Contatti</p>
+      <p>
+        <app-icon type="envelope"></app-icon>
+        {{ currentDoctor.email }}
+      </p>
+      <p>
+        <app-icon type="phone"></app-icon>
+        {{ currentDoctor.phone }}
+      </p>
+      <p class="label mt-4">Ambulatori personali</p>
+    </div>
+  </div>
+</section>
+
+<section class="container more-info">
+  <h2>Disponibilità del servizio</h2>
+  <p>
+    Il servizio di scelta medico online è disponibile per le seguenti tipologie
+    di cittadino:
+  </p>
+  <ul>
+    <li>
+      <p>
+        Cittadini italiani residenti in Toscana, assistiti da un medico toscano.
+      </p>
+    </li>
+    <li>
+      <p>
+        Cittadini italiani, con domicilio sanitario Toscana, attualmente
+        assistiti da un medico toscano.
+      </p>
+    </li>
+    <li>
+      <p>
+        Cittadini comunitari o stranieri, residenti in Toscana, attualmente
+        assistiti da un medico toscano.
+      </p>
+    </li>
+  </ul>
+  <div class="separator"></div>
+  <p>
+    Oltre ai casi sopra evidenziati, è possibile scegliere il nuovo medico anche
+    nel caso in cui il proprio medico toscano abbia cessato la propria attività.
+    Il servizio sarà inizialmente disponibile per l’Azienda Usl Toscana
+    Nordovest e verrà poi progressivamente esteso a tutta la toscana, seguendo
+    il piano di avvio del nuovo software di scelta e revoca Adiba. Negli altri
+    casi, o per particolari operazioni quali scelta in deroga, revoca,
+    ricusazione ecc., è necessario rivolgersi agli sportelli del servizio di
+    scelta e revoca, attivi presso la propria Azienda USL di riferimento. Per
+    ulteriori informazioni suggeriamo di consultare le sezione con le
+    <a routerLink="/faq">domande frequenti (FAQ). </a>
+  </p>
+</section>
