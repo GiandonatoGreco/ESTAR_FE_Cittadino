@@ -36,6 +36,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { IconComponent } from './components/icon/icon.component';
+import { AllIconsComponent } from './components/all-icons/all-icons.component';
 
 @NgModule({
   // components & directives
@@ -64,6 +66,8 @@ import { FaqComponent } from './pages/faq/faq.component';
     DashboardComponent,
     DocumentsComponent,
     FaqComponent,
+    IconComponent,
+    AllIconsComponent,
   ],
   // modules
   imports: [

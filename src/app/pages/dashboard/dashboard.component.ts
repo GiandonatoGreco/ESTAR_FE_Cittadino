@@ -10,7 +10,7 @@ import { LoadingService } from 'services/loading.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  name = 'Giulia';
+  name = 'Gloria';
   gender: 'm' | 'f' = 'f';
 
   currentDoctor!: DoctorI;

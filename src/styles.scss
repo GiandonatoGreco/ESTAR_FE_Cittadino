@@ -1,14 +1,7 @@
 // Import libreria css di leaflet
 @import "leaflet/dist/leaflet.css";
 @import "./assets/scss/index.scss";
-
-.rbt {
-  font-family: Roboto, sans-serif;
-}
-.rbt-600 {
-  font-family: Roboto, sans-serif;
-  font-weight: 600;
-}
+@import "./assets/scss/reset.scss";
 
 html,
 body {
@@ -21,4 +14,35 @@ body {
 }
 body {
   margin: 0;
+}
+
+// common classes
+.rbt {
+  font-family: Roboto, sans-serif;
+}
+.rbt-600 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  background-color: $border-color;
+}
+.label {
+  color: $grey-01;
+}
+.link {
+  font-weight: 600;
+  text-decoration: none;
+
+  svg {
+    fill: var(--bs-primary);
+  }
+
+  &:hover svg,
+  &:active svg {
+    fill: var(--bs-link-hover-color);
+  }
 }
