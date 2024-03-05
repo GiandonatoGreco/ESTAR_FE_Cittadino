@@ -30,21 +30,21 @@ export class ChangeDoctorComponent implements OnInit {
 
   list: DoctorI[] = [];
   markers: GeoI[] = [];
-  tabs: TabI[] = [
-    {
-      label: 'Mappa',
-      icon: 'map-marker-circle',
-      content: 'mapContent',
-    },
-    {
-      label: 'Tabella',
-      icon: 'list',
-      content: 'tableContent',
-    },
-  ];
   tableRows: TableRowI[] = [];
-
   activeMarker?: number;
+  currentSight: 'map' | 'table' = 'map';
+  orderByItems = [
+    { text: 'Distanza', value: 'distance' },
+    { text: 'A - Z', value: 'alphabetical' },
+  ];
+  onChangeOrder(v: string) {
+    console.log('order_by', v);
+  }
+
+  sightToggle(): void {
+    if (this.currentSight === 'map') this.currentSight = 'table';
+    else this.currentSight = 'map';
+  }
 
   constructor(
     public doctorService: DoctorsService,

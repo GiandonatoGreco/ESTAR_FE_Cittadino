@@ -1,4 +1,4 @@
-<div class="container">
+<section class="container">
   <it-breadcrumb separator="/">
     <it-breadcrumb-item
       *ngFor="let item of crumbs"
@@ -14,50 +14,62 @@
     Puoi cambiare il medico di medicina generale. La ricerca sarà effettuata
     nell'ambito della Azienda Socio-Sanitaria Territoriale (ASST) di competenza.
   </h5>
-  <it-tab-container [dark]="false">
-    <it-tab-item
-      *ngFor="let tab of tabs; let i = index"
-      [label]="tab.label"
-      [icon]="tab.icon"
-      [active]="i === 0"
-    >
-      <div [ngSwitch]="tab.content">
-        <div *ngSwitchCase="'mapContent'">
-          <ng-container *ngTemplateOutlet="mapContent"></ng-container>
-        </div>
-        <div *ngSwitchCase="'tableContent'">
-          <ng-container *ngTemplateOutlet="tableContent"></ng-container>
-        </div>
-        <div *ngSwitchDefault>output2</div>
-      </div>
-    </it-tab-item>
-    <it-tab-item label="custom" [disabled]="false" icon="settings">
-      <h4>Titolo</h4>
-      <p>Contenuto complesso <span itBadge="secondary">badge</span></p>
-    </it-tab-item>
-  </it-tab-container>
-  <!-- MAPPA -->
-  <ng-template #mapContent>
-    <div class="row">
+  <div class="info-card">
+    <div>
+      <p class="label">Comune di residenza</p>
+      <p>Torino</p>
+    </div>
+    <div>
+      <p class="label">Comune di domicilio sanitario</p>
+      <p>Informazione non presente</p>
+    </div>
+  </div>
+</section>
+<section class="selct-doctor">
+  <div class="container">
+    <div class="filters-wrapper">Filters</div>
+    <div class="separator"></div>
+    <div class="btns-wrapper">
+      <p class="results">Mostrati {{ list.length }} risultati</p>
+      <it-dropdown color="outline-primary">
+        <span button>Ordina per</span>
+        <ng-container list>
+          <it-dropdown-item
+            *ngFor="let item of orderByItems"
+            externalLink="true"
+            (click)="onChangeOrder(item.text)"
+          >
+            {{ item.text }}
+          </it-dropdown-item>
+        </ng-container>
+      </it-dropdown>
+      <button itButton="outline-primary" (click)="sightToggle()">
+        {{
+          currentSight === "map" ? "Mostra vista lista" : "Mostra vista mappa"
+        }}
+      </button>
+    </div>
+    <!-- MAPPA -->
+    <div [ngClass]="{ 'd-none': currentSight === 'table', row: true }">
       <div class="col-6">
-        <ul>
-          <li *ngFor="let item of tableRows">
+        <div class="cards-wrapper">
+          <div class="doctor-card" *ngFor="let item of tableRows">
             <span
               [ngClass]="{ active: activeMarker === item['id'] }"
               (mouseover)="setActiveMarker(item['id'])"
               (mouseout)="setActiveMarker()"
               >{{ item["name"] }}</span
             >
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <div class="col-6">
         <app-custom-map [markers]="list"></app-custom-map>
       </div>
     </div>
-  </ng-template>
-  <!-- TABLE -->
-  <ng-template #tableContent>
-    <app-table [rows]="tableRows"></app-table>
-  </ng-template>
-</div>
+    <!-- TABLE -->
+    <div [ngClass]="{ 'd-none': currentSight === 'map', row: true }">
+      <app-table [rows]="tableRows"></app-table>
+    </div>
+  </div>
+</section>
