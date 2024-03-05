@@ -30,7 +30,19 @@ body {
   width: 100%;
   background-color: $border-color;
 }
-
 .label {
   color: $grey-01;
+}
+.link {
+  font-weight: 600;
+  text-decoration: none;
+
+  svg {
+    fill: var(--bs-primary);
+  }
+
+  &:hover svg,
+  &:active svg {
+    fill: var(--bs-link-hover-color);
+  }
 }

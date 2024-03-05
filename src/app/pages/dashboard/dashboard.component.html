@@ -14,7 +14,30 @@
         <app-icon type="phone"></app-icon>
         {{ currentDoctor.phone }}
       </p>
-      <p class="label mt-4">Ambulatori personali</p>
+      <div class="clinic-text">
+        <p class="label">Ambulatori personali</p>
+        <a class="link" [routerLink]="['/doctors', currentDoctor.id]"
+          >Ambulatori personali
+          <app-icon type="arrow-right"></app-icon>
+        </a>
+      </div>
+      <!-- TODO cards -->
+      <p>*Il medico riceve solo su appuntamento</p>
+    </div>
+    <div class="separator"></div>
+    <div class="btns-wrapper">
+      <a
+        [routerLink]="['/doctors', currentDoctor.id]"
+        class="btn btn-outline-primary"
+        >Vai al dettaglio</a
+      >
+      <a
+        href="../../../assets/img/activePin.png"
+        download="attestato_medico_attuale"
+        class="btn btn-outline-primary"
+        >Scarica attestato</a
+      >
+      <a [routerLink]="['/doctors']" class="btn btn-primary">Cambia medico</a>
     </div>
   </div>
 </section>
@@ -57,4 +80,17 @@
     ulteriori informazioni suggeriamo di consultare le sezione con le
     <a routerLink="/faq">domande frequenti (FAQ). </a>
   </p>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="faq-title">
+      <h2>Domande frequenti</h2>
+      <a class="link" [routerLink]="['/faq']"
+        >Vai alle domande frequenti
+        <app-icon type="arrow-right"></app-icon>
+      </a>
+    </div>
+    <!-- TODO faq cards -->
+  </div>
 </section>

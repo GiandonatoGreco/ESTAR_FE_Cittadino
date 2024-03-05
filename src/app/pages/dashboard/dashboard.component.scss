@@ -1,7 +1,6 @@
 @import "../../../styles.scss";
 
 .doctor-info {
-  width: 100%;
   background-color: $bg-light;
   padding: 24px;
   margin-top: 2rem;
@@ -16,6 +15,25 @@
     align-items: flex-start;
     gap: 24px;
   }
+
+  .clinic-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 26px 0 10px;
+  }
+
+  .btns-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 24px;
+
+    > *:last-child {
+      margin-left: auto;
+    }
+  }
 }
 
 .more-info {
@@ -27,5 +45,17 @@
 
   li:not(:last-child) {
     margin-bottom: 8px;
+  }
+}
+
+.faq {
+  background-color: $bg-light;
+  padding: 24px 0;
+
+  .faq-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 3rem;
   }
 }
