@@ -16,7 +16,9 @@
       </p>
       <div class="clinic-text">
         <p class="label">Ambulatori personali</p>
-        <a class="link" [routerLink]="['/', routes.doctors.path]"
+        <a
+          class="link"
+          [routerLink]="['/', routes.doctors.path, currentDoctor.id]"
           >Ambulatori personali
           <app-icon type="arrow-right"></app-icon>
         </a>

@@ -10,6 +10,8 @@ import * as L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
+import storage from '../../../utils/storage';
+import { GeolocationService } from 'services/geolocation.service';
 
 const provider = new OpenStreetMapProvider();
 
@@ -54,7 +56,7 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() markers: DoctorI[] = [];
   leafletMarkers: L.Marker[] = [];
 
-  private map: any;
+  private map!: L.Map;
   private initMap(): void {
     this.map = L.map('map', {
       center: [43.438781, 10.924118],
@@ -75,10 +77,27 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
     this.map.addControl(searchControl);
   }
 
-  constructor(private doctorService: DoctorsService) {}
+  constructor(
+    private geolocationService: GeolocationService,
+    private doctorService: DoctorsService
+  ) {}
   activeMarker?: number;
 
+  getGeoLocation() {
+    // update current position if user allows geolocation
+    this.geolocationService.getCurrentPosition().subscribe({
+      next: (position) => {
+        this.map.panTo(
+          new L.LatLng(position.coords.latitude, position.coords.longitude)
+        );
+      },
+    });
+  }
+
   ngOnInit(): void {
+    this.getGeoLocation();
+
+    // active marker
     this.doctorService.activeMarker$.subscribe((data) => {
       this.activeMarker = data;
       this.leafletMarkers?.forEach((m) => {
@@ -113,6 +132,15 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initMap();
+
+      const userLocation = storage.read('userLocation')?.value;
+      if (userLocation) {
+        // if location is saved on localStorage set center to userLocation
+        const parsedUserLocation = JSON.parse(userLocation);
+        this.map.panTo(
+          new L.LatLng(parsedUserLocation?.lat, parsedUserLocation?.lng)
+        );
+      }
 
       this.map.on('click', function (e: L.LeafletMouseEvent) {
         const coord = e.latlng.toString().split(',');

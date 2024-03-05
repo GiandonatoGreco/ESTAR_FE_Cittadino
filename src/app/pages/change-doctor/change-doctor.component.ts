@@ -53,6 +53,7 @@ export class ChangeDoctorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // get Doctors list
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
@@ -79,6 +80,7 @@ export class ChangeDoctorComponent implements OnInit {
       }, // completeHandler
     });
 
+    // subscribe to activeMarker
     this.doctorService.activeMarker$.subscribe(
       (data) => (this.activeMarker = data)
     );
