@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomMapComponent } from './custom-change-doctor.component';
+import { ChangeDoctorComponent } from './change-doctor.component';
 
-describe('CustomMapComponent', () => {
-  let component: CustomMapComponent;
-  let fixture: ComponentFixture<CustomMapComponent>;
+describe('ChangeDoctorComponent', () => {
+  let component: ChangeDoctorComponent;
+  let fixture: ComponentFixture<ChangeDoctorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomMapComponent],
+      declarations: [ChangeDoctorComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CustomMapComponent);
+    fixture = TestBed.createComponent(ChangeDoctorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

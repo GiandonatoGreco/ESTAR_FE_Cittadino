@@ -3,6 +3,7 @@ import { ItNotificationService } from 'design-angular-kit';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
+import { routes as utilsRoutes } from '../../../utils/routes';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,7 @@ import { LoadingService } from 'services/loading.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+  routes = utilsRoutes;
   name = 'Gloria';
   gender: 'm' | 'f' = 'f';
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BreadcrumbI } from 'models/common';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
+import { routes } from '../../../utils/routes';
 
 @Component({
   selector: 'app-doctor-details',
@@ -15,13 +16,13 @@ export class DoctorDetailsComponent implements OnInit {
 
   crumbs: BreadcrumbI[] = [
     {
-      link: '',
-      label: 'Home',
+      link: '/' + routes.dashboard.path,
+      label: routes.dashboard.title,
       icon: undefined,
     },
     {
-      link: '/doctors',
-      label: 'Mappa dottori',
+      link: '/' + routes.doctors.path,
+      label: routes.doctors.title,
       icon: undefined,
     },
   ];

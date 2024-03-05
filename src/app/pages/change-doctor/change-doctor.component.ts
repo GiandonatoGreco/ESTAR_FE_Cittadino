@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IconName, ItNotificationService } from 'design-angular-kit';
-import { TableRowI } from 'models/common';
+import { BreadcrumbI, TableRowI } from 'models/common';
 import { DoctorI, GeoI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
+import { routes } from '../../../utils/routes';
 
 interface TabI {
   label: string;
@@ -13,10 +14,20 @@ interface TabI {
 
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrl: './map.component.scss',
+  templateUrl: './change-doctor.component.html',
+  styleUrl: './change-doctor.component.scss',
 })
-export class MapComponent implements OnInit {
+export class ChangeDoctorComponent implements OnInit {
+  crumbs: BreadcrumbI[] = [
+    {
+      link: routes.dashboard.path,
+      label: routes.dashboard.title,
+    },
+    {
+      label: routes.doctors.title,
+    },
+  ];
+
   list: DoctorI[] = [];
   markers: GeoI[] = [];
   tabs: TabI[] = [

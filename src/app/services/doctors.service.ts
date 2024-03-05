@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, delay, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import * as DoctorsData from '../json/doctors.json';
 import { DoctorI } from 'models/doctors';
+import { routes } from '../../utils/routes';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +44,7 @@ export class DoctorsService {
   };
 
   displayPopup(data: DoctorI): string {
-    return `<div><a href="/doctors/${data.id}">${data.name}</a><br/>
+    return `<div><a href="/${routes.doctors.path}/${data.id}">${data.name}</a><br/>
     ${data.address.city}, ${data.address.zipcode},<br/>
     ${data.phone}</div>`;
   }

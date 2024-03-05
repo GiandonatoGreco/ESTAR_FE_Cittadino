@@ -1,0 +1,63 @@
+<div class="container">
+  <it-breadcrumb separator="/">
+    <it-breadcrumb-item
+      *ngFor="let item of crumbs"
+      class="me-1"
+      [href]="'/' + item.link"
+      [iconName]="item.icon"
+    >
+      {{ item.label }}
+    </it-breadcrumb-item>
+  </it-breadcrumb>
+  <h1 class="mb-2">Cambia medico</h1>
+  <h5>
+    Puoi cambiare il medico di medicina generale. La ricerca sarà effettuata
+    nell'ambito della Azienda Socio-Sanitaria Territoriale (ASST) di competenza.
+  </h5>
+  <it-tab-container [dark]="false">
+    <it-tab-item
+      *ngFor="let tab of tabs; let i = index"
+      [label]="tab.label"
+      [icon]="tab.icon"
+      [active]="i === 0"
+    >
+      <div [ngSwitch]="tab.content">
+        <div *ngSwitchCase="'mapContent'">
+          <ng-container *ngTemplateOutlet="mapContent"></ng-container>
+        </div>
+        <div *ngSwitchCase="'tableContent'">
+          <ng-container *ngTemplateOutlet="tableContent"></ng-container>
+        </div>
+        <div *ngSwitchDefault>output2</div>
+      </div>
+    </it-tab-item>
+    <it-tab-item label="custom" [disabled]="false" icon="settings">
+      <h4>Titolo</h4>
+      <p>Contenuto complesso <span itBadge="secondary">badge</span></p>
+    </it-tab-item>
+  </it-tab-container>
+  <!-- MAPPA -->
+  <ng-template #mapContent>
+    <div class="row">
+      <div class="col-6">
+        <ul>
+          <li *ngFor="let item of tableRows">
+            <span
+              [ngClass]="{ active: activeMarker === item['id'] }"
+              (mouseover)="setActiveMarker(item['id'])"
+              (mouseout)="setActiveMarker()"
+              >{{ item["name"] }}</span
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <app-custom-map [markers]="list"></app-custom-map>
+      </div>
+    </div>
+  </ng-template>
+  <!-- TABLE -->
+  <ng-template #tableContent>
+    <app-table [rows]="tableRows"></app-table>
+  </ng-template>
+</div>
