@@ -46,6 +46,12 @@ const activeIcon = L.icon({
   iconUrl: '/assets/img/activePin.png',
   ...defaultIconOptions,
 });
+// TODO replace img
+const userIcon = L.icon({
+  iconUrl: '/assets/img/userPin.svg',
+  ...defaultIconOptions,
+  iconAnchor: [12, 12],
+});
 
 @Component({
   selector: 'app-custom-map',
@@ -74,7 +80,9 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
     );
     tiles.addTo(this.map);
 
+    searchControl.setPosition('bottomright');
     this.map.addControl(searchControl);
+    this.map.zoomControl.setPosition('bottomright');
   }
 
   constructor(
@@ -90,6 +98,14 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
         this.map.panTo(
           new L.LatLng(position.coords.latitude, position.coords.longitude)
         );
+        const userMarker = L.marker(
+          [position.coords.latitude, position.coords.longitude],
+          {
+            title: 'Tu sei qui',
+            icon: userIcon,
+          }
+        );
+        userMarker.addTo(this.map);
       },
     });
   }
@@ -140,6 +156,14 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
         this.map.panTo(
           new L.LatLng(parsedUserLocation?.lat, parsedUserLocation?.lng)
         );
+        const userMarker = L.marker(
+          [parsedUserLocation?.lat, parsedUserLocation?.lng],
+          {
+            title: 'Tu sei qui',
+            icon: userIcon,
+          }
+        );
+        userMarker.addTo(this.map);
       }
 
       this.map.on('click', function (e: L.LeafletMouseEvent) {
