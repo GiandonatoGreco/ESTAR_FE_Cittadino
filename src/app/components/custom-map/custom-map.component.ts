@@ -60,7 +60,7 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
   private initMap(): void {
     this.map = L.map('map', {
       center: [43.438781, 10.924118],
-      zoom: 7,
+      zoom: 8,
     });
 
     const tiles = L.tileLayer(

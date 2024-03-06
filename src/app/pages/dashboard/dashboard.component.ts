@@ -20,6 +20,7 @@ export class DashboardComponent {
     name: '',
     username: '',
     email: '',
+    available: 'yes',
     address: {
       street: '',
       suite: '',

@@ -15,7 +15,7 @@ export class DoctorsService {
   apiUrl = environment.apiUrl;
   useMock = environment.useMock;
   // mocks
-  doctorDataMock = DoctorsData;
+  doctorDataMock = DoctorsData as { data: DoctorI[] };
 
   private activeMarker = new BehaviorSubject<number | undefined>(undefined);
   activeMarker$ = this.activeMarker.asObservable();

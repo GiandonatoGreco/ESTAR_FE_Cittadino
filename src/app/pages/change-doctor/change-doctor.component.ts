@@ -4,7 +4,7 @@ import { BreadcrumbI, TableRowI } from 'models/common';
 import { DoctorI, GeoI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
-import { routes } from '../../../utils/routes';
+import { routes as utilsRoutes } from '../../../utils/routes';
 
 interface TabI {
   label: string;
@@ -18,13 +18,14 @@ interface TabI {
   styleUrl: './change-doctor.component.scss',
 })
 export class ChangeDoctorComponent implements OnInit {
+  routes = utilsRoutes;
   crumbs: BreadcrumbI[] = [
     {
-      link: routes.dashboard.path,
-      label: routes.dashboard.title,
+      link: utilsRoutes.dashboard.path,
+      label: utilsRoutes.dashboard.title,
     },
     {
-      label: routes.doctors.title,
+      label: utilsRoutes.doctors.title,
     },
   ];
 

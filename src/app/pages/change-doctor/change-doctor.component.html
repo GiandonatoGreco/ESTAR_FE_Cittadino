@@ -53,17 +53,41 @@
     <div [ngClass]="{ 'd-none': currentSight === 'table', row: true }">
       <div class="col-6">
         <div class="cards-wrapper">
-          <div class="doctor-card" *ngFor="let item of tableRows">
-            <span
-              [ngClass]="{ active: activeMarker === item['id'] }"
-              (mouseover)="setActiveMarker(item['id'])"
+          <a
+            class="doctor-card"
+            [ngClass]="{ active: activeMarker === item.id }"
+            *ngFor="let item of list"
+            [routerLink]="['/', routes.doctors.path, item.id]"
+          >
+            <div
+              (mouseover)="setActiveMarker(item.id)"
               (mouseout)="setActiveMarker()"
-              >{{ item["name"] }}</span
             >
-          </div>
+              <div class="card-header">
+                <p
+                  class="available-badge"
+                  [ngClass]="{
+                    available: item.available === 'yes',
+                    'only-desk': item.available === 'only_desk'
+                  }"
+                >
+                  <span>
+                    {{ item.available }}
+                  </span>
+                </p>
+                <p>{{ item.company.name }}</p>
+              </div>
+              <h4>{{ item.name }}</h4>
+              <p>
+                <app-icon type="location-dot"></app-icon
+                >{{ item.address.city }},
+                {{ item.address.street }}
+              </p>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-6 pe-0">
         <app-custom-map [markers]="list"></app-custom-map>
       </div>
     </div>

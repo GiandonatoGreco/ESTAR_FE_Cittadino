@@ -5,6 +5,7 @@
       "name": "Mario Rossi",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "yes",
       "address": {
         "street": "Piazza San Carlo",
         "suite": "Apt. 556",
@@ -28,6 +29,7 @@
       "name": "Luigi Verdi",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "no",
       "address": {
         "street": "Piazza Castello",
         "suite": "Apt. 556",
@@ -51,6 +53,7 @@
       "name": "Paolo Monicelli",
       "username": "__",
       "email": "paolo.monicelli@medico.it",
+      "available": "only_desk",
       "address": {
         "street": "Via Reggia di Venaria, 30",
         "suite": "__",
@@ -74,6 +77,7 @@
       "name": "Giulia Monicelli",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "yes",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -97,6 +101,7 @@
       "name": "Piero Ferrero",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "no",
       "address": {
         "street": "Forte",
         "suite": "Apt. 556",
