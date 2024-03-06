@@ -34,6 +34,11 @@ $map-height: 776px;
 }
 
 // map sight
+.list-map-container {
+  display: flex;
+  gap: 20px;
+}
+
 .cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -88,6 +93,19 @@ $map-height: 776px;
 
 .map-container {
   height: $map-height;
+  position: relative;
+
+  .list-toggle-btn {
+    z-index: 500;
+    background-color: $white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    app-icon {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 //table sight

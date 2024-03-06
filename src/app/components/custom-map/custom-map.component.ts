@@ -3,6 +3,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
@@ -58,7 +59,9 @@ const userIcon = L.icon({
   templateUrl: './custom-map.component.html',
   styleUrl: './custom-map.component.scss',
 })
-export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
+export class CustomMapComponent
+  implements OnInit, AfterViewInit, OnChanges, OnDestroy
+{
   @Input() markers: DoctorI[] = [];
   leafletMarkers: L.Marker[] = [];
 
@@ -80,7 +83,7 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
     );
     tiles.addTo(this.map);
 
-    searchControl.setPosition('bottomright');
+    searchControl.setPosition('topright');
     this.map.addControl(searchControl);
     this.map.zoomControl.setPosition('bottomright');
   }
@@ -173,5 +176,20 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
         console.log('You clicked the map at: ' + lat[1] + ',' + lng[0]);
       });
     }, 0);
+  }
+
+  ngOnDestroy(): void {
+    if (this.map) {
+      this.map.remove();
+    }
+  }
+
+  onResize(): void {
+    if (this.map) {
+      // force resize when listView is changed
+      setTimeout(() => {
+        this.map.invalidateSize();
+      }, 0);
+    }
   }
 }

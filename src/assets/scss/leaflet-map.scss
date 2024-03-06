@@ -1,0 +1,35 @@
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+  border: none;
+  margin: 0 20px 20px 0;
+
+  .leaflet-control-zoom-in {
+    margin-bottom: 8px;
+    line-height: 25px;
+    border-radius: $border-radius-xs;
+    border: 2px solid var(--bs-link-color);
+    color: var(--bs-link-color);
+  }
+
+  .leaflet-control-zoom-out {
+    line-height: 25px;
+    border-radius: $border-radius-xs;
+    border: 2px solid var(--bs-link-color);
+    color: var(--bs-link-color);
+  }
+}
+
+.geosearch.leaflet-bar.leaflet-control.leaflet-control-geosearch.leaflet-geosearch-button {
+  margin: 20px 20px 0 0;
+  border-color: var(--bs-link-color);
+  form {
+    right: 27px;
+    top: -1px;
+    border: 2px solid var(--bs-link-color);
+  }
+  .leaflet-bar-part.leaflet-bar-part-single {
+    &::after,
+    &::before {
+      border-color: var(--bs-link-color);
+    }
+  }
+}
