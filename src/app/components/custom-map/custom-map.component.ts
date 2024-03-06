@@ -10,6 +10,8 @@ import * as L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
+import storage from '../../../utils/storage';
+import { GeolocationService } from 'services/geolocation.service';
 
 const provider = new OpenStreetMapProvider();
 
@@ -44,6 +46,12 @@ const activeIcon = L.icon({
   iconUrl: '/assets/img/activePin.png',
   ...defaultIconOptions,
 });
+// TODO replace img
+const userIcon = L.icon({
+  iconUrl: '/assets/img/userPin.svg',
+  ...defaultIconOptions,
+  iconAnchor: [12, 12],
+});
 
 @Component({
   selector: 'app-custom-map',
@@ -54,11 +62,11 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() markers: DoctorI[] = [];
   leafletMarkers: L.Marker[] = [];
 
-  private map: any;
+  private map!: L.Map;
   private initMap(): void {
     this.map = L.map('map', {
       center: [43.438781, 10.924118],
-      zoom: 7,
+      zoom: 8,
     });
 
     const tiles = L.tileLayer(
@@ -72,13 +80,40 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
     );
     tiles.addTo(this.map);
 
+    searchControl.setPosition('bottomright');
     this.map.addControl(searchControl);
+    this.map.zoomControl.setPosition('bottomright');
   }
 
-  constructor(private doctorService: DoctorsService) {}
+  constructor(
+    private geolocationService: GeolocationService,
+    private doctorService: DoctorsService
+  ) {}
   activeMarker?: number;
 
+  getGeoLocation() {
+    // update current position if user allows geolocation
+    this.geolocationService.getCurrentPosition().subscribe({
+      next: (position) => {
+        this.map.panTo(
+          new L.LatLng(position.coords.latitude, position.coords.longitude)
+        );
+        const userMarker = L.marker(
+          [position.coords.latitude, position.coords.longitude],
+          {
+            title: 'Tu sei qui',
+            icon: userIcon,
+          }
+        );
+        userMarker.addTo(this.map);
+      },
+    });
+  }
+
   ngOnInit(): void {
+    this.getGeoLocation();
+
+    // active marker
     this.doctorService.activeMarker$.subscribe((data) => {
       this.activeMarker = data;
       this.leafletMarkers?.forEach((m) => {
@@ -113,6 +148,23 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initMap();
+
+      const userLocation = storage.read('userLocation')?.value;
+      if (userLocation) {
+        // if location is saved on localStorage set center to userLocation
+        const parsedUserLocation = JSON.parse(userLocation);
+        this.map.panTo(
+          new L.LatLng(parsedUserLocation?.lat, parsedUserLocation?.lng)
+        );
+        const userMarker = L.marker(
+          [parsedUserLocation?.lat, parsedUserLocation?.lng],
+          {
+            title: 'Tu sei qui',
+            icon: userIcon,
+          }
+        );
+        userMarker.addTo(this.map);
+      }
 
       this.map.on('click', function (e: L.LeafletMouseEvent) {
         const coord = e.latlng.toString().split(',');

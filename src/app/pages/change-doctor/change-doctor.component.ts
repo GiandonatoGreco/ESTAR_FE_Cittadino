@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IconName, ItNotificationService } from 'design-angular-kit';
-import { TableRowI } from 'models/common';
+import { BreadcrumbI, TableRowI } from 'models/common';
 import { DoctorI, GeoI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
+import { routes as utilsRoutes } from '../../../utils/routes';
 
 interface TabI {
   label: string;
@@ -13,27 +14,38 @@ interface TabI {
 
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrl: './map.component.scss',
+  templateUrl: './change-doctor.component.html',
+  styleUrl: './change-doctor.component.scss',
 })
-export class MapComponent implements OnInit {
-  list: DoctorI[] = [];
-  markers: GeoI[] = [];
-  tabs: TabI[] = [
+export class ChangeDoctorComponent implements OnInit {
+  routes = utilsRoutes;
+  crumbs: BreadcrumbI[] = [
     {
-      label: 'Mappa',
-      icon: 'map-marker-circle',
-      content: 'mapContent',
+      link: utilsRoutes.dashboard.path,
+      label: utilsRoutes.dashboard.title,
     },
     {
-      label: 'Tabella',
-      icon: 'list',
-      content: 'tableContent',
+      label: utilsRoutes.doctors.title,
     },
   ];
-  tableRows: TableRowI[] = [];
 
+  list: DoctorI[] = [];
+  markers: GeoI[] = [];
+  tableRows: TableRowI[] = [];
   activeMarker?: number;
+  currentSight: 'map' | 'table' = 'map';
+  orderByItems = [
+    { text: 'Distanza', value: 'distance' },
+    { text: 'A - Z', value: 'alphabetical' },
+  ];
+  onChangeOrder(v: string) {
+    console.log('order_by', v);
+  }
+
+  sightToggle(): void {
+    if (this.currentSight === 'map') this.currentSight = 'table';
+    else this.currentSight = 'map';
+  }
 
   constructor(
     public doctorService: DoctorsService,
@@ -42,6 +54,7 @@ export class MapComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // get Doctors list
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
@@ -68,6 +81,7 @@ export class MapComponent implements OnInit {
       }, // completeHandler
     });
 
+    // subscribe to activeMarker
     this.doctorService.activeMarker$.subscribe(
       (data) => (this.activeMarker = data)
     );

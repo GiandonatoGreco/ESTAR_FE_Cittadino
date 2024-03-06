@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { adminGuard, authGuard, notAuthGuard } from './auth/auth.guard';
 import { AuthComponent } from './pages/auth/auth.component';
-import { MapComponent } from './pages/map/map.component';
+import { ChangeDoctorComponent } from './pages/change-doctor/change-doctor.component';
 import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { routes as utilsRoutes } from '../utils/routes';
@@ -32,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: `${utilsRoutes.doctors.path}`,
-    component: MapComponent,
+    component: ChangeDoctorComponent,
     canActivate: [authGuard],
   },
   {

@@ -1,0 +1,101 @@
+<section class="container">
+  <it-breadcrumb separator="/">
+    <it-breadcrumb-item
+      *ngFor="let item of crumbs"
+      class="me-1"
+      [href]="'/' + item.link"
+      [iconName]="item.icon"
+    >
+      {{ item.label }}
+    </it-breadcrumb-item>
+  </it-breadcrumb>
+  <h1 class="mb-2">Cambia medico</h1>
+  <h5>
+    Puoi cambiare il medico di medicina generale. La ricerca sarà effettuata
+    nell'ambito della Azienda Socio-Sanitaria Territoriale (ASST) di competenza.
+  </h5>
+  <div class="info-card">
+    <div>
+      <p class="label">Comune di residenza</p>
+      <p>Torino</p>
+    </div>
+    <div>
+      <p class="label">Comune di domicilio sanitario</p>
+      <p>Informazione non presente</p>
+    </div>
+  </div>
+</section>
+<section class="selct-doctor">
+  <div class="container">
+    <div class="filters-wrapper">Filters</div>
+    <div class="separator"></div>
+    <div class="btns-wrapper">
+      <p class="results">Mostrati {{ list.length }} risultati</p>
+      <it-dropdown color="outline-primary">
+        <span button>Ordina per</span>
+        <ng-container list>
+          <it-dropdown-item
+            *ngFor="let item of orderByItems"
+            externalLink="true"
+            (click)="onChangeOrder(item.text)"
+          >
+            {{ item.text }}
+          </it-dropdown-item>
+        </ng-container>
+      </it-dropdown>
+      <button itButton="outline-primary" (click)="sightToggle()">
+        {{
+          currentSight === "map" ? "Mostra vista lista" : "Mostra vista mappa"
+        }}
+      </button>
+    </div>
+    <!-- MAPPA -->
+    <div [ngClass]="{ 'd-none': currentSight === 'table', row: true }">
+      <div class="col-6">
+        <div class="cards-wrapper">
+          <a
+            class="doctor-card"
+            [ngClass]="{ active: activeMarker === item.id }"
+            *ngFor="let item of list"
+            [routerLink]="['/', routes.doctors.path, item.id]"
+          >
+            <div
+              (mouseover)="setActiveMarker(item.id)"
+              (mouseout)="setActiveMarker()"
+            >
+              <div class="card-header">
+                <p
+                  class="available-badge"
+                  [ngClass]="{
+                    available: item.available === 'yes',
+                    'only-desk': item.available === 'only_desk'
+                  }"
+                >
+                  <span>
+                    {{ item.available }}
+                  </span>
+                </p>
+                <p>{{ item.company.name }}</p>
+              </div>
+              <h4>{{ item.name }}</h4>
+              <p>
+                <app-icon type="location-dot"></app-icon
+                >{{ item.address.city }},
+                {{ item.address.street }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-6 pe-0">
+        <div class="map-container">
+          <app-custom-map [markers]="list"></app-custom-map>
+        </div>
+      </div>
+    </div>
+    <!-- TABLE -->
+    <div [ngClass]="{ 'd-none': currentSight === 'map', row: true }">
+      <app-table [rows]="tableRows"></app-table>
+    </div>
+  </div>
+</section>

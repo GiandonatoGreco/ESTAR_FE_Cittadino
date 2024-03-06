@@ -15,7 +15,7 @@ import { ChipComponent } from './components/chip/chip.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthComponent } from './pages/auth/auth.component';
-import { MapComponent } from './pages/map/map.component';
+import { ChangeDoctorComponent } from './pages/change-doctor/change-doctor.component';
 import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -49,7 +49,7 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
     HeaderComponent,
     NotFoundComponent,
     AuthComponent,
-    MapComponent,
+    ChangeDoctorComponent,
     DoctorDetailsComponent,
     HomepageComponent,
     CustomAutocompleteComponent,

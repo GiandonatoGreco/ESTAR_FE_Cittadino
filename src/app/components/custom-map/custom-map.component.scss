@@ -1,12 +1,6 @@
-.map-container {
-  margin: 30px 0;
-}
-
-.map-frame {
-  border: 2px solid black;
-  height: 400px;
-}
-
 #map {
   height: 100%;
+
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+  }
 }

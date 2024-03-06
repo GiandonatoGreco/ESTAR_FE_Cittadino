@@ -1,0 +1,93 @@
+@import "../../../assets/scss/colors.scss";
+@import "../../../assets/scss/variables.scss";
+
+$map-height: 776px;
+
+.info-card {
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  border-radius: $border-radius-xs;
+  border: 1px solid $border-color;
+  margin: 32px 0 40px;
+}
+
+.selct-doctor {
+  background-color: $bg-light;
+  padding: 40px 0;
+}
+
+.btns-wrapper {
+  margin: 32px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+
+  .results {
+    margin-right: auto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 171.429% */
+  }
+}
+
+// map sight
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: $map-height;
+  overflow-y: auto;
+}
+
+.doctor-card {
+  text-decoration: none;
+  &.active > div {
+    background-color: $bg-light;
+  }
+
+  > div {
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: $border-radius-xs;
+    background: $white;
+    box-shadow: $shadow;
+    cursor: pointer;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    .available-badge::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 100%;
+      background-color: $badge-error;
+      position: relative;
+      top: 4px;
+      margin-right: 4px;
+    }
+    .available::before {
+      background-color: $badge-success;
+    }
+    .only-desk::before {
+      background-color: $badge-warning;
+    }
+  }
+  h4 {
+    color: $grey-01;
+    margin-bottom: 8px;
+  }
+}
+
+.map-container {
+  height: $map-height;
+}
+
+//table sight

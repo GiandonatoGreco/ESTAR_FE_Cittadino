@@ -1,0 +1,17 @@
+.dropdown-menu.show {
+  z-index: 500;
+}
+
+.dropdown-item.list-item {
+  cursor: pointer;
+}
+
+.btn.btn-outline-primary.dropdown-toggle {
+  .icon-light {
+    fill: var(--bs-primary) !important;
+  }
+
+  &:hover .icon-light {
+    fill: var(--bs-link-hover-color) !important;
+  }
+}
