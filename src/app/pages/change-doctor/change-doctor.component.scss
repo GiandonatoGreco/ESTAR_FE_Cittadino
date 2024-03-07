@@ -66,24 +66,6 @@ $map-height: 776px;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-
-    .available-badge::before {
-      content: "";
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      border-radius: 100%;
-      background-color: $badge-error;
-      position: relative;
-      top: 4px;
-      margin-right: 4px;
-    }
-    .available::before {
-      background-color: $badge-success;
-    }
-    .only-desk::before {
-      background-color: $badge-warning;
-    }
   }
   h4 {
     color: $grey-01;

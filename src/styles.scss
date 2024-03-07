@@ -17,7 +17,8 @@ body {
   margin: 0;
 }
 
-// common classes
+// COMMON CLASSES
+//fonts
 .rbt {
   font-family: Roboto, sans-serif;
 }
@@ -25,18 +26,14 @@ body {
   font-family: Roboto, sans-serif;
   font-weight: 600;
 }
-
-div.separator {
-  height: 1px;
-  width: 100%;
-  background-color: $border-color;
-}
 .label {
   color: $grey-01;
 }
+
 .link {
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 
   svg {
     fill: var(--bs-primary);
@@ -46,4 +43,28 @@ div.separator {
   &:active svg {
     fill: var(--bs-link-hover-color);
   }
+}
+// separator
+div.separator {
+  height: 1px;
+  width: 100%;
+  background-color: $border-color;
+}
+// available badge
+.available-badge::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: $badge-error;
+  position: relative;
+  top: 4px;
+  margin-right: 4px;
+}
+.available::before {
+  background-color: $badge-success;
+}
+.only-desk::before {
+  background-color: $badge-warning;
 }

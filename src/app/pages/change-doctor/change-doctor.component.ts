@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IconName, ItNotificationService } from 'design-angular-kit';
-import { BreadcrumbI, TableRowI } from 'models/common';
+import { BreadcrumbI } from 'models/common';
 import { DoctorI, GeoI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
 import { routes as utilsRoutes } from '../../../utils/routes';
 import { CustomMapComponent } from 'components/custom-map/custom-map.component';
+import storage from '../../../utils/storage';
 
 interface TabI {
   label: string;
@@ -33,7 +34,6 @@ export class ChangeDoctorComponent implements OnInit {
 
   list: DoctorI[] = [];
   markers: GeoI[] = [];
-  tableRows: TableRowI[] = [];
   activeMarker?: number;
   currentSight: 'map' | 'table' = 'map';
   showList = true;
@@ -45,9 +45,12 @@ export class ChangeDoctorComponent implements OnInit {
     console.log('order_by', v);
   }
 
+  // page sight
   sightToggle(): void {
     if (this.currentSight === 'map') this.currentSight = 'table';
     else this.currentSight = 'map';
+    storage.write('changeDoctorSight', this.currentSight, 'sessionStorage');
+    this.mapComponent?.onResize();
   }
   listToggle(): void {
     this.showList = !this.showList;
@@ -61,22 +64,11 @@ export class ChangeDoctorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.currentSight = storage.read('changeDoctorSight')?.value;
     // get Doctors list
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
-        this.tableRows = data.map((item) => ({
-          id: item.id,
-          name: item.name,
-          phone: item.phone,
-          email: item.email,
-          site: item.website,
-          customCol: {
-            type: 'button',
-            label: 'Vedi',
-            action: () => {},
-          },
-        }));
       }, // nextHandler
       error: (error) => {
         console.log('Error:', error);
