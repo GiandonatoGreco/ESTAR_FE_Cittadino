@@ -64,6 +64,8 @@ export class CustomMapComponent
 {
   @Input() markers: DoctorI[] = [];
   leafletMarkers: L.Marker[] = [];
+  markerClusterGroup!: L.MarkerClusterGroup;
+  markerClusterOptions!: L.MarkerClusterGroupOptions;
 
   private map!: L.Map;
   private initMap(): void {
@@ -83,9 +85,14 @@ export class CustomMapComponent
     );
     tiles.addTo(this.map);
 
+    // add search control
     searchControl.setPosition('topright');
     this.map.addControl(searchControl);
     this.map.zoomControl.setPosition('bottomright');
+
+    // Creazione del MarkerClusterGroup
+    this.markerClusterGroup = new L.MarkerClusterGroup();
+    this.map.addLayer(this.markerClusterGroup);
   }
 
   constructor(
@@ -142,8 +149,9 @@ export class CustomMapComponent
       marker.addEventListener('mouseout', () => {
         this.doctorService.setActiveMarker(undefined);
       });
-      // add to map
-      marker.addTo(this.map);
+      // add to clusterGroup
+      this.markerClusterGroup.addLayer(marker);
+      // add to markers list: needed to show avtive marker
       this.leafletMarkers.push(marker);
     });
   }

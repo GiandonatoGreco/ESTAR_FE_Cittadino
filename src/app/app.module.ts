@@ -38,6 +38,9 @@ import { DocumentsComponent } from './pages/documents/documents.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { IconComponent } from './components/icon/icon.component';
 import { AllIconsComponent } from './components/all-icons/all-icons.component';
+//leaflet
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
 @NgModule({
   // components & directives
@@ -78,6 +81,8 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
     DesignAngularKitModule.forRoot(),
     FormsModule,
     NgxChartsModule,
+    LeafletModule,
+    LeafletMarkerClusterModule,
   ],
   // services
   providers: [provideAnimationsAsync()],
