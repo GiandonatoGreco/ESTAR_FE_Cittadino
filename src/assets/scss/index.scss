@@ -4,7 +4,8 @@
 // Importazione libreria SCSS di bootstrap-italia
 @import "bootstrap-italia/src/scss/bootstrap-italia";
 
-// geosearch
+// geosearch & leaflet
+@import "./leaflet-map.scss";
 @import "./geosearch.scss";
 
 // it-components

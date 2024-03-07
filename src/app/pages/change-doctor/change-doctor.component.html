@@ -50,8 +50,11 @@
       </button>
     </div>
     <!-- MAPPA -->
-    <div [ngClass]="{ 'd-none': currentSight === 'table', row: true }">
-      <div class="col-6">
+    <div
+      class="list-map-container"
+      [ngClass]="{ 'd-none': currentSight === 'table' }"
+    >
+      <div [ngClass]="{ 'd-none': !showList }">
         <div class="cards-wrapper">
           <a
             class="doctor-card"
@@ -87,15 +90,28 @@
           </a>
         </div>
       </div>
-      <div class="col-6 pe-0">
+      <div class="pe-0">
         <div class="map-container">
+          <button
+            class="list-toggle-btn link"
+            itButton="outline-primary"
+            (click)="listToggle()"
+          >
+            <app-icon
+              *ngIf="!showList"
+              type="chevron-right"
+              size="14"
+            ></app-icon>
+            <app-icon *ngIf="showList" type="chevron-left" size="14"></app-icon>
+            {{ showList ? "Nacondi elenco" : "Mostra elenco" }}
+          </button>
           <app-custom-map [markers]="list"></app-custom-map>
         </div>
       </div>
     </div>
     <!-- TABLE -->
     <div [ngClass]="{ 'd-none': currentSight === 'map', row: true }">
-      <app-table [rows]="tableRows"></app-table>
+      <app-table-doctors [rows]="list"></app-table-doctors>
     </div>
   </div>
 </section>
