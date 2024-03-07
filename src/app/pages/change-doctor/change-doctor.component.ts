@@ -58,7 +58,7 @@ export class ChangeDoctorComponent implements OnInit {
   }
 
   constructor(
-    public doctorService: DoctorsService,
+    private doctorService: DoctorsService,
     private loadingService: LoadingService,
     private readonly notificationService: ItNotificationService
   ) {}
@@ -66,6 +66,7 @@ export class ChangeDoctorComponent implements OnInit {
   ngOnInit(): void {
     this.currentSight = storage.read('changeDoctorSight')?.value;
     // get Doctors list
+    this.loadingService.showLoading();
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
