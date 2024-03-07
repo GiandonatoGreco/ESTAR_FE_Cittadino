@@ -22,7 +22,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CustomAutocompleteComponent } from './components/custom-autocomplete/custom-autocomplete.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CustomMapComponent } from './components/custom-map/custom-map.component';
-import { TableComponent } from './components/table/table.component';
+import { TableComponent } from './components/tables/table/table.component';
 
 // modals
 import ModalNotificationComponent from './components/modals/modal-notification/modal-notification.component';
@@ -38,6 +38,10 @@ import { DocumentsComponent } from './pages/documents/documents.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { IconComponent } from './components/icon/icon.component';
 import { AllIconsComponent } from './components/all-icons/all-icons.component';
+//leaflet
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 
 @NgModule({
   // components & directives
@@ -68,6 +72,7 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
     FaqComponent,
     IconComponent,
     AllIconsComponent,
+    TableDoctorsComponent,
   ],
   // modules
   imports: [
@@ -78,6 +83,8 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
     DesignAngularKitModule.forRoot(),
     FormsModule,
     NgxChartsModule,
+    LeafletModule,
+    LeafletMarkerClusterModule,
   ],
   // services
   providers: [provideAnimationsAsync()],

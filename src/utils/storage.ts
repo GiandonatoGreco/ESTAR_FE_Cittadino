@@ -14,7 +14,7 @@ export default {
   write: (
     storageName = '',
     storageValue = '',
-    sessionStorageType = 'localStorage'
+    sessionStorageType: 'localStorage' | 'sessionStorage' = 'localStorage'
   ) => {
     const save = encode({
       value: storageValue,

@@ -10,7 +10,7 @@ export class PaginationComponent implements OnChanges {
   @Input() alignment?: 'center' | 'end';
   @Input() pager!: PagerI;
   @Input() callback!: Function;
-  @Input() showChanger = true;
+  @Input() showChanger = false;
   @Input() showJumpToPage = false;
   @Input() showTotalItems = false;
   @Input() simpleMode = false;

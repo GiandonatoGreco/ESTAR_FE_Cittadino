@@ -34,6 +34,11 @@ $map-height: 776px;
 }
 
 // map sight
+.list-map-container {
+  display: flex;
+  gap: 20px;
+}
+
 .cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -61,24 +66,6 @@ $map-height: 776px;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-
-    .available-badge::before {
-      content: "";
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      border-radius: 100%;
-      background-color: $badge-error;
-      position: relative;
-      top: 4px;
-      margin-right: 4px;
-    }
-    .available::before {
-      background-color: $badge-success;
-    }
-    .only-desk::before {
-      background-color: $badge-warning;
-    }
   }
   h4 {
     color: $grey-01;
@@ -88,6 +75,19 @@ $map-height: 776px;
 
 .map-container {
   height: $map-height;
+  position: relative;
+
+  .list-toggle-btn {
+    z-index: 500;
+    background-color: $white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    app-icon {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 //table sight

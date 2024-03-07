@@ -3,6 +3,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
@@ -58,9 +59,13 @@ const userIcon = L.icon({
   templateUrl: './custom-map.component.html',
   styleUrl: './custom-map.component.scss',
 })
-export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
+export class CustomMapComponent
+  implements OnInit, AfterViewInit, OnChanges, OnDestroy
+{
   @Input() markers: DoctorI[] = [];
   leafletMarkers: L.Marker[] = [];
+  markerClusterGroup!: L.MarkerClusterGroup;
+  markerClusterOptions!: L.MarkerClusterGroupOptions;
 
   private map!: L.Map;
   private initMap(): void {
@@ -80,9 +85,14 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
     );
     tiles.addTo(this.map);
 
-    searchControl.setPosition('bottomright');
+    // add search control
+    searchControl.setPosition('topright');
     this.map.addControl(searchControl);
     this.map.zoomControl.setPosition('bottomright');
+
+    // Creazione del MarkerClusterGroup
+    this.markerClusterGroup = new L.MarkerClusterGroup();
+    this.map.addLayer(this.markerClusterGroup);
   }
 
   constructor(
@@ -139,8 +149,9 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
       marker.addEventListener('mouseout', () => {
         this.doctorService.setActiveMarker(undefined);
       });
-      // add to map
-      marker.addTo(this.map);
+      // add to clusterGroup
+      this.markerClusterGroup.addLayer(marker);
+      // add to markers list: needed to show avtive marker
       this.leafletMarkers.push(marker);
     });
   }
@@ -173,5 +184,20 @@ export class CustomMapComponent implements OnInit, AfterViewInit, OnChanges {
         console.log('You clicked the map at: ' + lat[1] + ',' + lng[0]);
       });
     }, 0);
+  }
+
+  ngOnDestroy(): void {
+    if (this.map) {
+      this.map.remove();
+    }
+  }
+
+  onResize(): void {
+    if (this.map) {
+      // force resize when listView is changed
+      setTimeout(() => {
+        this.map.invalidateSize();
+      }, 0);
+    }
   }
 }

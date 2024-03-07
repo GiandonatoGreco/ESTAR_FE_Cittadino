@@ -1,0 +1,48 @@
+<it-table>
+  <ng-container thead>
+    <tr>
+      <th class="h6" scope="col" *ngFor="let h of heading">
+        <app-icon
+          class="link"
+          type="arrow-right-arrow-left"
+          (click)="orderBy(h, 'asc')"
+          fill="var(--bs-link-color)"
+        ></app-icon>
+        {{ h }}
+      </th>
+    </tr>
+  </ng-container>
+  <ng-container tbody>
+    <!-- cycle on rows  -->
+    <tr *ngFor="let item of rows; index as i">
+      <td>
+        <p
+          class="available-badge"
+          [ngClass]="{
+            available: item.available === 'yes',
+            'only-desk': item.available === 'only_desk'
+          }"
+        >
+          <span>
+            {{ item.available }}
+          </span>
+        </p>
+      </td>
+      <td>
+        <a [routerLink]="['/', routes.doctors.path, item.id]">
+          {{ item.name }}
+        </a>
+      </td>
+      <td>{{ item.address.city }}, {{ item.address.street }}</td>
+      <td>TODO</td>
+      <td>TODO</td>
+    </tr>
+  </ng-container>
+</it-table>
+<div class="pagination-wrapper">
+  <app-pagination
+    alignment="center"
+    [pager]="pager"
+    [callback]="pagerCallback"
+  ></app-pagination>
+</div>

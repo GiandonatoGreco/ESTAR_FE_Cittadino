@@ -1,0 +1,16 @@
+@import "../../../../assets/scss/colors.scss";
+
+th {
+  padding: 24px 8px;
+  border-bottom: 2px solid $grey-01;
+  color: $grey-01;
+}
+
+td {
+  border-bottom: 0.5px solid $border-grey;
+  padding: 24px 8px;
+}
+
+.pagination-wrapper {
+  margin-top: 16px;
+}
