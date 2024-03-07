@@ -1,1 +1,48 @@
-<p>faq works!</p>
+<div class="container">
+  <it-breadcrumb separator="/">
+    <it-breadcrumb-item
+      *ngFor="let item of crumbs"
+      class="me-1"
+      [href]="'/' + item.link"
+    >
+      {{ item.label }}
+    </it-breadcrumb-item>
+  </it-breadcrumb>
+  <div class="faq-container">
+    <h1>Domande frequenti</h1>
+    <p>
+      Puoi consultare le risposte ai principali quesiti sul servizio di cambio
+      medico.
+    </p>
+    <div class="accordion padding-top" id="faqAccordion">
+      <div
+        *ngFor="let faqItem of faqList; let i = index"
+        class="accordion-item"
+        [ngClass]="{ expanded: faqItem.expanded }"
+      >
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed padding"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse' + i"
+            aria-expanded="false"
+            [ngClass]="{ opened: faqItem.expanded }"
+            (click)="toggleAnswer(faqItem)"
+          >
+            {{ faqItem.question }}
+          </button>
+        </h2>
+        <div
+          [attr.id]="'collapse' + i"
+          class="accordion-collapse collapse"
+          [ngClass]="{ show: faqItem.expanded }"
+        >
+          <div class="accordion-body padding">
+            <p>{{ faqItem.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
