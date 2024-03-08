@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portale-del-cittadino": {
+    "estar-cittadino": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/portale-del-cittadino",
+            "outputPath": "dist/estar-cittadino",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -100,13 +100,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "portale-del-cittadino:build:production"
+              "buildTarget": "estar-cittadino:build:production"
             },
             "mock": {
-              "buildTarget": "portale-del-cittadino:build:mock"
+              "buildTarget": "estar-cittadino:build:mock"
             },
             "dev": {
-              "buildTarget": "portale-del-cittadino:build:dev"
+              "buildTarget": "estar-cittadino:build:dev"
             }
           },
           "defaultConfiguration": "production"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "portale-del-cittadino:build"
+            "buildTarget": "estar-cittadino:build"
           }
         },
         "test": {

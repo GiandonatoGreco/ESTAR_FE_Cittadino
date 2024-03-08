@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'auth/auth.service';
 import { routes } from '../../../utils/routes';
@@ -67,5 +67,20 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.onClickLogin();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event) {
+    const header = document.querySelector('.it-header-wrapper');
+    if (!header) return;
+
+    const boundingClientRect = header?.getBoundingClientRect();
+    const offsetTop = boundingClientRect.top;
+
+    if ((boundingClientRect.height + boundingClientRect.top) < 0) {
+      document.querySelector('.header-sticky-wrapper')?.classList.add('sticky');
+    } else {
+      document.querySelector('.header-sticky-wrapper')?.classList.remove('sticky');
+    }
   }
 }

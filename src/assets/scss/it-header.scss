@@ -12,7 +12,7 @@
   background-color: $slim-header-bg;
 
   .it-header-slim-wrapper-content {
-    padding: 12px 18px;
+    padding: 12px 0px;
 
     .navbar-brand {
       padding: 0 !important;
@@ -47,6 +47,81 @@
         }
       }
     }
+
+    .it-header-slim-right-zone {
+      display: none; //TODO capire se si può togliere da HTML
+    }
   }
 }
 /* END SLIM HEADER */
+
+/* CUSTOM STICKY SLIM HEADER */
+.header-sticky-wrapper {
+  width: 100%;
+  position: fixed;
+  top: -57px;
+  z-index: 9999999;
+  transition: all .3s ease;
+
+  &.sticky {
+    top: 0px;
+  }
+
+  .menu-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand-icon {
+      display: flex;
+      align-items: center;
+
+      .it-brand-logo-img {
+        width: 37px;
+      }
+
+      .it-brand-text {
+        padding-left: 16px;
+
+        .it-brand-title {
+          color: #fff;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .navbar-nav {
+      padding: 0 !important;
+
+      .nav-item {
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+/* END CUSTOM STICKY SLIM HEADER */
+
+/* HEADER */
+.it-nav-wrapper {
+  .it-header-center-content-wrapper {
+    padding: 0;
+
+    .it-brand-wrapper {
+      .it-brand-text {
+        padding-left: 16px;
+      }
+    }
+  }
+}
+/* END HEADER */
+
+/* NAVBAR */
+.it-header-navbar-wrapper {
+  nav.navbar.navbar-expand-lg{
+    padding: 0;
+  }
+}
+/* END NAVBAR */
