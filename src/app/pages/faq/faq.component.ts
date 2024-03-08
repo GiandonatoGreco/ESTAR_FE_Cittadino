@@ -1,29 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ItNotificationService } from 'design-angular-kit';
 import { routes as utilsRoutes } from '../../../utils/routes';
 import { BreadcrumbI } from 'models/common';
+import { FaqI } from 'models/faq';
+import { FaqService } from 'services/faq.service';
+import { LoadingService } from 'services/loading.service';
 
-interface FaqItem {
-  question: string;
-  answer: string;
-  expanded: boolean;
-} 
+
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })
-export class FaqComponent {
-  faqList: FaqItem[] = [
-    { question: 'Chi può accedere al servizio di cambio medico?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Che cosa consente di fare il servizio?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Che cosa non consente di fare il servizio?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Posso scegliere qualunque medico?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Come può essere selezionato un medico o un pediatra per un soggetto minorenne?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Il sistema consente di fare anche la prima scelta, oppure per la prima scelta è necessario recarsi agli sportelli USL?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Da quando decorre la scelta del nuovo medico?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-    { question: 'Cosa succede nel caso in cui il suo medico cessi la propria attività?', answer: 'Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem.', expanded: false },
-  ];
-
+export class FaqComponent implements OnInit {
+ 
+  routes = utilsRoutes;
   crumbs: BreadcrumbI[] = [
     {
       link: utilsRoutes.dashboard.path,
@@ -33,12 +24,14 @@ export class FaqComponent {
       link: utilsRoutes.faq.path,
       label: utilsRoutes.faq.title,
     },
-   
   ];
 
-  toggleAnswer(faqItem: FaqItem): void {
+  list: FaqI[] = [];
+  activeMarker?: number;
 
-    this.faqList.forEach(item => {
+  toggleAnswer(faqItem: FaqI): void {
+
+    this.list.forEach(item => {
       if (item !== faqItem) {
         item.expanded = false;
       }
@@ -47,5 +40,36 @@ export class FaqComponent {
     faqItem.expanded = !faqItem.expanded;
   }
 
+  constructor(
+    private faqService: FaqService,
+    private loadingService: LoadingService,
+    private readonly notificationService: ItNotificationService,
+  ) {}
 
+  ngOnInit(): void {
+    // get Faq list
+    this.loadingService.showLoading();
+    this.faqService.getFaqList().subscribe({
+      next: (data) => {
+        this.list = data;
+      }, // nextHandler
+      error: (error) => {
+        console.log('Error:', error);
+        this.notificationService.error('Notifica Errore', error?.message);
+        this.loadingService.hideLoading();
+      }, // errorHandler
+      complete: () => {
+        this.loadingService.hideLoading();
+      }, // completeHandler
+    });
+
+    // subscribe to activeMarker
+    this.faqService.activeMarker$.subscribe(
+      (data) => (this.activeMarker = data)
+    );
+  }
+
+  setActiveMarker(id?: any): void {
+    this.faqService.setActiveMarker(id);
+  }
 }
