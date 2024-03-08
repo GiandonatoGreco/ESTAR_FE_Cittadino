@@ -15,14 +15,14 @@ import { ChipComponent } from './components/chip/chip.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthComponent } from './pages/auth/auth.component';
-import { MapComponent } from './pages/map/map.component';
+import { ChangeDoctorComponent } from './pages/change-doctor/change-doctor.component';
 import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CustomAutocompleteComponent } from './components/custom-autocomplete/custom-autocomplete.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CustomMapComponent } from './components/custom-map/custom-map.component';
-import { TableComponent } from './components/table/table.component';
+import { TableComponent } from './components/tables/table/table.component';
 
 // modals
 import ModalNotificationComponent from './components/modals/modal-notification/modal-notification.component';
@@ -36,6 +36,12 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { IconComponent } from './components/icon/icon.component';
+import { AllIconsComponent } from './components/all-icons/all-icons.component';
+//leaflet
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 
 @NgModule({
   // components & directives
@@ -47,7 +53,7 @@ import { FaqComponent } from './pages/faq/faq.component';
     HeaderComponent,
     NotFoundComponent,
     AuthComponent,
-    MapComponent,
+    ChangeDoctorComponent,
     DoctorDetailsComponent,
     HomepageComponent,
     CustomAutocompleteComponent,
@@ -64,6 +70,9 @@ import { FaqComponent } from './pages/faq/faq.component';
     DashboardComponent,
     DocumentsComponent,
     FaqComponent,
+    IconComponent,
+    AllIconsComponent,
+    TableDoctorsComponent,
   ],
   // modules
   imports: [
@@ -74,6 +83,8 @@ import { FaqComponent } from './pages/faq/faq.component';
     DesignAngularKitModule.forRoot(),
     FormsModule,
     NgxChartsModule,
+    LeafletModule,
+    LeafletMarkerClusterModule,
   ],
   // services
   providers: [provideAnimationsAsync()],

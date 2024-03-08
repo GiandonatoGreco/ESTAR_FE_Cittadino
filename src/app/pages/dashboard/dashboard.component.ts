@@ -3,6 +3,7 @@ import { ItNotificationService } from 'design-angular-kit';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
+import { routes as utilsRoutes } from '../../../utils/routes';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +11,34 @@ import { LoadingService } from 'services/loading.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  name = 'Giulia';
+  routes = utilsRoutes;
+  name = 'Gloria';
   gender: 'm' | 'f' = 'f';
 
-  currentDoctor!: DoctorI;
+  currentDoctor: DoctorI = {
+    id: 0,
+    name: '',
+    username: '',
+    email: '',
+    available: 'yes',
+    address: {
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: '',
+      geo: {
+        lat: 0,
+        lng: 0,
+      },
+    },
+    phone: '',
+    website: '',
+    company: {
+      name: '',
+      catchPhrase: '',
+      bs: '',
+    },
+  };
 
   constructor(
     public doctorService: DoctorsService,
@@ -22,6 +47,7 @@ export class DashboardComponent {
   ) {}
 
   ngOnInit(): void {
+    this.loadingService.showLoading();
     this.doctorService.getDoctorDetails(2).subscribe({
       next: (data) => {
         this.currentDoctor = data;

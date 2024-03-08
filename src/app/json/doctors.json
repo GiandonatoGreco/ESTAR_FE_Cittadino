@@ -1,18 +1,21 @@
 {
+  "code": 200,
+  "status": "ok",
   "data": [
     {
       "id": 1,
       "name": "Mario Rossi",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "yes",
       "address": {
-        "street": "Piazza Duomo",
+        "street": "Piazza San Carlo",
         "suite": "Apt. 556",
-        "city": "Firenze",
+        "city": "Torino",
         "zipcode": "92998-3874",
         "geo": {
-          "lat": 43.7735,
-          "lng": 11.2558
+          "lat": 45.067761,
+          "lng": 7.682636
         }
       },
       "phone": "1-770-736-8031 x56442",
@@ -28,14 +31,15 @@
       "name": "Luigi Verdi",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "no",
       "address": {
-        "street": "Kulas Light",
+        "street": "Piazza Castello",
         "suite": "Apt. 556",
-        "city": "Siena",
+        "city": "Torino",
         "zipcode": "92998-3874",
         "geo": {
-          "lat": 43.3186,
-          "lng": 11.3306
+          "lat": 45.072978,
+          "lng": 7.686288
         }
       },
       "phone": "1-770-736-8031 x56442",
@@ -51,14 +55,15 @@
       "name": "Paolo Monicelli",
       "username": "__",
       "email": "paolo.monicelli@medico.it",
+      "available": "only_desk",
       "address": {
-        "street": "Via Giuseppe Garibaldi, 30",
+        "street": "Via Reggia di Venaria, 30",
         "suite": "__",
-        "city": "Pisa",
+        "city": "Venaria",
         "zipcode": "56124",
         "geo": {
-          "lat": 43.7228,
-          "lng": 10.4017
+          "lat": 45.1275,
+          "lng": 7.6417
         }
       },
       "phone": "+39 333 5049 402",
@@ -74,14 +79,39 @@
       "name": "Giulia Monicelli",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "available": "yes",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
-        "city": "Luuca",
+        "city": "Langhe",
         "zipcode": "92998-3874",
         "geo": {
-          "lat": 43.8376,
-          "lng": 10.4951
+          "lat": 44.6419,
+          "lng": 7.9464
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Piero Ferrero",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "no",
+      "address": {
+        "street": "Forte",
+        "suite": "Apt. 556",
+        "city": "Fenestrelle",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 45.0249,
+          "lng": 7.0627
         }
       },
       "phone": "1-770-736-8031 x56442",

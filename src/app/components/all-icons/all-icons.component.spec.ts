@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { AllIconsComponent } from './all-icons.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('AllIconsComponent', () => {
+  let component: AllIconsComponent;
+  let fixture: ComponentFixture<AllIconsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapComponent]
+      declarations: [AllIconsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(AllIconsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

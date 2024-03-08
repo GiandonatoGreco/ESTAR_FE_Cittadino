@@ -1,14 +1,8 @@
 // Import libreria css di leaflet
 @import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 @import "./assets/scss/index.scss";
-
-.rbt {
-  font-family: Roboto, sans-serif;
-}
-.rbt-600 {
-  font-family: Roboto, sans-serif;
-  font-weight: 600;
-}
+@import "./assets/scss/reset.scss";
 
 html,
 body {
@@ -21,4 +15,56 @@ body {
 }
 body {
   margin: 0;
+}
+
+// COMMON CLASSES
+//fonts
+.rbt {
+  font-family: Roboto, sans-serif;
+}
+.rbt-600 {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+}
+.label {
+  color: $grey-01;
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+
+  svg {
+    fill: var(--bs-primary);
+  }
+
+  &:hover svg,
+  &:active svg {
+    fill: var(--bs-link-hover-color);
+  }
+}
+// separator
+div.separator {
+  height: 1px;
+  width: 100%;
+  background-color: $border-color;
+}
+// available badge
+.available-badge::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: $badge-error;
+  position: relative;
+  top: 4px;
+  margin-right: 4px;
+}
+.available::before {
+  background-color: $badge-success;
+}
+.only-desk::before {
+  background-color: $badge-warning;
 }

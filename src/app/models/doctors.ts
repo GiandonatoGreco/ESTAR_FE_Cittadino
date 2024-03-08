@@ -14,6 +14,7 @@ export interface DoctorI {
   name: string;
   username: string;
   email: string;
+  available: 'yes' | 'no' | 'only_desk';
   address: {
     street: string;
     suite: string;

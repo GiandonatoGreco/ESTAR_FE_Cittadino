@@ -1,0 +1,11 @@
+.breadcrumb-item {
+  color: $grey-02 !important;
+
+  a {
+    color: var(--bs-primary) !important;
+  }
+
+  a:hover {
+    color: var(--bs-link-hover-color) !important;
+  }
+}

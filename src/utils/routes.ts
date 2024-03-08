@@ -1,23 +1,23 @@
 export const routes = {
   dashboard: {
     title: 'Scrivania',
-    path: 'dashboard',
+    path: 'scrivania',
   },
   documents: {
     title: 'Documenti',
-    path: 'documents',
+    path: 'documenti',
   },
   doctors: {
     title: 'Cambia medico',
-    path: 'doctors',
+    path: 'cambia-medico',
   },
   faq: {
     title: 'Domande frequenti',
-    path: 'faq',
+    path: 'domande-frequenti',
   },
   // TODO remove
   homepage: {
     title: 'Componenti',
-    path: 'homepage',
+    path: 'componenti',
   },
 };
