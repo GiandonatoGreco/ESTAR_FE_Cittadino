@@ -68,3 +68,22 @@ div.separator {
 .only-desk::before {
   background-color: $badge-warning;
 }
+
+//btn override
+.btn-tetriary {
+  color: var(--bs-primary);
+  padding: 0;
+
+  &:hover {
+    color: var(--bs-link-hover-color);
+  }
+
+  svg {
+    fill: var(--bs-primary);
+  }
+
+  &:hover svg,
+  &:active svg {
+    fill: var(--bs-link-hover-color);
+  }
+}

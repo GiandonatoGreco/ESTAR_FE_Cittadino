@@ -12,6 +12,7 @@ export interface CompanyI {
 export interface DoctorI {
   id: number;
   name: string;
+  role: string;
   username: string;
   email: string;
   available: 'yes' | 'no' | 'only_desk';

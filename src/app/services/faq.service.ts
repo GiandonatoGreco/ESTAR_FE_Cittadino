@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, delay, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import * as FaqData from '../json/faq.json';
 import { FaqI } from 'models/faq';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +26,17 @@ export class FaqService {
   }
 
 
-  getFaqList = (): Observable<FaqI[]> => {
+  getFaqList = (numberOfFaq: number = -1): Observable<FaqI[]> => {
     if (this.useMock) { //chiamata con Mock 
-      return of(this.faqDataMock.data).pipe(delay(100));
+      return of(this.faqDataMock.data).pipe(
+        map(response => this.faqDataMock.data.slice(0, numberOfFaq === -1 ? undefined : numberOfFaq))
+      );
     }
 
     const url = ``; //chiamata con endpoint fittizio
-    return this.http.get<FaqI[]>(url);
+    return this.http.get<FaqI[]>(url).pipe(
+      map(response => this.faqDataMock.data.slice(0, numberOfFaq === -1 ? undefined : numberOfFaq))
+    );
   };
 }
 
