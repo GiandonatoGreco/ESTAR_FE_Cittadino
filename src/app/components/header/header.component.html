@@ -4,20 +4,31 @@
   [showSearch]="false"
   [sticky]="false"
   [megamenu]="false"
-  (loginClick)="false"
+  (loginClick)="(false)"
 >
   <ul class="link-list" slimLinkList>
     <li class="link-item d-flex align-items-center">
-      <img class="slim-header-icon bell" src="../../../assets/img/icons/bell.svg">
+      <img
+        class="slim-header-icon bell"
+        src="../../../assets/img/icons/bell.svg"
+      />
       <a class="link-item-text" href="#">Notifiche</a>
     </li>
     <li class="link-item d-flex align-items-center">
-      <img class="slim-header-icon bell" src="../../../assets/img/icons/info.svg">
+      <img
+        class="slim-header-icon bell"
+        src="../../../assets/img/icons/info.svg"
+      />
       <a class="link-item-text" href="#">Contatti</a>
     </li>
     <li class="link-item d-flex align-items-center">
-      <img class="slim-header-icon bell" src="../../../assets/img/icons/user-circle.svg">
-      <a class="link-item-text" href="#">Gloria Rossi</a>
+      <img
+        class="slim-header-icon bell"
+        src="../../../assets/img/icons/user-circle.svg"
+      />
+      <a class="link-item-text" [routerLink]="['/il-tuo-profilo']" href="#"
+        >Gloria Rossi</a
+      >
     </li>
     <!--li *ngIf="isLogged">
       <a class="list-item" href="#" aria-current="page" (click)="logout()"
@@ -27,7 +38,11 @@
   </ul>
   <ng-container brand>
     <a href="#">
-      <img class="it-brand-logo-img" aria-hidden="true" src="../../../assets/img/logo_regione_toscana.png" />
+      <img
+        class="it-brand-logo-img"
+        aria-hidden="true"
+        src="../../../assets/img/logo_regione_toscana.png"
+      />
       <div class="it-brand-text">
         <div class="it-brand-title">Portale cambio medico</div>
       </div>
@@ -50,11 +65,18 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-expand-lg" aria-label="Navigazione principale">
+        <nav
+          class="navbar navbar-expand-lg"
+          aria-label="Navigazione principale"
+        >
           <div class="navbar-collapsable">
             <div class="menu-wrapper">
               <a class="brand-icon" href="#">
-                <img class="it-brand-logo-img" aria-hidden="true" src="../../../assets/img/logo_regione_toscana.png" />
+                <img
+                  class="it-brand-logo-img"
+                  aria-hidden="true"
+                  src="../../../assets/img/logo_regione_toscana.png"
+                />
                 <div class="it-brand-text">
                   <div class="it-brand-title">Portale cambio medico</div>
                 </div>
@@ -62,10 +84,10 @@
               <ul class="navbar-nav">
                 <li class="nav-item" *ngFor="let link of links">
                   <a
-                  [ngClass]="{ active: isActive(link.url), 'nav-link': true }"
-                  [routerLink]="link.url"
-                  routerLinkActive="router-link-active"
-                  aria-current="page"
+                    [ngClass]="{ active: isActive(link.url), 'nav-link': true }"
+                    [routerLink]="link.url"
+                    routerLinkActive="router-link-active"
+                    aria-current="page"
                   >
                     <span>{{ link.label }}</span>
                   </a>

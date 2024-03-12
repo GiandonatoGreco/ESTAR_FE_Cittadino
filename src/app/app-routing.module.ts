@@ -10,6 +10,7 @@ import { routes as utilsRoutes } from '../utils/routes';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { ProfileComponent } from 'pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: `${utilsRoutes.faq.path}`,
     component: FaqComponent,
+  },
+  {
+    path: `${utilsRoutes.profile.path}`,
+    component: ProfileComponent,
+    canActivate: [authGuard],
   },
   // TODO remove from here
   {

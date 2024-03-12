@@ -15,6 +15,11 @@ export const routes = {
     title: 'Domande frequenti',
     path: 'domande-frequenti',
   },
+  profile: {
+    title: 'Il tuo profilo',
+    path:'il-tuo-profilo',
+  },
+
   // TODO remove
   homepage: {
     title: 'Componenti',

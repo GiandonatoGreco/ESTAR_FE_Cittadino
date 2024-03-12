@@ -42,6 +42,7 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   // components & directives
@@ -73,6 +74,7 @@ import { TableDoctorsComponent } from './components/tables/table-doctors/table-d
     IconComponent,
     AllIconsComponent,
     TableDoctorsComponent,
+    ProfileComponent,
   ],
   // modules
   imports: [
