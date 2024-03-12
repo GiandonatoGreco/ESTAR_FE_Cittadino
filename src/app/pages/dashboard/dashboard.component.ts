@@ -4,6 +4,8 @@ import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { LoadingService } from 'services/loading.service';
 import { routes as utilsRoutes } from '../../../utils/routes';
+import { FaqService } from 'services/faq.service';
+import { FaqI } from 'models/faq';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +16,29 @@ export class DashboardComponent {
   routes = utilsRoutes;
   name = 'Gloria';
   gender: 'm' | 'f' = 'f';
+  clinics = [
+    {
+      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+      "availability": "Lun: 9:00 - 13:00"
+    },
+    {
+      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+      "availability": "Lun: 9:00 - 13:00"
+    },
+    {
+      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+      "availability": "Lun: 9:00 - 13:00"
+    },
+    {
+      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+      "availability": "Lun: 9:00 - 13:00"
+    }
+  ];
 
   currentDoctor: DoctorI = {
     id: 0,
     name: '',
+    role: '',
     username: '',
     email: '',
     available: 'yes',
@@ -40,10 +61,13 @@ export class DashboardComponent {
     },
   };
 
+  faqList: FaqI[] = [];
+
   constructor(
     public doctorService: DoctorsService,
     private loadingService: LoadingService,
-    private readonly notificationService: ItNotificationService
+    private readonly notificationService: ItNotificationService,
+    private faqService: FaqService
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +85,25 @@ export class DashboardComponent {
         this.loadingService.hideLoading();
       }, // completeHandler
     });
+    // get Faq list
+    this.faqService.getFaqList(3).subscribe({
+      next: (data) => {
+        this.faqList = data;
+      }, // nextHandler
+      error: (error) => {
+        console.log('Error:', error);
+        this.notificationService.error('Notifica Errore', error?.message);
+        this.loadingService.hideLoading();
+      }, // errorHandler
+      complete: () => {
+        this.loadingService.hideLoading();
+      }, // completeHandler
+    });
+  }
+  
+  showAllCards: boolean = false;
+
+  toggleShowAllCards(): void {
+    this.showAllCards = !this.showAllCards;
   }
 }

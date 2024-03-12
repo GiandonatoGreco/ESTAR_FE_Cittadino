@@ -5,6 +5,7 @@
     {
       "id": 1,
       "name": "Mario Rossi",
+      "role": "Medico di medicina generale",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "available": "yes",
@@ -29,6 +30,7 @@
     {
       "id": 2,
       "name": "Luigi Verdi",
+      "role": "Medico di medicina generale",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "available": "no",
@@ -53,6 +55,7 @@
     {
       "id": 3,
       "name": "Paolo Monicelli",
+      "role": "Medico di medicina generale",
       "username": "__",
       "email": "paolo.monicelli@medico.it",
       "available": "only_desk",
@@ -77,6 +80,7 @@
     {
       "id": 4,
       "name": "Giulia Monicelli",
+      "role": "Medico di medicina generale",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "available": "yes",
@@ -101,6 +105,7 @@
     {
       "id": 5,
       "name": "Piero Ferrero",
+      "role": "Medico di medicina generale",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "available": "no",
