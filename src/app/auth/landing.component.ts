@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'auth/auth.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss',
+  selector: 'app-landing',
+  templateUrl: './landing.component.html',
+  styleUrl: './landing.component.scss',
 })
-export class AuthComponent {
+export class LandingComponent {
   constructor(private authService: AuthService) {}
 
   onSubmit(form: NgForm) {

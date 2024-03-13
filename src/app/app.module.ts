@@ -14,7 +14,7 @@ import { BtnComponent } from './components/btn/btn.component';
 import { ChipComponent } from './components/chip/chip.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AuthComponent } from './pages/auth/auth.component';
+import { LandingComponent } from './auth/landing.component';
 import { ChangeDoctorComponent } from './pages/change-doctor/change-doctor.component';
 import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -43,6 +43,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PrivateSiteComponent } from './private-site/private-site.component';
 
 @NgModule({
   // components & directives
@@ -53,7 +54,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HighlightDirective,
     HeaderComponent,
     NotFoundComponent,
-    AuthComponent,
+    LandingComponent,
     ChangeDoctorComponent,
     DoctorDetailsComponent,
     HomepageComponent,
@@ -75,6 +76,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     AllIconsComponent,
     TableDoctorsComponent,
     ProfileComponent,
+    PrivateSiteComponent,
   ],
   // modules
   imports: [
