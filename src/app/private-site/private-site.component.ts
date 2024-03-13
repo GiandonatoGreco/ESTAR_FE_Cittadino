@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationPosition } from 'design-angular-kit';
 import { GeolocationService } from 'services/geolocation.service';
 import storage from '../../utils/storage';
 
@@ -9,8 +8,6 @@ import storage from '../../utils/storage';
   styleUrl: './private-site.component.scss',
 })
 export class PrivateSiteComponent implements OnInit {
-  notificationPosition = NotificationPosition.Top;
-
   constructor(private geolocationService: GeolocationService) {}
 
   getGeoLocation() {

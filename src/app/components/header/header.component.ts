@@ -8,7 +8,7 @@ import { routes } from '../../../utils/routes';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private router: Router, private authService: AuthService) {}
   isLogged: boolean = false;
 
@@ -21,35 +21,19 @@ export class HeaderComponent implements OnInit {
       label: routes.homepage.title,
       url: `${routes.homepage.path}`,
     },
+    {
+      label: routes.doctors.title,
+      url: `${routes.doctors.path}`,
+    },
+    {
+      label: routes.documents.title,
+      url: `${routes.documents.path}`,
+    },
+    {
+      label: routes.faq.title,
+      url: `${routes.faq.path}`,
+    },
   ];
-
-  checkAuthStatus(status: boolean) {
-    this.isLogged = status;
-    if (status)
-      this.links.push(
-        ...[
-          {
-            label: routes.doctors.title,
-            url: `${routes.doctors.path}`,
-          },
-          {
-            label: routes.documents.title,
-            url: `${routes.documents.path}`,
-          },
-          {
-            label: routes.faq.title,
-            url: `${routes.faq.path}`,
-          },
-        ]
-      );
-  }
-
-  ngOnInit(): void {
-    this.checkAuthStatus(this.authService.userIsLogged());
-    this.authService.getLoggedStatus.subscribe((status) =>
-      this.checkAuthStatus(status)
-    );
-  }
 
   isActive(url: string): boolean {
     const currentLocation = window.location.href;
@@ -60,13 +44,9 @@ export class HeaderComponent implements OnInit {
     return currentLocation?.includes(url);
   }
 
-  onClickLogin(): void {
-    this.router.navigate(['auth']);
-  }
-
   logout() {
     this.authService.logout();
-    this.onClickLogin();
+    this.router.navigate(['/', routes.landing.path]);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -77,10 +57,12 @@ export class HeaderComponent implements OnInit {
     const boundingClientRect = header?.getBoundingClientRect();
     const offsetTop = boundingClientRect.top;
 
-    if ((boundingClientRect.height + boundingClientRect.top) < 0) {
+    if (boundingClientRect.height + boundingClientRect.top < 0) {
       document.querySelector('.header-sticky-wrapper')?.classList.add('sticky');
     } else {
-      document.querySelector('.header-sticky-wrapper')?.classList.remove('sticky');
+      document
+        .querySelector('.header-sticky-wrapper')
+        ?.classList.remove('sticky');
     }
   }
 }

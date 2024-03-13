@@ -1,4 +1,15 @@
-h1,
+.page-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h2 {
-  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.progress-spinner {
+  width: 100px;
 }
