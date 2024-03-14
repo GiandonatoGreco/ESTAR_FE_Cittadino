@@ -7,37 +7,74 @@
   (loginClick)="(false)"
 >
   <ul class="link-list" slimLinkList>
-    <li>
-      <span (click)="logout()">Logout</span>
+    <li class="link-item d-flex align-items-center notifications">
+      <it-dropdown>
+        <span button>
+          <img
+            class="slim-header-icon bell"
+            src="../../../assets/img/icons/bell.svg"
+          />
+          <span
+            *ngIf="notifications.length > 0"
+            class="notification-badge"
+          ></span>
+          Notifiche
+        </span>
+        <ng-container list *ngIf="notifications.length === 0">
+          <it-dropdown-item disabled="true">
+            <p class="body">Non sono presenti notifiche</p>
+          </it-dropdown-item>
+        </ng-container>
+        <ng-container list *ngIf="notifications.length > 0">
+          <it-dropdown-item *ngFor="let item of notifications" disabled="true">
+            <p class="date">{{ item.date }}</p>
+            <p class="body">{{ item.text }}</p>
+          </it-dropdown-item>
+        </ng-container>
+      </it-dropdown>
     </li>
-    <li class="link-item d-flex align-items-center">
-      <img
-        class="slim-header-icon bell"
-        src="../../../assets/img/icons/bell.svg"
-      />
-      <a class="link-item-text" href="#">Notifiche</a>
+    <li class="link-item d-flex align-items-center contacts">
+      <it-dropdown>
+        <span button>
+          <img
+            class="slim-header-icon bell"
+            src="../../../assets/img/icons/info.svg"
+          />
+          Contatti
+        </span>
+        <ng-container list>
+          <it-dropdown-item
+            *ngFor="let item of contactItems"
+            [href]="item.link"
+            externalLink="true"
+          >
+            <app-icon [type]="item.icon"></app-icon>
+            {{ item.text }}
+          </it-dropdown-item>
+        </ng-container>
+      </it-dropdown>
     </li>
-    <li class="link-item d-flex align-items-center">
-      <img
-        class="slim-header-icon bell"
-        src="../../../assets/img/icons/info.svg"
-      />
-      <a class="link-item-text" href="#">Contatti</a>
+    <li class="link-item d-flex align-items-center profile">
+      <it-dropdown>
+        <span button>
+          <div itAvatar size="sm" class="avatar">
+            <p aria-hidden="true">GR</p>
+            <span class="visually-hidden">Bottone dimensioni sm</span>
+          </div>
+          {{ name }}</span
+        >
+        <ng-container list>
+          <it-dropdown-item [href]="['/', routes.profile.path]">
+            Il tuo profilo
+          </it-dropdown-item>
+          <it-dropdown-item (click)="logout()" href="" class="last">
+            <span class="link">
+              Esci &nbsp;&nbsp; <app-icon type="logout"> </app-icon>
+            </span>
+          </it-dropdown-item>
+        </ng-container>
+      </it-dropdown>
     </li>
-    <li class="link-item d-flex align-items-center">
-      <img
-        class="slim-header-icon bell"
-        src="../../../assets/img/icons/user-circle.svg"
-      />
-      <a class="link-item-text" [routerLink]="['/il-tuo-profilo']" href="#"
-        >Gloria Rossi</a
-      >
-    </li>
-    <!--li *ngIf="isLogged">
-      <a class="list-item" href="#" aria-current="page" (click)="logout()"
-        >Logout</a
-      >
-    </li-->
   </ul>
   <ng-container brand>
     <a href="#">

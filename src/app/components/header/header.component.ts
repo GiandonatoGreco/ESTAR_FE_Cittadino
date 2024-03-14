@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'auth/auth.service';
 import { routes } from '../../../utils/routes';
+import { timestampToDate } from '../../../utils/dates';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,8 @@ import { routes } from '../../../utils/routes';
 export class HeaderComponent {
   constructor(private router: Router, private authService: AuthService) {}
   isLogged: boolean = false;
+  name = 'Gloria Rossi';
+  routes = routes;
 
   links = [
     {
@@ -43,12 +46,6 @@ export class HeaderComponent {
     }
     return currentLocation?.includes(url);
   }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/', routes.landing.path]);
-  }
-
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
     const header = document.querySelector('.it-header-wrapper');
@@ -64,5 +61,42 @@ export class HeaderComponent {
         .querySelector('.header-sticky-wrapper')
         ?.classList.remove('sticky');
     }
+  }
+
+  // dropdown notifications
+  notifications: { date: string; text: string }[] = [
+    {
+      date: timestampToDate(1710414016),
+      text: 'Hai ricevuto un nuovo documento dal tuo medico',
+    },
+    {
+      date: timestampToDate(1710214016),
+      text: 'Hai ricevuto un nuovo documento dal tuo medico',
+    },
+  ];
+
+  // dropdown contacts
+  contactItems = [
+    {
+      link: 'mailto:help.cse@regione.toscana.it',
+      text: 'help.cse@regione.toscana.it',
+      icon: 'envelope',
+    },
+    {
+      link: 'tel:800 004 477',
+      text: '800 004 477',
+      icon: 'phone',
+    },
+    {
+      link: undefined,
+      text: 'Lun-Ven: 9:00-19:00, Sab: 9:00-13:00',
+      icon: 'calendar-days',
+    },
+  ];
+
+  // dropdown profile
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/', routes.landing.path]);
   }
 }
