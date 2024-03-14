@@ -27,3 +27,7 @@ export interface DoctorI {
   website: string;
   company: CompanyI;
 }
+
+export interface ChangeDoctorResponse {
+  response: boolean
+}
