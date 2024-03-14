@@ -1,17 +1,7 @@
-<!-- icons -->
-<app-all-icons></app-all-icons>
-<!-- main page -->
-<app-header></app-header>
-<app-loader></app-loader>
-<main class="pt-3">
-  <router-outlet> </router-outlet>
-</main>
-<app-footer></app-footer>
+<router-outlet> </router-outlet>
 
 <!-- notification -->
 <it-notifications
   [position]="notificationPosition"
   [duration]="4000"
 ></it-notifications>
-<!-- modals -->
-<app-modal-notification></app-modal-notification>

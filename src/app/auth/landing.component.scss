@@ -1,0 +1,33 @@
+@import "../../assets/scss/colors.scss";
+
+.page-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: $white;
+  background-color: var(--bs-primary);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.progress-spinner {
+  width: 100px;
+}
+
+img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+
+  &.top {
+    top: 0;
+    transform: scaleY(-1);
+  }
+}

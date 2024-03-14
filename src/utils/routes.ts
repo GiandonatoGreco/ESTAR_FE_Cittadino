@@ -1,4 +1,8 @@
 export const routes = {
+  landing: {
+    title: 'Landing page',
+    path: 'landing',
+  },
   dashboard: {
     title: 'Scrivania',
     path: 'scrivania',
@@ -17,7 +21,11 @@ export const routes = {
   },
   profile: {
     title: 'Il tuo profilo',
-    path:'il-tuo-profilo',
+    path: 'il-tuo-profilo',
+  },
+  notFound: {
+    title: '404 - Pagina non trovata',
+    path: '404',
   },
 
   // TODO remove

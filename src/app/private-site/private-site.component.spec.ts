@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthComponent } from './auth.component';
+import { PrivateSiteComponent } from './private-site.component';
 
-describe('AuthComponent', () => {
-  let component: AuthComponent;
-  let fixture: ComponentFixture<AuthComponent>;
+describe('PrivateSiteComponent', () => {
+  let component: PrivateSiteComponent;
+  let fixture: ComponentFixture<PrivateSiteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AuthComponent]
+      declarations: [PrivateSiteComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AuthComponent);
+    fixture = TestBed.createComponent(PrivateSiteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
