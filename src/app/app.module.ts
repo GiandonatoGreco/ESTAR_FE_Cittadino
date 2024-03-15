@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 // DAK
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DesignAngularKitModule } from 'design-angular-kit';
 //directives
@@ -44,6 +44,7 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PrivateSiteComponent } from './private-site/private-site.component';
+import { TokenInterceptor } from 'token.interceptor';
 
 @NgModule({
   // components & directives
@@ -91,7 +92,10 @@ import { PrivateSiteComponent } from './private-site/private-site.component';
     LeafletMarkerClusterModule,
   ],
   // services
-  providers: [provideAnimationsAsync()],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    provideAnimationsAsync(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

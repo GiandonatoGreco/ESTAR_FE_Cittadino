@@ -2,6 +2,7 @@
   "code": 200,
   "status": "ok",
   "data": {
-    "token": "true_token"
+    "token": "true_token",
+    "expiration_date": 1710521675
   }
 }
