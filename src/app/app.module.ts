@@ -44,6 +44,8 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 import { ModalChangeDoctorComponent } from './components/modals/modal-change-doctor/modal-change-doctor.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
+
 import { PrivateSiteComponent } from './private-site/private-site.component';
 import { TokenInterceptor } from 'token.interceptor';
 
@@ -79,6 +81,7 @@ import { TokenInterceptor } from 'token.interceptor';
     TableDoctorsComponent,
     ModalChangeDoctorComponent,
     ProfileComponent,
+    ModalProfileComponent,
     PrivateSiteComponent,
   ],
   // modules
