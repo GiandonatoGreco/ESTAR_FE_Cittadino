@@ -1,0 +1,92 @@
+<div class="container">
+  <it-breadcrumb separator="/">
+    <it-breadcrumb-item
+      *ngFor="let item of crumbs"
+      class="me-1"
+      [href]="item.link"
+      [iconName]="item.icon"
+    >
+      {{ item.label }}
+    </it-breadcrumb-item>
+  </it-breadcrumb>
+
+  <div class="hero-banner">
+    <h1>Il tuo profilo</h1>
+    <p class="description">
+      Verifica che le tue informazioni di contatto siano sempre aggiornate per
+      poter ricevere comunicazioni da parte dell’ASL e del tuo medico.
+    </p>
+  </div>
+  <div class="details-container">
+    <div class="profile-card">
+      <h4>Dati sanitari</h4>
+      <div class="info-section">
+        <app-icon type="user" size="40"></app-icon>
+        <div class="name-section">
+          <p class="name">
+            {{ profileDetail?.name }}
+          </p>
+          <p class="tax-code">
+            Codice Fiscale:
+            <span class="person-tax-code"> {{ profileDetail?.taxCode }}</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="additional-info">
+        <div>
+          <p class="label">
+            Azienda di assistenza:
+            <span class="label-detail">
+              {{ profileDetail?.serviceCompany }}</span
+            >
+          </p>
+        </div>
+        <div>
+          <p class="label">
+            Comune di residenza:
+            <span class="label-detail"> {{ profileDetail?.residence }}</span>
+          </p>
+        </div>
+        <div>
+          <p class="label">
+            Comune di domicilio sanitario:
+            <span class="label-detail">
+              {{ profileDetail?.sanitaryDomicile }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h4>Dati di contatto</h4>
+      <div class="contact-section">
+        <div>
+          <p class="label margin">
+            E-mail
+            <span class="label-detail"> {{ profileDetail?.email  || '-'}} </span>
+          </p>
+          <button class="btn btn-primary" *ngIf="!profileDetail?.email"  >
+            Aggiungi
+          </button>
+          <button class="btn btn-primary" *ngIf="profileDetail?.email" >
+            Modifica
+          </button>
+        </div>
+        <div>
+          <p class="label margin">
+            Cellulare
+            <span class="label-detail">{{ profileDetail?.phone || '-' }}</span>
+          </p>
+          <button class="btn btn-primary" *ngIf="!profileDetail?.phone" >
+            Aggiungi
+          </button>
+          <button class="btn btn-primary" *ngIf="profileDetail?.phone" >
+            Modifica
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,8 +9,7 @@ import storage from '../../../../utils/storage';
   styleUrl: './modal-notification.component.scss',
 })
 export default class ModalNotificationComponent implements OnInit {
-  @ViewChild('modalNotification')
-  modalNotification!: ItModalComponent;
+  @ViewChild('modalNotification') modalNotification!: ItModalComponent;
   constructor(private notificationService: NotificationsService) {}
 
   title!: string;

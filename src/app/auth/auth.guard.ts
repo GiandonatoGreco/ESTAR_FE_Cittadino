@@ -1,6 +1,7 @@
 import { CanActivateChildFn, CanActivateFn, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { inject } from '@angular/core';
+import { routes } from '../../utils/routes';
 
 export const notAuthGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
@@ -10,8 +11,8 @@ export const notAuthGuard: CanActivateFn = (route, state) => {
     return true;
   }
 
-  // Redirect to the login page
-  return router.parseUrl('homepage');
+  // Redirect to the dashboard page
+  return router.parseUrl(routes.dashboard.path);
 };
 
 export const authGuard: CanActivateFn = (route, state) => {
@@ -22,17 +23,6 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   }
 
-  // Redirect to the login page
-  return router.parseUrl('/auth');
-};
-
-export const adminGuard: CanActivateChildFn = (route, state) => {
-  const authService = inject(AuthService);
-  const router = inject(Router);
-
-  if (authService.userIsAdmin()) {
-    return true;
-  }
-
-  return router.parseUrl('/dashboard');
+  // Redirect to the landing page
+  return router.parseUrl(routes.landing.path);
 };

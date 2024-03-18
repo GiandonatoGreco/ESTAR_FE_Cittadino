@@ -1,0 +1,8 @@
+{
+  "code": 200,
+  "status": "ok",
+  "data": {
+    "token": "true_token",
+    "expiration_date": 2710771279
+  }
+}
