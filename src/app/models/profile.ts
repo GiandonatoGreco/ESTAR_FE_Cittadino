@@ -1,5 +1,6 @@
 export interface LoginI {
   token: string;
+  expiration_date: number;
 }
 
 export interface ProfileI {

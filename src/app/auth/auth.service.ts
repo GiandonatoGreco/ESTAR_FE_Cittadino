@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { routes } from '../../utils/routes';
 
 export const AuthStorage = 'Auth';
+export const SessionExpirationStorage = 'SessionExpiration';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,7 +34,16 @@ export class AuthService {
 
   logout() {
     this.isLogged = false;
-    storage.clearKey(AuthStorage);
+    storage.clearAll();
     this.router.navigate([routes.landing.path]);
   }
+
+  refreshToken = (): Observable<LoginI> => {
+    if (this.useMock) {
+      return of(this.loginMock.data).pipe(delay(100));
+    }
+
+    const url = ``; //TODO
+    return this.http.get<LoginI>(url);
+  };
 }

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, AuthStorage } from 'auth/auth.service';
+import {
+  AuthService,
+  AuthStorage,
+  SessionExpirationStorage,
+} from 'auth/auth.service';
 import storage from '../../utils/storage';
 import { routes } from '../../utils/routes';
 import { ItNotificationService } from 'design-angular-kit';
@@ -39,6 +43,10 @@ export class LandingComponent implements OnInit {
       this.authService.login(this.queryParams['token']).subscribe({
         next: (data) => {
           storage.write(AuthStorage, data.token);
+          storage.write(
+            SessionExpirationStorage,
+            data.expiration_date.toString()
+          );
           this.authService.isLogged = true;
         },
         error: (error) => {
