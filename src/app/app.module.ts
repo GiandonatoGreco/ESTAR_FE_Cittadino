@@ -43,6 +43,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
+
 
 @NgModule({
   // components & directives
@@ -75,6 +77,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     AllIconsComponent,
     TableDoctorsComponent,
     ProfileComponent,
+    ModalProfileComponent,
   ],
   // modules
   imports: [

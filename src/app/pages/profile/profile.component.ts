@@ -1,9 +1,10 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, ViewChild } from '@angular/core';
 import { routes } from '../../../utils/routes';
 import { BreadcrumbI } from 'models/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProfileService } from 'services/profile.service';
 import { ProfileI } from 'models/profile';
+import { ModalProfileComponent } from 'components/modals/modal-profile/modal-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -12,9 +13,13 @@ import { ProfileI } from 'models/profile';
 })
 
 export class ProfileComponent implements OnInit {
+  @ViewChild(ModalProfileComponent) modalProfile!: ModalProfileComponent;
 
   id: string | null = null;
   profileDetail?: ProfileI;
+
+  isEmailType: boolean = false;
+  isCellulareType: boolean = false;
 
   crumbs: BreadcrumbI[] = [
     {
@@ -35,5 +40,10 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfileDetails().subscribe((details) => {
       this.profileDetail = details;
     });
+  }
+
+  openModal(type: 'email' | 'phone'): void {
+    console.log('Tipo di modifica:', type);
+    this.modalProfile.openModal(type);
   }
 }

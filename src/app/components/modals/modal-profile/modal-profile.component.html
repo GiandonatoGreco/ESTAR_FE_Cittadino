@@ -1,0 +1,119 @@
+<it-modal #modalProfile id="modal-profile" alignment="centered">
+  <ng-container modalTitle>
+    <div class="modal-title">
+      {{
+        isEmailType && !profileDetail?.email
+          ? "Aggiungi e-mail"
+          : !isEmailType && !profileDetail?.phone
+          ? "Aggiungi cellulare"
+          : isEmailType && profileDetail?.email
+          ? "Modifica e-mail"
+          : !isEmailType && profileDetail?.phone
+          ? "Modifica cellulare"
+          : isEmailType
+      }}
+    </div>
+  </ng-container>
+  <div class="body-container" *ngIf="firstModalVisible">
+    <div class="description-container">
+      <p class="description-title">
+        {{ isEmailType ? "E-mail" : "Cellulare" }}
+        <span class="description-details">
+          {{
+            isEmailType && profileDetail?.email
+              ? profileDetail.email
+              : isEmailType
+              ? "-"
+              : profileDetail?.phone || "-"
+          }}
+        </span>
+      </p>
+    </div>
+    <div class="separator"></div>
+    <div class="input-container">
+      <div class="add-input">
+        <label class="label-text">
+          {{ isEmailType ? "Nuova e-mail" : "Nuovo cellulare" }}</label
+        >
+        <input
+          class="input-style"
+          placeholder=" {{
+            isEmailType ? 'Inserisci nuova e-mail' : 'Inserisci nuovo cellulare'
+          }}"
+        />
+      </div>
+      <div class="confirm-input">
+        <label class="label-text">
+          {{
+            isEmailType ? "Conferma nuova e-mail" : "Conferma nuovo cellulare"
+          }}</label
+        >
+        <input
+          class="input-style"
+          placeholder=" {{
+            isEmailType ? 'Conferma nuova e-mail' : 'Conferma nuovo cellulare'
+          }}"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="body-container" *ngIf="secondModalVisible">
+    <div class="description-container">
+      <p class="description-paragraph">
+        {{
+          isEmailType
+            ? "Inserisci il codice che ti abbiamo inviato a questo indirizzo e-mail: "
+            : "Inserisci il codice che ti abbiamo inviato a questo numero: "
+        }}
+        <span class="description">
+          {{ isEmailType ? profileDetail.email : profileDetail?.phone }}
+        </span>
+      </p>
+    </div>
+    <div class="otp-container">
+      <input type="text" maxlength="1" pattern="[0-9]" />
+      <input type="text" maxlength="1" pattern="[0-9]" />
+      <input type="text" maxlength="1" pattern="[0-9]" />
+      <input type="text" maxlength="1" pattern="[0-9]" />
+      <input type="text" maxlength="1" pattern="[0-9]" />
+    </div>
+    <div class="verification-container">
+      <span> Tentativi rimasti: </span>
+      <span>
+        Codice valido ancora per <span class="time"> {{ formatTime() }} </span>
+      </span>
+    </div>
+    <div class="separator"></div>
+    <div class="code-container">
+      <span class="text"> Non hai ricevuto il codice? </span>
+      <button class="btn btn-tetriary btn-code">Rinvia il codice</button>
+    </div>
+    <div>
+      <button (click)="showFirstModal()" class="btn btn-tetriary btn-change">
+        {{ isEmailType ? "Cambia indirizzo e-mail: " : "Cambia numero: " }}
+        <app-icon type="chevron-right" size="18" fill="#07768D"></app-icon>
+      </button>
+    </div>
+  </div>
+  <ng-container footer>
+    <div *ngIf="firstModalVisible" class="footer-container">
+      <button class="btn btn-primary" (click)="showSecondModal()">
+        Conferma
+      </button>
+      <button itButton="outline-primary" type="button" data-bs-dismiss="modal">
+        Annulla
+      </button>
+    </div>
+    <div *ngIf="secondModalVisible" class="footer-container">
+      <button class="btn btn-primary">Verifica</button>
+      <button
+        itButton="outline-primary"
+        type="button"
+        (click)="showFirstModal()"
+      >
+        Annulla
+      </button>
+    </div>
+  </ng-container>
+</it-modal>

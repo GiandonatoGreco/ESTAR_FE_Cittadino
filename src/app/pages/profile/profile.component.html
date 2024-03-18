@@ -65,24 +65,39 @@
         <div>
           <p class="label margin">
             E-mail
-            <span class="label-detail"> {{ profileDetail?.email  || '-'}} </span>
+            <span class="label-detail">
+              {{ profileDetail?.email || "-" }}
+            </span>
           </p>
-          <button class="btn btn-primary" *ngIf="!profileDetail?.email"  >
+          <button class="btn btn-primary" *ngIf="!profileDetail?.email" (click)="openModal('email')">
             Aggiungi
           </button>
-          <button class="btn btn-primary" *ngIf="profileDetail?.email" >
+          <button
+            class="btn btn-primary"
+            *ngIf="profileDetail?.email"
+            (click)="openModal('email')"
+          >
             Modifica
           </button>
         </div>
         <div>
           <p class="label margin">
             Cellulare
-            <span class="label-detail">{{ profileDetail?.phone || '-' }}</span>
+            <span class="label-detail">{{ profileDetail?.phone || "-" }}</span>
           </p>
-          <button class="btn btn-primary" *ngIf="!profileDetail?.phone" >
+          <button
+            class="btn btn-primary"
+            *ngIf="!profileDetail?.phone"
+            (click)="openModal('phone')"
+          >
             Aggiungi
           </button>
-          <button class="btn btn-primary" *ngIf="profileDetail?.phone" >
+          <button
+            class="btn btn-primary"
+            
+            *ngIf="profileDetail?.phone"
+            (click)="openModal('phone')"
+          >
             Modifica
           </button>
         </div>
@@ -90,3 +105,5 @@
     </div>
   </div>
 </div>
+
+<app-modal-profile [profileDetail]="profileDetail"></app-modal-profile>
