@@ -33,11 +33,12 @@
     <div class="input-container">
       <div class="add-input">
         <label class="label-text">
-          {{ isEmailType ? "Nuova e-mail" : "Nuovo cellulare" }}</label
-        >
+          {{ isEmailType ? "Nuova e-mail" : "Nuovo cellulare" }}
+        </label>
         <input
           class="input-style"
-          placeholder=" {{
+          [(ngModel)]="userInput"
+          placeholder="{{
             isEmailType ? 'Inserisci nuova e-mail' : 'Inserisci nuovo cellulare'
           }}"
         />
@@ -46,11 +47,12 @@
         <label class="label-text">
           {{
             isEmailType ? "Conferma nuova e-mail" : "Conferma nuovo cellulare"
-          }}</label
-        >
+          }}
+        </label>
         <input
           class="input-style"
-          placeholder=" {{
+          [(ngModel)]="confirmInput"
+          placeholder="{{
             isEmailType ? 'Conferma nuova e-mail' : 'Conferma nuovo cellulare'
           }}"
         />
@@ -66,9 +68,7 @@
             ? "Inserisci il codice che ti abbiamo inviato a questo indirizzo e-mail: "
             : "Inserisci il codice che ti abbiamo inviato a questo numero: "
         }}
-        <span class="description">
-          {{ isEmailType ? profileDetail.email : profileDetail?.phone }}
-        </span>
+         <span class="description">{{ userInput }}</span>
       </p>
     </div>
     <div class="otp-container">
@@ -79,9 +79,10 @@
       <input type="text" maxlength="1" pattern="[0-9]" />
     </div>
     <div class="verification-container">
-      <span> Tentativi rimasti: </span>
+      <span> Tentativi rimasti: <span class="detail"> 3 </span> </span>
       <span>
-        Codice valido ancora per <span class="time"> {{ formatTime() }} </span>
+        Codice valido ancora per
+        <span class="detail"> {{ formatTime() }} </span>
       </span>
     </div>
     <div class="separator"></div>
@@ -92,7 +93,7 @@
     <div>
       <button (click)="showFirstModal()" class="btn btn-tetriary btn-change">
         {{ isEmailType ? "Cambia indirizzo e-mail: " : "Cambia numero: " }}
-        <app-icon type="chevron-right" size="18" fill="#07768D"></app-icon>
+        <app-icon type="chevron-right" size="16" fill="#07768D"></app-icon>
       </button>
     </div>
   </div>

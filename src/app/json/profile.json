@@ -3,14 +3,14 @@
     "status": "ok",
     "data":      
     {
-            "id": 1,
-            "name": "Gloria Rossi",
-            "taxCode": "RSSGLR80H50G702F",
-            "serviceCompany": "Azienda Usl Toscana Nordovest",
-            "residence": "Pisa",
-            "sanitaryDomicile": "Informazione non presente",
-            "email": "gloria.rossi@email.it",
-            "phone": ""
+        "id": 1,
+        "name": "Gloria Rossi",
+        "taxCode": "RSSGLR80H50G702F",
+        "serviceCompany": "Azienda Usl Toscana Nordovest",
+        "residence": "Pisa",
+        "sanitaryDomicile": "Informazione non presente",
+        "email": "gloria.rossi@email.it",
+        "phone": ""
     }
 }
   
