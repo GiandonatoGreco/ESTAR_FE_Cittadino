@@ -35,7 +35,7 @@ export class ChangeDoctorComponent implements OnInit {
   list: DoctorI[] = [];
   markers: GeoI[] = [];
   activeMarker?: number;
-  currentSight: 'map' | 'table' = 'map';
+  currentSight!: 'map' | 'table';
   showList = true;
   orderByItems = [
     { text: 'Distanza', value: 'distance' },
@@ -64,7 +64,7 @@ export class ChangeDoctorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.currentSight = storage.read('changeDoctorSight')?.value;
+    this.currentSight = storage.read('changeDoctorSight')?.value || 'map';
     // get Doctors list
     this.loadingService.showLoading();
     this.doctorService.getDoctorsList().subscribe({

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 // DAK
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DesignAngularKitModule } from 'design-angular-kit';
 //directives
@@ -14,7 +14,7 @@ import { BtnComponent } from './components/btn/btn.component';
 import { ChipComponent } from './components/chip/chip.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AuthComponent } from './pages/auth/auth.component';
+import { LandingComponent } from './auth/landing.component';
 import { ChangeDoctorComponent } from './pages/change-doctor/change-doctor.component';
 import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -42,9 +42,12 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
+import { ModalChangeDoctorComponent } from './components/modals/modal-change-doctor/modal-change-doctor.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
 
+import { PrivateSiteComponent } from './private-site/private-site.component';
+import { TokenInterceptor } from 'token.interceptor';
 
 @NgModule({
   // components & directives
@@ -55,7 +58,7 @@ import { ModalProfileComponent } from './components/modals/modal-profile/modal-p
     HighlightDirective,
     HeaderComponent,
     NotFoundComponent,
-    AuthComponent,
+    LandingComponent,
     ChangeDoctorComponent,
     DoctorDetailsComponent,
     HomepageComponent,
@@ -76,8 +79,10 @@ import { ModalProfileComponent } from './components/modals/modal-profile/modal-p
     IconComponent,
     AllIconsComponent,
     TableDoctorsComponent,
+    ModalChangeDoctorComponent,
     ProfileComponent,
     ModalProfileComponent,
+    PrivateSiteComponent,
   ],
   // modules
   imports: [
@@ -92,7 +97,10 @@ import { ModalProfileComponent } from './components/modals/modal-profile/modal-p
     LeafletMarkerClusterModule,
   ],
   // services
-  providers: [provideAnimationsAsync()],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    provideAnimationsAsync(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,35 @@
+<it-modal #modalChangeDoctor id="modal-change-doctor" alignment="centered">
+    <ng-container modalTitle>{{ response ? 'Il cambio medico è stato completato con successo' : 'Qualcosa non ha funzionato' }}</ng-container>
+
+    <div class="modal-text">
+      <p *ngIf="response">
+        Nella Scrivania trovi le informazioni relative al tuo nuovo medico.<br>
+        Scarica l’attestato, potrai trovarlo anche all’interno della tua Scrivania nella sezione Il tuo medico attuale.
+      </p>
+      <p *ngIf="!response">
+        Il medico selezionato non è più disponibile e non è stato possibile effettuare il cambio. Torna alla lista medici e seleziona un altro medico.
+      </p>
+  
+      <div class="download-container" *ngIf="response">
+        <a class="btn btn-tetriary" target="_blank">
+          Attestato (200KB)
+          <app-icon type="download" fill="#07768D"></app-icon>
+        </a>
+      </div>
+    </div>
+
+    <ng-container footer>
+      <div class="btn-wrapper" *ngIf="response">
+        <a [routerLink]="['/']" class="btn btn-primary" data-bs-dismiss="modal"
+        >
+        Torna alla scrivania
+        </a>
+      </div>
+      <div class="btn-wrapper" *ngIf="!response">
+        <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary" data-bs-dismiss="modal"
+        >
+        Torna alla lista medici
+        </a>
+      </div>
+    </ng-container>
+</it-modal>

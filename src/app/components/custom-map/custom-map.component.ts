@@ -13,6 +13,16 @@ import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import storage from '../../../utils/storage';
 import { GeolocationService } from 'services/geolocation.service';
+import {
+  availableActiveIcon,
+  availableIcon,
+  currentPositionIcon,
+  deskActiveIcon,
+  deskIcon,
+  getIconType,
+  notAvailableActiveIcon,
+  notAvailableIcon,
+} from './icons';
 
 const provider = new OpenStreetMapProvider();
 
@@ -23,36 +33,7 @@ const searchControl = GeoSearchControl({
   showMarker: false,
 });
 
-const defaultIconOptions: {
-  iconSize?: L.PointExpression;
-  shadowSize?: L.PointExpression;
-  iconAnchor?: L.PointExpression;
-  popupAnchor?: L.PointExpression;
-  tooltipAnchor?: L.PointExpression;
-} = {
-  iconSize: [25, 41],
-  shadowSize: [41, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  tooltipAnchor: [16, -28],
-};
-
-const iconDefault = L.icon({
-  iconUrl: '/assets/img/availablePin.png',
-  ...defaultIconOptions,
-});
-L.Marker.prototype.options.icon = iconDefault;
-
-const activeIcon = L.icon({
-  iconUrl: '/assets/img/activePin.png',
-  ...defaultIconOptions,
-});
-// TODO replace img
-const userIcon = L.icon({
-  iconUrl: '/assets/img/userPin.svg',
-  ...defaultIconOptions,
-  iconAnchor: [12, 12],
-});
+L.Marker.prototype.options.icon = availableIcon;
 
 @Component({
   selector: 'app-custom-map',
@@ -99,7 +80,7 @@ export class CustomMapComponent
     private geolocationService: GeolocationService,
     private doctorService: DoctorsService
   ) {}
-  activeMarker?: number;
+  oldMarkerId?: number;
 
   getGeoLocation() {
     // update current position if user allows geolocation
@@ -112,7 +93,7 @@ export class CustomMapComponent
           [position.coords.latitude, position.coords.longitude],
           {
             title: 'Tu sei qui',
-            icon: userIcon,
+            icon: currentPositionIcon,
           }
         );
         userMarker.addTo(this.map);
@@ -125,11 +106,21 @@ export class CustomMapComponent
 
     // active marker
     this.doctorService.activeMarker$.subscribe((data) => {
-      this.activeMarker = data;
-      this.leafletMarkers?.forEach((m) => {
-        if (m.options.title === data?.toString()) m?.setIcon(activeIcon);
-        else m?.setIcon(iconDefault);
-      });
+      let tempMarker: DoctorI | undefined;
+      if (data) {
+        // if data is defined use data as id
+        tempMarker = this.markers.find((m) => m.id === data);
+      } else {
+        // else use oldMarkerId
+        tempMarker = this.markers.find((m) => m.id === this.oldMarkerId);
+      }
+      // find marker to edit from markersList & set new icon
+      const marker = this.leafletMarkers?.find(
+        (m) => m.options.title === tempMarker?.id?.toString()
+      );
+      marker?.setIcon(getIconType(tempMarker?.available, !!data));
+      // update oldMarkerId with new id
+      this.oldMarkerId = data;
     });
   }
 
@@ -138,6 +129,7 @@ export class CustomMapComponent
       // create marker
       const marker = L.marker([m.address.geo.lat, m.address.geo.lng], {
         title: m.id?.toString(),
+        icon: getIconType(m.available),
       });
       // bind marker with popup
       marker.bindPopup(this.doctorService.displayPopup(m));
@@ -171,7 +163,7 @@ export class CustomMapComponent
           [parsedUserLocation?.lat, parsedUserLocation?.lng],
           {
             title: 'Tu sei qui',
-            icon: userIcon,
+            icon: currentPositionIcon,
           }
         );
         userMarker.addTo(this.map);
