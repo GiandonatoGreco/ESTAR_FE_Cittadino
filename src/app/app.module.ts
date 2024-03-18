@@ -42,6 +42,7 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
+import { ModalChangeDoctorComponent } from './components/modals/modal-change-doctor/modal-change-doctor.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PrivateSiteComponent } from './private-site/private-site.component';
 import { TokenInterceptor } from 'token.interceptor';
@@ -76,6 +77,7 @@ import { TokenInterceptor } from 'token.interceptor';
     IconComponent,
     AllIconsComponent,
     TableDoctorsComponent,
+    ModalChangeDoctorComponent,
     ProfileComponent,
     PrivateSiteComponent,
   ],
