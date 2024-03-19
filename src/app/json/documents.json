@@ -1,0 +1,22 @@
+{
+  "code": 200,
+  "status": "ok",
+  "data": [
+    {
+      "id": "1",
+      "title": "Referto analisi",
+      "format": "pdf",
+      "size": 140000,
+      "created": 1710865902,
+      "url": "https://picsum.photos/200"
+    },
+    {
+      "id": "2",
+      "title": "Ricetta n.540",
+      "format": "pdf",
+      "size": 40000,
+      "created": 1710815902,
+      "url": "https://picsum.photos/300/200"
+    }
+  ]
+}

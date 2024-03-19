@@ -1,1 +1,38 @@
-<p>documents works!</p>
+<div class="alternate-bg">
+  <section>
+    <div class="container">
+      <it-breadcrumb separator="/">
+        <it-breadcrumb-item
+          *ngFor="let item of crumbs"
+          class="me-1"
+          [href]="item.link"
+          [iconName]="item.icon"
+        >
+          {{ item.label }}
+        </it-breadcrumb-item>
+      </it-breadcrumb>
+      <h1>Documenti</h1>
+      <div class="subtitle">
+        <p>
+          Puoi inviare documenti al tuo medico oppure consultare quelli
+          ricevuti. Ricordati di scaricarli poiché saranno
+          <b>disponibili solo per 48h!</b>
+        </p>
+        <button class="btn btn-primary">Invia nuovo documento</button>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h2>Documenti ricevuti dal tuo medico</h2>
+      <div *ngFor="let item of list">
+        <app-document-card [document]="item"></app-document-card>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h2>Documenti inviati al tuo medico</h2>
+    </div>
+  </section>
+</div>
