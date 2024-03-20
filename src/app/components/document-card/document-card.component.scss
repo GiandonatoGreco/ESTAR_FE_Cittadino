@@ -12,3 +12,50 @@
   border-radius: $border-radius-xs;
   box-shadow: $shadow;
 }
+
+.card-header,
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  &.sent {
+    gap: 24px;
+    justify-content: end;
+
+    div.line {
+      display: block;
+      height: 28px;
+      width: 1px;
+      background-color: $border-color;
+    }
+
+    button {
+      padding: 0;
+    }
+  }
+}
+
+.date {
+  margin-left: auto;
+}
+
+.badge {
+  width: fit-content;
+  padding: 4px 16px;
+  border-radius: $border-radius-xs;
+  color: $white;
+  background: $badge-bg;
+
+  &.today {
+    color: $badge-date-error;
+    border: 1px solid $badge-date-error;
+    background: $badge-date-error-bg;
+  }
+  &.tomorrow {
+    color: $badge-date-warning;
+    border: 1px solid $badge-date-warning;
+    background: $badge-date-warning-bg;
+  }
+}

@@ -1,8 +1,38 @@
 <div class="document-card">
-  <p>{{ formatDate(document) }}</p>
-  <a [href]="document.url" target="_blank">{{ document.title }}</a>
-  <a [href]="document.url" [download]="document.title" class="link"
-    >Scarica {{ document.format }} ({{ document.size }})
-    <app-icon type="download"></app-icon
-  ></a>
+  <div class="card-header">
+    <!-- TODO logica per capire come/quando mostrare badge -->
+    <div class="badge">Nuovo</div>
+    <div [class]="'badge ' + fileExpiration">
+      {{
+        fileExpiration === "today" ? "In scadenza oggi" : "Disponibile per 48h"
+      }}
+    </div>
+    <p class="date">{{ fileCreationDate }}</p>
+  </div>
+  <a [href]="document.url" target="_blank" *ngIf="isSent"
+    ><b>{{ document.title }}</b></a
+  >
+  <p *ngIf="document.description">{{ document.description }}</p>
+  <div class="card-footer" *ngIf="!isSent">
+    <a [href]="document.url" target="_blank">{{ document.title }}</a>
+    <a [href]="document.url" [download]="document.title" class="link"
+      >Scarica {{ document.format | uppercase }} ({{ fileSize }})
+      <app-icon type="download"></app-icon
+    ></a>
+  </div>
+  <div class="card-footer sent" *ngIf="isSent">
+    <a [href]="document.url" [download]="document.title" class="link"
+      >Scarica {{ document.format | uppercase }} ({{ fileSize }})
+      <app-icon type="download"></app-icon
+    ></a>
+    <div class="line"></div>
+    <button
+      class="btn link"
+      (click)="setCurrentDocument()"
+      data-bs-toggle="modal"
+      data-bs-target="#modal-confirm"
+    >
+      Elimina <app-icon type="trash-can"></app-icon>
+    </button>
+  </div>
 </div>

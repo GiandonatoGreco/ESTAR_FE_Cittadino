@@ -1,22 +1,35 @@
 {
   "code": 200,
   "status": "ok",
-  "data": [
-    {
-      "id": "1",
-      "title": "Referto analisi",
-      "format": "pdf",
-      "size": 140000,
-      "created": 1710865902,
-      "url": "https://picsum.photos/200"
-    },
-    {
-      "id": "2",
-      "title": "Ricetta n.540",
-      "format": "pdf",
-      "size": 40000,
-      "created": 1710815902,
-      "url": "https://picsum.photos/300/200"
-    }
-  ]
+  "data": {
+    "received": [
+      {
+        "id": "1",
+        "title": "Referto analisi",
+        "format": "pdf",
+        "size": 1400000,
+        "created": 1710865902,
+        "url": "https://picsum.photos/200"
+      },
+      {
+        "id": "2",
+        "title": "Ricetta n.540",
+        "format": "pdf",
+        "size": 40000,
+        "created": 1710765902,
+        "url": "https://picsum.photos/300/200"
+      }
+    ],
+    "sent": [
+      {
+        "id": "3",
+        "title": "Macchia pelle",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt numquam, molestias dolorem tempore voluptates fuga soluta natus quis rem eos, corporis voluptatem, pariatur aliquid quisquam distinctio? Distinctio deleniti quisquam excepturi.",
+        "format": "jpeg",
+        "size": 3200000,
+        "created": 1710865902,
+        "url": "https://picsum.photos/200"
+      }
+    ]
+  }
 }

@@ -21,6 +21,13 @@ div {
 // override bs classes
 .btn {
   border-radius: $border-radius-xs;
+  &.link {
+    color: var(--bs-primary);
+
+    &:hover {
+      color: var(--bs-link-hover-color);
+    }
+  }
 }
 
 //! TODO responsive fonts

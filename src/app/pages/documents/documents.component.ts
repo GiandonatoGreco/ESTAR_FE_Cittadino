@@ -21,7 +21,8 @@ export class DocumentsComponent implements OnInit {
       label: routes.documents.title,
     },
   ];
-  list: DocumentI[] = [];
+  received: DocumentI[] = [];
+  sent: DocumentI[] = [];
 
   constructor(
     private documentsService: DocumentsService,
@@ -32,8 +33,9 @@ export class DocumentsComponent implements OnInit {
   ngOnInit(): void {
     this.loadingService.showLoading();
     this.documentsService.getDocumentsList().subscribe({
-      next: (data) => {
-        this.list = data;
+      next: ({ data }) => {
+        this.received = data.received;
+        this.sent = data.sent;
       }, // nextHandler
       error: (error) => {
         console.log('Error:', error);
@@ -45,4 +47,19 @@ export class DocumentsComponent implements OnInit {
       }, // completeHandler
     });
   }
+
+  deleteDocument = () => {
+    this.loadingService.showLoading();
+    this.documentsService.deleteDocument().subscribe({
+      error: (error) => {
+        console.log('Error:', error);
+        this.notificationService.error('Notifica Errore', error?.message);
+        this.loadingService.hideLoading();
+      }, // errorHandler
+      complete: () => {
+        this.loadingService.hideLoading();
+        this.documentsService.getDocumentsList();
+      }, // completeHandler
+    });
+  };
 }
