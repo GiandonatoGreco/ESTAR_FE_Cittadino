@@ -52,6 +52,17 @@ export class DashboardComponent {
         lng: 0,
       },
     },
+    clinics: [
+      {
+        address: '',
+        availability: '',
+        distance: '',
+        geo: {
+          lat: 0,
+          lng: 0
+        }
+      }
+    ],
     phone: '',
     website: '',
     company: {

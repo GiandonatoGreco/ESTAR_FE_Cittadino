@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, delay, of } from 'rxjs';
 import { environment } from '../../environments/environment';
-import * as DoctorsData from '../json/doctors.json';
+import * as DoctorsListData from '../json/doctorsList.json';
+import * as DoctorDetailData from '../json/doctorDetail.json';
 import * as ChangeDoctor from '../json/changeDoctor.json';
 import { DoctorI, ChangeDoctorResponse } from 'models/doctors';
 import { routes } from '../../utils/routes';
@@ -16,7 +17,8 @@ export class DoctorsService {
   apiUrl = environment.apiUrl;
   useMock = environment.useMock;
   // mocks
-  doctorDataMock = DoctorsData as { data: DoctorI[] };
+  doctorListDataMock = DoctorsListData as { data: DoctorI[] };
+  doctorDetailDataMock = DoctorDetailData as { data: DoctorI };
   changeDoctorMock = ChangeDoctor as { data: ChangeDoctorResponse };
 
   private activeMarker = new BehaviorSubject<number | undefined>(undefined);
@@ -29,7 +31,7 @@ export class DoctorsService {
 
   getDoctorsList = (limit: string = '10000'): Observable<DoctorI[]> => {
     if (this.useMock) {
-      return of(this.doctorDataMock.data).pipe(delay(100));
+      return of(this.doctorListDataMock.data).pipe(delay(100));
     }
 
     const url = `https://jsonplaceholder.typicode.com/users`;
@@ -38,7 +40,8 @@ export class DoctorsService {
 
   getDoctorDetails = (id: number = 0): Observable<DoctorI> => {
     if (this.useMock) {
-      return of(this.doctorDataMock.data[id]).pipe(delay(100));
+      //TODO WIP
+      return of(this.doctorDetailDataMock.data[id]).pipe(delay(100));
     }
 
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;

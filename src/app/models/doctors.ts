@@ -23,6 +23,7 @@ export interface DoctorI {
     zipcode: string;
     geo: GeoI;
   };
+  clinics: Array<clinicsI>;
   phone: string;
   website: string;
   company: CompanyI;
@@ -30,4 +31,11 @@ export interface DoctorI {
 
 export interface ChangeDoctorResponse {
   response: boolean
+}
+
+export interface clinicsI {
+  address: string;
+  availability: string;
+  distance: string;
+  geo: GeoI;
 }

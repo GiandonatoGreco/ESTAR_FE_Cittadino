@@ -1,0 +1,321 @@
+{
+  "code": 200,
+  "status": "ok",
+  "data": [
+    {
+      "id": 1,
+      "name": "Mario Rossi",
+      "role": "Medico di medicina generale",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "yes",
+      "address": {
+        "street": "Piazza San Carlo",
+        "suite": "Apt. 556",
+        "city": "Torino",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 45.067761,
+          "lng": 7.682636
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Luigi Verdi",
+      "role": "Medico di medicina generale",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "no",
+      "address": {
+        "street": "Piazza Castello",
+        "suite": "Apt. 556",
+        "city": "Torino",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 45.072978,
+          "lng": 7.686288
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Paolo Monicelli",
+      "role": "Medico di medicina generale",
+      "username": "__",
+      "email": "paolo.monicelli@medico.it",
+      "available": "only_desk",
+      "address": {
+        "street": "Via Reggia di Venaria, 30",
+        "suite": "__",
+        "city": "Venaria",
+        "zipcode": "56124",
+        "geo": {
+          "lat": 45.1275,
+          "lng": 7.6417
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "+39 333 5049 402",
+      "website": "__",
+      "company": {
+        "name": "__",
+        "catchPhrase": "__",
+        "bs": "__"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Giulia Monicelli",
+      "role": "Medico di medicina generale",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "yes",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Langhe",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 44.6419,
+          "lng": 7.9464
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Piero Ferrero",
+      "role": "Medico di medicina generale",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "no",
+      "address": {
+        "street": "Forte",
+        "suite": "Apt. 556",
+        "city": "Fenestrelle",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 45.0249,
+          "lng": 7.0627
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    }
+  ]
+}

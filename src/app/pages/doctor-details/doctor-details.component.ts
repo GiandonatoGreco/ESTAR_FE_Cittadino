@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BreadcrumbI } from 'models/common';
-import { DoctorI } from 'models/doctors';
+import { DoctorI, clinicsI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { routes } from '../../../utils/routes';
 import { ModalChangeDoctorComponent } from 'components/modals/modal-change-doctor/modal-change-doctor.component';
+import { LoadingService } from 'services/loading.service';
+import { ItNotificationService } from 'design-angular-kit';
 
 @Component({
   selector: 'app-doctor-details',
@@ -14,8 +16,10 @@ import { ModalChangeDoctorComponent } from 'components/modals/modal-change-docto
 export class DoctorDetailsComponent implements OnInit {
   @ViewChild(ModalChangeDoctorComponent) modalChangeDoctor!: ModalChangeDoctorComponent;
 
-  id: string | null = null;
+  id: number | null = null;
   docDetail?: DoctorI;
+  //clinics: clinicsI; TODO serve o stampo diretto da html?
+  activeMarker?: number;
 
   crumbs: BreadcrumbI[] = [
     {
@@ -25,48 +29,47 @@ export class DoctorDetailsComponent implements OnInit {
     }
   ];
 
-  //TODO mettere diretto dentro al dottore
-  clinics = [
-    {
-      //TODO add coordinate
-      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
-      "availability": "Lun: 9:00 - 13:00"
-    },
-    {
-      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
-      "availability": "Lun: 9:00 - 13:00"
-    },
-    {
-      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
-      "availability": "Lun: 9:00 - 13:00"
-    },
-    {
-      "address": "Via Giuseppe Garibaldi, 30 - Pisa",
-      "availability": "Lun: 9:00 - 13:00"
-    }
-  ];
-
   checkboxChecked: boolean = false;
   isCurrentDoctor: boolean = false; //TODO da rendere dinamico
 
   constructor(
     private route: ActivatedRoute,
-    private doctorService: DoctorsService
+    private loadingService: LoadingService,
+    private doctorService: DoctorsService,
+    private readonly notificationService: ItNotificationService
   ) {}
 
   ngOnInit(): void {
-    //TODO rivedere logica. mettere chiamata getDoctorDetails
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = params.get('id');
-      if (this.id) {
-        this.doctorService.getDoctorsList().subscribe((data) => {
-          const details = data.find((d) => d.id.toString() === this.id);
-          this.docDetail = details;
+      this.id = parseInt(params.get('id') ?? '-1', 10);
+      if (this.id !== -1) {
+        /*this.doctorService.getDoctorDetails(this.id).subscribe((data) => {
+          this.docDetail = data;
           this.crumbs.push({
-            label: `Dettaglio ${details?.name || ''}`,
+            label: `Dettaglio ${data?.name || ''}`,
             icon: undefined,
           });
+        });*/
+
+        this.loadingService.showLoading();
+        this.doctorService.getDoctorDetails(this.id).subscribe({
+          next: (data) => {
+            this.docDetail = data;
+          }, // nextHandler
+          error: (error) => {
+            console.log('Error:', error);
+            this.notificationService.error('Notifica Errore', error?.message);
+            this.loadingService.hideLoading();
+          }, // errorHandler
+          complete: () => {
+            this.loadingService.hideLoading();
+          }, // completeHandler
         });
+
+        // subscribe to activeMarker
+        this.doctorService.activeMarker$.subscribe(
+          (data) => (this.activeMarker = data)
+        );
       }
     });
 

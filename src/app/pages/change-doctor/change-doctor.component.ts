@@ -70,6 +70,7 @@ export class ChangeDoctorComponent implements OnInit {
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
+        console.log("list: ",this.list);
       }, // nextHandler
       error: (error) => {
         console.log('Error:', error);

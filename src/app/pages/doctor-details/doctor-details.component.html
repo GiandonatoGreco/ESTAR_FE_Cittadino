@@ -52,7 +52,7 @@
     <h4>Ambulatori personali</h4>
     <div class="doctor-clinics-info-wrapper">
       <div class="doctor-clinics-info-container">
-        <div class="doctor-clinic-card" *ngFor="let clinic of clinics">
+        <div class="doctor-clinic-card" *ngFor="let clinic of docDetail?.clinics">
           <div class="address-container">
             <app-icon type="location-dot"></app-icon>
             {{ clinic.address }}
@@ -65,7 +65,7 @@
       </div>
       <div class="doctor-clinics-map-container">
         <!-- TODO fare mappa con logica dei marker ecc <app-custom-map [markers]="list"></app-custom-map> -->
-        <app-custom-map></app-custom-map>
+        <app-custom-map [markers]="list"></app-custom-map>
       </div>
     </div>
     <p class="disclaimer">*Il medico riceve solo su appuntamento</p>

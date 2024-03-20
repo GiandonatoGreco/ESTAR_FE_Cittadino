@@ -1,0 +1,68 @@
+{
+  "code": 200,
+  "status": "ok",
+  "data": 
+    {
+      "id": 1,
+      "name": "Mario Rossi",
+      "role": "Medico di medicina generale",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "available": "yes",
+      "address": {
+        "street": "Piazza San Carlo",
+        "suite": "Apt. 556",
+        "city": "Torino",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": 45.067761,
+          "lng": 7.682636
+        }
+      },
+      "clinics": [
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        },
+        {
+          "address": "Via Giuseppe Garibaldi, 30 - Pisa",
+          "availability": "Lun: 9:00 - 13:00",
+          "distance": "0,3km",
+          "geo": {
+            "lat": 45.067761,
+            "lng": 7.682636
+          }
+        }
+      ],
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    }
+}
