@@ -5,3 +5,19 @@
   border-right: none;
   border-bottom: none;
 }
+
+/*Mobile*/
+@media  (max-width: 767px) {
+  .alert{
+    border-top: 8px solid hsl(36, 100%, 30%);
+    border-left: none;
+  }
+
+  .alert-dismissible {
+    padding-right:64px;
+
+    .btn-close {
+      top: 30%;
+    }
+  }  
+}

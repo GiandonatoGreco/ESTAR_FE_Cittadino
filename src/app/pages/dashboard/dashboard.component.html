@@ -1,13 +1,18 @@
 <section class="personal-info">
   <div class="container">
-    <h1 class="personal-name">Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}</h1>
+    <h1 class="personal-name">
+      Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}
+    </h1>
 
     <div class="alert-container">
       <it-alert color="warning" dismissible="true">
-        Aggiorna i <strong>dati di contatto</strong> per ricevere comunicazioni e documenti. <a [routerLink]="['/']">Vai al tuo profilo.</a>
+        Aggiorna i <strong>dati di contatto</strong> per ricevere comunicazioni
+        e documenti. <a [routerLink]="['/']">Vai al tuo profilo.</a>
       </it-alert>
       <it-alert color="warning" dismissible="true">
-        Hai ricevuto un nuovo documento dal tuo medico. Sarà disponibile solo per 48h! <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
+        Hai ricevuto un <strong>nuovo documento</strong> dal tuo medico. Sarà
+        disponibile solo per 48h!
+        <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
       </it-alert>
     </div>
   </div>
@@ -18,14 +23,17 @@
     <h4>Il tuo medico attuale</h4>
     <div class="doctor-info-wrapper">
       <div class="doctor-info-card-container d-flex personal-info">
-        <app-icon type="stethoscope" size="40" fill="#9C0769"></app-icon>
+        <app-icon
+          type="stethoscope"
+          [size]="isMobile ? 32 : 40"
+          fill="#9C0769"
+        ></app-icon>
         <div class="doctor-personal-info">
           <h3>{{ currentDoctor.name }}</h3>
           <p class="doctor-personal-info-role">
             {{ currentDoctor.role }}
           </p>
         </div>
-        
       </div>
       <div class="doctor-info-card-container contacts">
         <div class="contacts-wrapper">
@@ -43,14 +51,18 @@
       <div class="doctor-info-card-container button-wrapper">
         <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary">
           Scarica attestato
-          <app-icon type="download" fill="#fff"></app-icon>
+          <app-icon type="download" fill="#fff" *ngIf="!isMobile"></app-icon>
         </a>
       </div>
     </div>
     <div class="clinic-text">
       <p class="label">Ambulatori personali</p>
       <div class="clinic-card-wrapper">
-        <div class="clinic-card" *ngFor="let clinic of clinics let i=index" [hidden]="i >= 3 && !showAllCards">
+        <div
+          class="clinic-card"
+          *ngFor="let clinic of clinics; let i = index"
+          [hidden]="i >= 3 && !showAllCards"
+        >
           <div class="address-container">
             <app-icon type="location-dot"></app-icon>
             {{ clinic.address }}
@@ -63,9 +75,15 @@
       </div>
       <div class="button-container">
         <p>*Il medico riceve solo su appuntamento</p>
-        <button class="btn btn-tetriary show-more-clinic-card" (click)="toggleShowAllCards()">
-          {{showAllCards ? 'Mostra di meno' : 'Mostra di più'}}
-          <app-icon type="chevron-{{showAllCards ? 'top' : 'bottom'}}" fill="#07768D"></app-icon>
+        <button
+          class="btn btn-tetriary show-more-clinic-card"
+          (click)="toggleShowAllCards()"
+        >
+          {{ showAllCards ? "Mostra di meno" : "Mostra di più" }}
+          <app-icon
+            type="chevron-{{ showAllCards ? 'top' : 'bottom' }}"
+            fill="#07768D"
+          ></app-icon>
         </button>
       </div>
     </div>
@@ -84,8 +102,9 @@
   <div class="container" *ngIf="!currentDoctor">
     <h4>Il tuo medico attuale</h4>
     <div class="empty-doctor-info-wrapper">
-      Il tuo medico risulta non più attivo (es. è andato in pensione, ha cessato l'attività in Regione Toscana, ecc). 
-      Puoi scegliere un nuovo medico selezionando Cambia medico.
+      Il tuo medico risulta non più attivo (es. è andato in pensione, ha cessato
+      l'attività in Regione Toscana, ecc). Puoi scegliere un nuovo medico
+      selezionando Cambia medico.
     </div>
     <div class="separator"></div>
     <div class="btns-wrapper">
@@ -107,7 +126,8 @@
     </div>
     <div class="documents-wrapper">
       <p>
-        Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà disponibile solo per 48h!
+        Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà disponibile
+        solo per 48h!
       </p>
     </div>
   </div>
@@ -118,38 +138,46 @@
     <h2>A chi è rivolto il servizio di cambio medico</h2>
     <div class="more-info-wrapper">
       <p>
-        Il servizio di scelta medico online è disponibile per le seguenti tipologie di cittadino:
+        Il servizio di scelta medico online è disponibile per le seguenti
+        tipologie di cittadino:
       </p>
       <div class="more-info-card-container">
-
         <div class="more-info-card">
           <app-icon type="circle-check"></app-icon>
           <p>
-            <b>Cittadini italiani residenti in Toscana,</b> assistiti da un medico toscano.
+            <b>Cittadini italiani residenti in Toscana,</b> assistiti da un
+            medico toscano.
           </p>
         </div>
 
         <div class="more-info-card">
           <app-icon type="circle-check"></app-icon>
           <p>
-            <b>Cittadini italiani, con domicilio sanitario Toscana,</b> attualmente assistiti da un medico toscano.
+            <b>Cittadini italiani, con domicilio sanitario Toscana,</b>
+            attualmente assistiti da un medico toscano.
           </p>
         </div>
 
         <div class="more-info-card">
           <app-icon type="circle-check"></app-icon>
           <p>
-            <b>Cittadini comunitari o stranieri, residenti in Toscana,</b> attualmente assistiti da un medico toscano.
+            <b>Cittadini comunitari o stranieri, residenti in Toscana,</b>
+            attualmente assistiti da un medico toscano.
           </p>
         </div>
-
       </div>
       <p>
-        Oltre ai casi sopra evidenziati, è possibile scegliere il nuovo medico anche nel caso in cui il proprio medico toscano abbia cessato la propria attività. 
-        Il servizio sarà inizialmente disponibile per l’Azienda Usl Toscana Nordovest e verrà poi progressivamente esteso a tutta la Toscana, seguendo il piano di avvio del nuovo software di scelta e revoca Adiba. 
-        Negli altri casi, o per particolari operazioni quali scelta in deroga, revoca, ricusazione ecc., 
-        è necessario rivolgersi agli sportelli del servizio di scelta e revoca, attivi presso la propria Azienda USL di riferimento.
-        Per ulteriori informazioni suggeriamo di consultare le sezione con le domande frequenti.
+        Oltre ai casi sopra evidenziati, è possibile scegliere il nuovo medico
+        anche nel caso in cui il proprio medico toscano abbia cessato la propria
+        attività. Il servizio sarà inizialmente disponibile per l’Azienda Usl
+        Toscana Nordovest e verrà poi progressivamente esteso a tutta la
+        Toscana, seguendo il piano di avvio del nuovo software di scelta e
+        revoca Adiba. Negli altri casi, o per particolari operazioni quali
+        scelta in deroga, revoca, ricusazione ecc., è necessario rivolgersi agli
+        sportelli del servizio di scelta e revoca, attivi presso la propria
+        Azienda USL di riferimento. Per ulteriori informazioni suggeriamo di
+        consultare le sezione con le
+        <a [routerLink]="['/']">domande frequenti</a>.
       </p>
     </div>
   </div>
@@ -166,19 +194,21 @@
     </div>
 
     <div class="faq-card-wrapper">
-
-      <div class="faq-card"  *ngFor="let faqItem of faqList">
+      <div class="faq-card" *ngFor="let faqItem of faqList">
         <div class="faq-card-title">
           <a class="link" [routerLink]="['/', routes.faq.path]">
             {{ faqItem.question }}
           </a>
-          <app-icon class="faq-card-icon" type="chevron-right" fill="#07768D"></app-icon>
+          <app-icon
+            class="faq-card-icon"
+            type="chevron-right"
+            fill="#07768D"
+          ></app-icon>
         </div>
         <p>
           {{ faqItem.answer }}
         </p>
       </div>
-
     </div>
   </div>
 </section>

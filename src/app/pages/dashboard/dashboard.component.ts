@@ -6,6 +6,7 @@ import { LoadingService } from 'services/loading.service';
 import { routes as utilsRoutes } from '../../../utils/routes';
 import { FaqService } from 'services/faq.service';
 import { FaqI } from 'models/faq';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-dashboard',
@@ -63,11 +64,14 @@ export class DashboardComponent {
 
   faqList: FaqI[] = [];
 
+  isMobile: boolean = false;
+
   constructor(
     public doctorService: DoctorsService,
     private loadingService: LoadingService,
     private readonly notificationService: ItNotificationService,
-    private faqService: FaqService
+    private faqService: FaqService,
+    private breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnInit(): void {
@@ -99,8 +103,11 @@ export class DashboardComponent {
         this.loadingService.hideLoading();
       }, // completeHandler
     });
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe((result) => {
+      this.isMobile = result.matches;
+    });
   }
-  
+
   showAllCards: boolean = false;
 
   toggleShowAllCards(): void {
