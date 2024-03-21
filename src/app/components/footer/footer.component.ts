@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-    email: string = 'help.cse@regione.toscana.it@pec.gov.it';
+    email: string = 'help.cse@regione.toscana.it';
     phoneNumber: string = ' 800 004 477';
-    time: string = 'lun-ven 9:00 - 19:00, sab 9:00 - 13:00';
+    time: string = 'Lun-Ven: 9:00 - 19:00, Sab: 9:00 - 13:00';
 }

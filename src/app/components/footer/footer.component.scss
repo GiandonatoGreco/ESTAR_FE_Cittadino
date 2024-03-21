@@ -78,24 +78,44 @@ footer {
         font-style: normal;
         font-weight: 600;
         line-height: 16px; 
-        
+
         .link{
+          color: $white;
           text-decoration: underline;
-          color: $footer-link;
 
           &:hover{
             text-decoration: none;
           }
         }
       }
-
       .privacy{
-        text-decoration: none;
         color: $white;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        line-height: 16px; 
+        line-height: 16px;
+      }
+    }
+  }
+}
+
+
+/*Mobile*/
+@media  (max-width: 767px) {
+  footer {
+    .footer-top{
+      gap:32px;
+    }
+
+    .footer-bottom{
+      .footer-copyright {
+        flex-direction: column;
+        align-items: flex-start;
+        gap:16px;
+
+        .privacy{
+         text-decoration: none;
+        }
       }
     }
   }

@@ -12,8 +12,9 @@
           <a [routerLink]="['/']">Vai al tuo profilo.</a>
         </it-alert>
         <it-alert color="warning" dismissible="true">
-          Hai ricevuto un nuovo documento dal tuo medico. Sarà disponibile solo
-          per 48h! <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
+          Hai ricevuto un <strong>nuovo documento</strong> dal tuo medico. Sarà
+          disponibile solo per 48h!
+          <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
         </it-alert>
       </div>
     </div>
@@ -24,7 +25,11 @@
       <h4>Il tuo medico attuale</h4>
       <div class="doctor-info-wrapper">
         <div class="doctor-info-card-container d-flex personal-info">
-          <app-icon type="stethoscope" size="40" fill="#9C0769"></app-icon>
+          <app-icon
+            type="stethoscope"
+            [size]="isMobile ? 32 : 40"
+            fill="#9C0769"
+          ></app-icon>
           <div class="doctor-personal-info">
             <h3>{{ currentDoctor.name }}</h3>
             <p class="doctor-personal-info-role">
@@ -48,7 +53,7 @@
         <div class="doctor-info-card-container button-wrapper">
           <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary">
             Scarica attestato
-            <app-icon type="download" fill="#fff"></app-icon>
+            <app-icon type="download" fill="#fff" *ngIf="!isMobile"></app-icon>
           </a>
         </div>
       </div>
@@ -173,8 +178,8 @@
           quali scelta in deroga, revoca, ricusazione ecc., è necessario
           rivolgersi agli sportelli del servizio di scelta e revoca, attivi
           presso la propria Azienda USL di riferimento. Per ulteriori
-          informazioni suggeriamo di consultare le sezione con le domande
-          frequenti.
+          informazioni suggeriamo di consultare le sezione con le
+          <a [routerLink]="['/']">domande frequenti</a>.
         </p>
       </div>
     </div>
@@ -203,7 +208,8 @@
             ></app-icon>
           </div>
           <p>
-            {{ faqItem.answer }}
+            Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà
+            disponibile solo per 48h!
           </p>
         </div>
       </div>
