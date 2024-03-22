@@ -1,53 +1,66 @@
-<div class="alternate-bg">
-  <section>
-    <div class="container">
-      <it-breadcrumb separator="/">
-        <it-breadcrumb-item
-          *ngFor="let item of crumbs"
-          class="me-1"
-          [href]="item.link"
-          [iconName]="item.icon"
-        >
-          {{ item.label }}
-        </it-breadcrumb-item>
-      </it-breadcrumb>
-      <h1>Documenti</h1>
-      <div class="subtitle">
-        <p>
-          Puoi inviare documenti al tuo medico oppure consultare quelli
-          ricevuti. Ricordati di scaricarli poiché saranno
-          <b>disponibili solo per 48h!</b>
-        </p>
-        <button
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#modal-document-upload"
-        >
-          Invia nuovo documento
-        </button>
-      </div>
+<div class="container">
+  <it-breadcrumb separator="/">
+    <it-breadcrumb-item
+      *ngFor="let item of crumbs"
+      class="me-1"
+      [href]="item.link"
+      [iconName]="item.icon"
+    >
+      {{ item.label }}
+    </it-breadcrumb-item>
+  </it-breadcrumb>
+  <h1>Documenti</h1>
+  <div class="subtitle">
+    <p>
+      Puoi inviare documenti al tuo medico oppure consultare quelli ricevuti.<br />
+      Ricordati di scaricarli poiché saranno
+      <b>disponibili solo per 48h!</b>
+    </p>
+    <button
+      itButton="primary"
+      data-bs-toggle="modal"
+      data-bs-target="#modal-document-upload"
+    >
+      <app-icon
+        type="plus"
+        color="white"
+        size="24"
+        classes="pb-1 mt-1"
+      ></app-icon>
+      &nbsp;Invia nuovo documento
+    </button>
+  </div>
+
+  <section class="received">
+    <h4>
+      <app-icon type="file-import" size="32"></app-icon>Documenti ricevuti dal
+      tuo medico
+    </h4>
+    <p class="total-items">
+      Ricevut{{ received.length !== 1 ? "i" : "o" }}
+      {{ received.length }} document{{ received.length !== 1 ? "i" : "o" }}
+    </p>
+    <div *ngFor="let item of received">
+      <app-document-card [document]="item"></app-document-card>
     </div>
   </section>
-  <section>
-    <div class="container">
-      <h2>Documenti ricevuti dal tuo medico</h2>
-      <div *ngFor="let item of received">
-        <app-document-card [document]="item"></app-document-card>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <h2>Documenti inviati al tuo medico</h2>
-      <div *ngFor="let item of sent">
-        <app-document-card
-          [document]="item"
-          [isSent]="true"
-        ></app-document-card>
-      </div>
+
+  <section class="sent">
+    <h4>
+      <app-icon type="file-export" size="32"></app-icon>Documenti inviati al tuo
+      medico
+    </h4>
+    <p class="total-items">
+      Inviat{{ sent.length !== 1 ? "i" : "o" }} {{ sent.length }} document{{
+        sent.length !== 1 ? "i" : "o"
+      }}
+    </p>
+    <div *ngFor="let item of sent">
+      <app-document-card [document]="item" [isSent]="true"></app-document-card>
     </div>
   </section>
 </div>
+
 <app-modal-confirm
   title="Sei sicuro di voler eliminare il documento?"
   body="Il documento selezionato sarà eliminato e non potrà essere più recuperato."

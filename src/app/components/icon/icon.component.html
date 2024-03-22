@@ -1,3 +1,8 @@
-<svg [attr.width]="size" [attr.height]="size" [attr.fill]="fill">
+<svg
+  [attr.width]="size"
+  [attr.height]="size"
+  [attr.fill]="fill"
+  [class]="classes"
+>
   <use [attr.href]="'#icon-' + type"></use>
 </svg>
