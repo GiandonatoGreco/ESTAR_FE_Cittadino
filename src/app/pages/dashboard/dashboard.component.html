@@ -117,11 +117,11 @@
     </div>
   </section>
 
-  <section class="documents">
+  <section class="documents" *ngIf="lastDocument">
     <div class="container">
-      <div class="faq-title">
+      <div class="docs-title">
         <h2>Documenti ricevuti dal tuo medico</h2>
-        <a class="link" [routerLink]="['/', routes.faq.path]"
+        <a class="link" [routerLink]="['/', routes.documents.path]"
           >Vai ai documenti
           <app-icon type="arrow-right"></app-icon>
         </a>
@@ -131,6 +131,7 @@
           Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà
           disponibile solo per 48h!
         </p>
+        <app-document-card [document]="lastDocument"></app-document-card>
       </div>
     </div>
   </section>

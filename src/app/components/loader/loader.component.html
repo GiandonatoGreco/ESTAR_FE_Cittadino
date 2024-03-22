@@ -1,4 +1,4 @@
-<div *ngIf="loadingService.loading$ | async">
+<div *ngIf="isLoading > 0">
   <div class="spinner-backdrop">
     <it-spinner double="true"></it-spinner>
   </div>

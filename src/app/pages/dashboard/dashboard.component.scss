@@ -107,6 +107,13 @@ section.personal-info {
   }
 }
 
+.docs-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 .more-info {
   .more-info-wrapper {
     display: grid;

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FileUploaderComponent } from 'components/file-uploader/file-uploader.component';
 
 @Component({
@@ -6,15 +6,12 @@ import { FileUploaderComponent } from 'components/file-uploader/file-uploader.co
   templateUrl: './modal-document-upload.component.html',
   styleUrl: './modal-document-upload.component.scss',
 })
-export class ModalDocumentUploadComponent implements OnDestroy {
+export class ModalDocumentUploadComponent {
   @ViewChild(FileUploaderComponent) fileUploader!: FileUploaderComponent;
   description: string = '';
   acceptedFormats = ['.pdf', 'image/*'];
 
   constructor() {}
-  ngOnDestroy(): void {
-    console.log('destroy');
-  }
 
   isValidForm() {
     return this.description.length > 0 && this.fileUploader.file;
