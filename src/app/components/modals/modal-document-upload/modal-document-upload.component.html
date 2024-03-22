@@ -1,0 +1,38 @@
+<it-modal id="modal-document-upload" alignment="centered">
+  <ng-container modalTitle>Invia nuovo documento al tuo medico</ng-container>
+
+  <it-textarea
+    label="Descrizione"
+    placeholder="Inserisci una descrizione del documento"
+    [(ngModel)]="description"
+  ></it-textarea>
+
+  <div class="file-uploader-wrapper">
+    <app-file-uploader
+      [acceptedFormats]="acceptedFormats"
+      [maxSize]="3"
+    ></app-file-uploader>
+  </div>
+
+  <div class="separator"></div>
+  <ng-container footer>
+    <button
+      itButton="primary"
+      type="button"
+      size="lg"
+      data-bs-dismiss="modal"
+      (click)="uploadDocument()"
+      [disabled]="!isValidForm()"
+    >
+      Invia
+    </button>
+    <button
+      itButton="outline-primary"
+      type="button"
+      size="lg"
+      data-bs-dismiss="modal"
+    >
+      Annulla
+    </button>
+  </ng-container>
+</it-modal>

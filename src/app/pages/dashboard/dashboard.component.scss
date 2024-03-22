@@ -1,333 +1,325 @@
 @import "../../../assets/scss/colors.scss";
 
-section:nth-child(even) {
-    background-color: $bg-light;
-    padding: 40px 24px;
-    margin-top: 2rem;
-}
-.section {
-    margin-top: 2rem;
-}
-
-.personal-info {
-    padding: 24px 0 0;
-    .alert-container {
-        margin-top: 24px;
-    }
+section.personal-info {
+  padding-top: calc(40px - 1rem) !important; // subtract pt-3 of main
+  .alert-container {
+    margin-top: 24px;
+  }
 }
 
 .doctor-info {
-    .doctor-info-wrapper {
-        display: flex;
-        gap: 24px;
+  .doctor-info-wrapper {
+    display: flex;
+    gap: 24px;
 
-        .doctor-info-card-container {
-        &.personal-info {
-            width: 33.3333333333%;
-        }
-        &.contacts {
-            width: 48%;
-        }
-        &.button-wrapper {
-            text-align: right;
-            width: 16.82%;
-        }
-
-        .doctor-personal-info {
-            margin-left: 8px;
-        
-            h3 {
-            color: $grey-01;
-            }
-        
-            .doctor-personal-info-role {
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 28px;
-            color: $grey-02;
-            }
-        }
-        
-        .contacts-wrapper {
-            .label {
-            color: $grey-01;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 24px;
-            }
-        } 
-        }
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-    }
-
-    .clinic-text {
-        .label {
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-        }
-
-        .clinic-card-wrapper {
-        margin-top: 8px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-
-        .clinic-card {
-            border-radius: 4px;
-            border: 1px solid $border-color;
-            background: #FFF;
-            padding: 24px;
-            width: calc(33.333333333333% - 16px);
-        }
-        }
-
-        .button-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 8px;
-        }
-    }
-
-    .btns-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        gap: 24px;
-
-        > *:last-child {
+    .doctor-info-card-container {
+      &.personal-info {
+        width: 33.3333333333%;
+      }
+      &.contacts {
+        width: 40%;
+      }
+      &.button-wrapper {
+        width: fit-content;
         margin-left: auto;
+      }
+
+      .doctor-personal-info {
+        margin-left: 8px;
+
+        h3 {
+          color: $grey-01;
         }
+
+        .doctor-personal-info-role {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px;
+          color: $grey-02;
+        }
+      }
+
+      .contacts-wrapper {
+        .label {
+          color: $grey-01;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .clinic-text {
+    .label {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
     }
 
-    .empty-doctor-info-wrapper {
-        max-width: 856px;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 32px;
+    .clinic-card-wrapper {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      .clinic-card {
+        border-radius: 4px;
+        border: 1px solid $border-color;
+        background: #fff;
+        padding: 24px;
+        width: calc(33.333333333333% - 16px);
+      }
     }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+  }
+
+  .btns-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 24px;
+
+    > *:last-child {
+      margin-left: auto;
+    }
+  }
+
+  .empty-doctor-info-wrapper {
+    max-width: 856px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+}
+
+.docs-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
 .more-info {
-    .more-info-wrapper {
-        display: grid;
-        gap: 24px;
-        margin-top: 16px;
+  .more-info-wrapper {
+    display: grid;
+    gap: 24px;
+    margin-top: 16px;
 
-        .more-info-card-container {
+    .more-info-card-container {
+      display: flex;
+      gap: 24px;
+
+      .more-info-card {
         display: flex;
-        gap: 24px;
+        width: 33.333333333%;
 
-        .more-info-card {
-            display: flex;
-            width: 33.333333333%;
+        p {
+          margin-left: 8px;
+          max-width: 300px;
 
-            p {
-            margin-left: 8px;
-            max-width: 300px;
-
-            b {
-                font-weight: 600;
-            }
-            }
+          b {
+            font-weight: 600;
+          }
         }
-        }
+      }
     }
+  }
 }
 
 .faq {
-    padding: 40px 0;
+  padding: 40px 0;
+
+  .faq-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 3rem;
+  }
+
+  .faq-card-wrapper {
+    display: flex;
+    gap: 48px;
+
+    .faq-card {
+      padding-bottom: 24px;
+      border-bottom: 1px solid $border-grey;
+
+      .faq-card-title {
+        display: flex;
+        align-items: start;
+
+        a {
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 40px;
+        }
+
+        .faq-card-icon {
+          margin-left: 8px;
+          margin-top: 8px;
+        }
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28px;
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+/*Mobile*/
+@media (max-width: 767px) {
+  section:nth-child(even) {
+    padding: 32px 0px;
+    margin-top: 1.5rem;
+  }
+  .section {
+    margin-top: 2rem;
+  }
+
+  .personal-info {
+    padding: 16px 0 0;
+
+    .container {
+      .alert-container {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .doctor-info {
+    .doctor-info-wrapper {
+      flex-direction: column;
+      gap: 16px;
+
+      .doctor-info-card-container {
+        &.personal-info {
+          width: 100%;
+          padding: 0;
+        }
+        &.contacts {
+          width: 100%;
+        }
+        &.button-wrapper {
+          text-align: center;
+          width: 100%;
+          display: contents;
+        }
+
+        .doctor-personal-info {
+          margin-left: 8px;
+
+          .doctor-personal-info-role {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+          }
+        }
+
+        .contacts-wrapper {
+          .label {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .clinic-text {
+      .label {
+        font-size: 16px;
+      }
+
+      .clinic-card-wrapper {
+        flex-direction: column;
+        gap: 8px;
+
+        .clinic-card {
+          padding: 12px;
+          width: 100%;
+        }
+      }
+
+      .button-container {
+        flex-direction: column;
+        gap: 8px;
+
+        .show-more-clinic-card {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    .empty-doctor-info-wrapper {
+    }
+  }
+
+  .more-info {
+    .container {
+      .more-info-wrapper {
+        gap: 16px;
+
+        .more-info-card-container {
+          flex-direction: column;
+          gap: 16px;
+
+          .more-info-card {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .faq {
+    padding: 32px 0;
 
     .faq-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 3rem;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 24px;
     }
 
     .faq-card-wrapper {
-        display: flex;
-        gap: 48px;
+      flex-direction: column;
+      gap: 24px;
 
-        .faq-card {
-        padding-bottom: 24px;
-        border-bottom: 1px solid $border-grey;
-
+      .faq-card {
         .faq-card-title {
-            display: flex;
-            align-items: start;
+          a {
+            font-size: 28px;
+            line-height: 32px;
+          }
 
-            a {
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 40px;
-            }
-
-            .faq-card-icon {
-            margin-left: 8px;
-            margin-top: 8px;
-            }
+          .faq-card-icon {
+          }
         }
-        
+
         p {
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 28px;
-            margin-top: 16px;
+          font-size: 16px;
+          line-height: 24px;
         }
-        }
+      }
     }
+  }
 }
-
-
-/*Mobile*/
-@media  (max-width: 767px) {
-
-    section:nth-child(even) {
-        padding: 32px 0px;
-        margin-top: 1.5rem;
-    }
-    .section {
-        margin-top: 2rem;
-    }    
-
-    .personal-info {
-        padding: 16px 0 0;
-
-        .container{
-            .alert-container {
-                margin-top: 16px;
-            }
-        } 
-    }
-    
-    .doctor-info {
-        .doctor-info-wrapper {
-            flex-direction: column;
-            gap: 16px;
-    
-            .doctor-info-card-container {
-            &.personal-info {
-              width:100%;
-              padding:0;
-            }
-            &.contacts {
-                width: 100%;
-            }
-            &.button-wrapper {
-                text-align: center;
-                width: 100%;
-                display: contents;
-            }
-    
-            .doctor-personal-info {
-                margin-left: 8px;
-            
-                .doctor-personal-info-role {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 24px;
-                }
-            }
-            
-            .contacts-wrapper {
-                .label {
-                font-size: 16px;
-                }
-            } 
-            }
-        }
-    
-        .clinic-text {
-            .label {
-            font-size: 16px;
-            }
-    
-            .clinic-card-wrapper {
-                flex-direction: column;
-                gap: 8px;
-    
-                .clinic-card {
-                    padding: 12px;
-                    width: 100%;
-                }
-            }
-    
-            .button-container {
-                flex-direction: column;
-                gap:8px;
-
-                .show-more-clinic-card{
-                    display: flex;
-                    justify-content: flex-end;
-                }
-            }
-        }
-    
-        .empty-doctor-info-wrapper {
-        
-        }
-    }
-    
-    .more-info {
-        .container{
-            .more-info-wrapper {
-                gap: 16px;
-        
-                .more-info-card-container {
-                    flex-direction: column;
-                    gap: 16px;
-        
-                    .more-info-card {
-                        width: 100%;
-                        justify-content: center;
-                    }
-                }
-            }
-        }
-    }
-    
-    .faq {
-        padding: 32px 0;
-    
-        .faq-title {
-            flex-direction: column;
-            gap:16px;
-            align-items: flex-start;
-            padding-bottom: 24px;
-        }
-    
-        .faq-card-wrapper {
-            flex-direction: column;
-            gap: 24px;
-    
-            .faq-card {
-                .faq-card-title {
-        
-                    a {
-                    font-size: 28px;
-                    line-height: 32px;
-                    }
-        
-                    .faq-card-icon {
-                
-                    }
-                }
-                
-                p {
-                    font-size: 16px;
-                    line-height: 24px;
-                }
-            }
-        }
-    }    
-}
-  

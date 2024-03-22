@@ -51,12 +51,12 @@ export class DoctorsService {
     ${data.phone}</div>`;
   }
 
-  changeDoctor= (id: number = 0): Observable<ChangeDoctorResponse> => {
+  changeDoctor = (id: number = 0): Observable<ChangeDoctorResponse> => {
     if (this.useMock) {
       return of(this.changeDoctorMock.data).pipe(delay(100));
     }
 
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     return this.http.get<ChangeDoctorResponse>(url);
-  }
+  };
 }

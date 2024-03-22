@@ -21,3 +21,14 @@ export interface PagerI {
   items_per_page: number;
   number_of_pages: number;
 }
+
+export interface BaseResponseI {
+  code: number;
+  status: string;
+}
+
+export interface SuccessResponseI extends BaseResponseI {
+  data: {
+    success: boolean;
+  };
+}

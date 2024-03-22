@@ -1,0 +1,30 @@
+<div *ngIf="!file">
+  <div class="input-file-wrapper">
+    <input
+      type="file"
+      #inputFile
+      id="upload-document"
+      class="upload"
+      [accept]="acceptedFormats"
+      (change)="onFileSelected($event)"
+    />
+    <button
+      for="upload-document"
+      class="btn btn-primary"
+      (click)="clickInput()"
+    >
+      Allega file
+    </button>
+    <div>
+      <p>Formati accettati: {{ acceptedFormats.join(", ") }}</p>
+      <p>Dimensione massima: {{ maxSize }}MB</p>
+    </div>
+  </div>
+  <p *ngIf="errorMsg" class="errorMsg mt-2">{{ errorMsg }}</p>
+</div>
+<div class="file-wrapper" *ngIf="file">
+  <p>{{ formatFile() }}</p>
+  <button class="btn link" (click)="removeFile()">
+    Elimina <app-icon type="trash-can"></app-icon>
+  </button>
+</div>
