@@ -18,7 +18,13 @@
           ricevuti. Ricordati di scaricarli poiché saranno
           <b>disponibili solo per 48h!</b>
         </p>
-        <button class="btn btn-primary">Invia nuovo documento</button>
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-document-upload"
+        >
+          Invia nuovo documento
+        </button>
       </div>
     </div>
   </section>
@@ -48,3 +54,4 @@
   confirmLabel="Elimina"
   [onClickConfirm]="deleteDocument"
 ></app-modal-confirm>
+<app-modal-document-upload></app-modal-document-upload>

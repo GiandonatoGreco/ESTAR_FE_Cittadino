@@ -2,8 +2,7 @@ import { DocumentI } from 'models/documents';
 import { timestampToDate } from './dates';
 import dayjs from 'dayjs';
 
-export const formatSize = (doc: DocumentI) => {
-  const { size } = doc;
+export const formatSize = (size: number) => {
   if (size > 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(1)}MB`;
   if (size > 1024) return `${Math.round(size / 1024)}kB`;
   return `${size}B`;

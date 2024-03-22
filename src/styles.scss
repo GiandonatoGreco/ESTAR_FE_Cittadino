@@ -44,6 +44,9 @@ body {
     fill: var(--bs-link-hover-color);
   }
 }
+.errorMsg {
+  color: $badge-date-error !important;
+}
 // alternate bg
 .alternate-bg section {
   padding: 40px 0;

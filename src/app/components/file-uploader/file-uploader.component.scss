@@ -1,0 +1,14 @@
+.input-file-wrapper {
+  button {
+    min-width: fit-content;
+  }
+  display: flex;
+  gap: 16px;
+}
+
+.file-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}

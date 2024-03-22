@@ -23,7 +23,7 @@ export class DocumentCardComponent implements OnChanges {
   fileExpiration: 'tomorrow' | 'today' = 'tomorrow';
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.fileSize = formatSize(this.document);
+    this.fileSize = formatSize(this.document.size);
     this.fileCreationDate = formatDate(this.document);
     this.fileExpiration = getExpiration(this.document);
   }
