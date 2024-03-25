@@ -13,16 +13,7 @@ import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import storage from '../../../utils/storage';
 import { GeolocationService } from 'services/geolocation.service';
-import {
-  availableActiveIcon,
-  availableIcon,
-  currentPositionIcon,
-  deskActiveIcon,
-  deskIcon,
-  getIconType,
-  notAvailableActiveIcon,
-  notAvailableIcon,
-} from './icons';
+import { availableIcon, currentPositionIcon, getIconType } from './icons';
 
 const provider = new OpenStreetMapProvider();
 
@@ -47,6 +38,7 @@ export class CustomMapComponent
   leafletMarkers: L.Marker[] = [];
   markerClusterGroup!: L.MarkerClusterGroup;
   markerClusterOptions!: L.MarkerClusterGroupOptions;
+  userLocation?: string = storage.read('userLocation')?.value;
 
   private map!: L.Map;
   private initMap(): void {
@@ -152,10 +144,9 @@ export class CustomMapComponent
     setTimeout(() => {
       this.initMap();
 
-      const userLocation = storage.read('userLocation')?.value;
-      if (userLocation) {
+      if (this.userLocation) {
         // if location is saved on localStorage set center to userLocation
-        const parsedUserLocation = JSON.parse(userLocation);
+        const parsedUserLocation = JSON.parse(this.userLocation);
         this.map.panTo(
           new L.LatLng(parsedUserLocation?.lat, parsedUserLocation?.lng)
         );
@@ -190,6 +181,17 @@ export class CustomMapComponent
       setTimeout(() => {
         this.map.invalidateSize();
       }, 0);
+    }
+  }
+
+  goToMyPosition() {
+    const parsedUserLocation = JSON.parse(this.userLocation || '');
+
+    if (this.map && parsedUserLocation) {
+      this.map.flyTo(
+        new L.LatLng(parsedUserLocation.lat, parsedUserLocation.lng),
+        15
+      );
     }
   }
 }
