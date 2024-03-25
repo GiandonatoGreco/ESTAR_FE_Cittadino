@@ -4,7 +4,6 @@ import { routes as utilsRoutes } from '../../../utils/routes';
 import { BreadcrumbI } from 'models/common';
 import { FaqI } from 'models/faq';
 import { FaqService } from 'services/faq.service';
-import { LoadingService } from 'services/loading.service';
 
 @Component({
   selector: 'app-faq',
@@ -38,13 +37,11 @@ export class FaqComponent implements OnInit {
 
   constructor(
     private faqService: FaqService,
-    private loadingService: LoadingService,
     private readonly notificationService: ItNotificationService
   ) {}
 
   ngOnInit(): void {
     // get Faq list
-    this.loadingService.showLoading();
     this.faqService.getFaqList().subscribe({
       next: (data) => {
         this.list = data;
@@ -52,11 +49,7 @@ export class FaqComponent implements OnInit {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
   }
 }

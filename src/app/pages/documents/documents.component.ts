@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbI } from 'models/common';
 import { routes } from '../../../utils/routes';
 import { DocumentsService } from 'services/documents.service';
-import { LoadingService } from 'services/loading.service';
 import { ItNotificationService } from 'design-angular-kit';
 import { DocumentI } from 'models/documents';
 
@@ -26,12 +25,10 @@ export class DocumentsComponent implements OnInit {
 
   constructor(
     private documentsService: DocumentsService,
-    private loadingService: LoadingService,
     private readonly notificationService: ItNotificationService
   ) {}
 
   ngOnInit(): void {
-    this.loadingService.showLoading();
     this.documentsService.getDocumentsList().subscribe({
       next: ({ data }) => {
         this.received = data.received;
@@ -40,24 +37,17 @@ export class DocumentsComponent implements OnInit {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
   }
 
   deleteDocument = () => {
-    this.loadingService.showLoading();
     this.documentsService.deleteDocument().subscribe({
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
       complete: () => {
-        this.loadingService.hideLoading();
         this.documentsService.getDocumentsList();
       }, // completeHandler
     });

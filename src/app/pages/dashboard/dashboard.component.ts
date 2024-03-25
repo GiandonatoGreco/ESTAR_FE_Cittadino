@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ItNotificationService } from 'design-angular-kit';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
-import { LoadingService } from 'services/loading.service';
 import { routes as utilsRoutes } from '../../../utils/routes';
 import { FaqService } from 'services/faq.service';
 import { FaqI } from 'models/faq';
@@ -46,7 +45,6 @@ export class DashboardComponent {
 
   constructor(
     private readonly notificationService: ItNotificationService,
-    private loadingService: LoadingService,
     private doctorService: DoctorsService,
     private documentsService: DocumentsService,
     private faqService: FaqService,
@@ -55,7 +53,6 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     // getDoctorDetails
-    this.loadingService.showLoading();
     this.doctorService.getDoctorDetails(2).subscribe({
       next: (data) => {
         this.currentDoctor = data;
@@ -63,14 +60,9 @@ export class DashboardComponent {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
     // getDoctorDetails
-    this.loadingService.showLoading();
     this.documentsService.getDocumentsList().subscribe({
       next: ({ data }) => {
         this.lastDocument = data.received[0];
@@ -78,14 +70,9 @@ export class DashboardComponent {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
     // get Faq list
-    this.loadingService.showLoading();
     this.faqService.getFaqList(3).subscribe({
       next: (data) => {
         this.faqList = data;
@@ -93,11 +80,7 @@ export class DashboardComponent {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
     this.breakpointObserver
       .observe([Breakpoints.Handset])
