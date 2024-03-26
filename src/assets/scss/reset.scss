@@ -79,34 +79,32 @@ p {
   color: $grey-02;
 }
 
-
 /*Mobile*/
-@media  (max-width: 767px) {
+@media (max-width: 767px) {
   h1 {
     font-size: 40px;
     line-height: 48px;
     letter-spacing: -1px;
   }
-  
+
   h2 {
     font-size: 32px;
     line-height: 40px;
   }
-  
+
   h3 {
     font-size: 28px;
     line-height: 32px;
   }
-  
+
   h4 {
     font-size: 20px;
     line-height: 24px;
   }
-  
-  h5 {
 
+  h5 {
   }
-  
+
   h6 {
     font-size: 16px;
   }

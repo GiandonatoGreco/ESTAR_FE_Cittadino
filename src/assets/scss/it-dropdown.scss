@@ -43,11 +43,27 @@
     right: -24px !important;
     top: 23px !important;
 
+    @media (max-width: 767px) {
+      position: fixed !important;
+      right: 0 !important;
+      top: 33px !important;
+      max-width: 100vw !important;
+      min-width: unset;
+      overflow-x: auto;
+    }
+
     ul.link-list {
       display: block !important;
+      width: 430px;
+      max-width: 100vw;
+      span {
+        white-space: normal;
+        margin-right: 0;
+      }
     }
   }
 }
+// end header dropdown
 
 li.notifications {
   it-dropdown-item:not(:first-child) li::before {

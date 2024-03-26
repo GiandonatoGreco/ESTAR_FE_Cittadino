@@ -1,12 +1,17 @@
 <it-header
-  slimTitle="Regione Toscana"
   [light]="false"
   [showSearch]="false"
   [sticky]="false"
   [megamenu]="false"
   (loginClick)="(false)"
 >
-  <ul class="link-list" slimLinkList>
+  <ul slimRightZone>
+    <li class="slim-title">
+      <a href="https://www.regione.toscana.it/home" target="_blank"
+        >Regione Toscana</a
+      >
+    </li>
+
     <li class="link-item d-flex align-items-center notifications">
       <it-dropdown>
         <span button>
@@ -18,17 +23,18 @@
             *ngIf="notifications.length > 0"
             class="notification-badge"
           ></span>
-          Notifiche
+          {{ isMobile ? "" : "Notifiche" }}
         </span>
         <ng-container list *ngIf="notifications.length === 0">
           <it-dropdown-item disabled="true">
-            <p class="body">Non sono presenti notifiche</p>
+            <span class="body">Non sono presenti notifiche</span>
           </it-dropdown-item>
         </ng-container>
         <ng-container list *ngIf="notifications.length > 0">
           <it-dropdown-item *ngFor="let item of notifications" disabled="true">
-            <p class="date">{{ item.date }}</p>
-            <p class="body">{{ item.text }}</p>
+            <span class="date">{{ item.date }}</span
+            ><br />
+            <span class="body">{{ item.text }}</span>
           </it-dropdown-item>
         </ng-container>
       </it-dropdown>
@@ -40,7 +46,7 @@
             class="slim-header-icon bell"
             src="../../../assets/img/icons/info.svg"
           />
-          Contatti
+          {{ isMobile ? "" : "Contatti" }}
         </span>
         <ng-container list>
           <it-dropdown-item
@@ -61,7 +67,7 @@
             <p aria-hidden="true">GR</p>
             <span class="visually-hidden">Bottone dimensioni sm</span>
           </div>
-          {{ name }}</span
+          {{ isMobile ? "" : name }}</span
         >
         <ng-container list>
           <it-dropdown-item [href]="['/', routes.profile.path]">
@@ -77,14 +83,14 @@
     </li>
   </ul>
   <ng-container brand>
-    <a href="#">
+    <a routerLink="/">
       <img
         class="it-brand-logo-img"
         aria-hidden="true"
         src="../../../assets/img/logo_regione_toscana.png"
       />
       <div class="it-brand-text">
-        <div class="it-brand-title">Portale cambio medico</div>
+        <h4 class="it-brand-title">Portale cambio medico</h4>
       </div>
     </a>
   </ng-container>

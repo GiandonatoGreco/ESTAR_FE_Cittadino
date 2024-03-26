@@ -2,6 +2,10 @@
 
 .it-brand-logo-img {
   width: 63px;
+
+  @media (max-width: 767px) {
+    width: 36px;
+  }
 }
 
 .notification-badge {

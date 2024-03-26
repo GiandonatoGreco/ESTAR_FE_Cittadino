@@ -1,16 +1,22 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'auth/auth.service';
 import { routes } from '../../../utils/routes';
 import { timestampToDate } from '../../../utils/dates';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+export class HeaderComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private breakpointObserver: BreakpointObserver
+  ) {}
+  isMobile = false;
   isLogged: boolean = false;
   name = 'Gloria Rossi';
   routes = routes;
@@ -98,5 +104,13 @@ export class HeaderComponent {
   logout() {
     this.authService.logout();
     this.router.navigate(['/', routes.landing.path]);
+  }
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
   }
 }
