@@ -21,7 +21,7 @@
     <div class="profile-card">
       <h4>Dati sanitari</h4>
       <div class="info-section">
-        <app-icon type="user" size="40"></app-icon>
+        <app-icon type="user"  [size]="isMobile ? 32 : 40"></app-icon>
         <div class="name-section">
           <p class="name">
             {{ profileDetail?.name }}

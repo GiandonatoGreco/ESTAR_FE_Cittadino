@@ -1,11 +1,13 @@
 <div class="document-card">
   <div class="card-header">
     <!-- TODO logica per capire come/quando mostrare badge -->
-    <div class="badge">Nuovo</div>
-    <div [class]="'badge ' + fileExpiration">
-      {{
-        fileExpiration === "today" ? "In scadenza oggi" : "Disponibile per 48h"
-      }}
+    <div class="badge-container">
+      <div class="badge">Nuovo</div>
+      <div [class]="'badge ' + fileExpiration">
+        {{
+          fileExpiration === "today" ? "In scadenza oggi" : "Disponibile per 48h"
+        }}
+      </div>
     </div>
     <p class="date">{{ fileCreationDate }}</p>
   </div>
