@@ -1,12 +1,14 @@
-.alert-container{
-    h5{
-        font-weight: 600;
-        margin-bottom: 16px;
-    }
-    .btns-wrapper {
-        margin:24px 0 0;
-        text-align: left;
-        display:flex;
-        justify-content: space-between;
-    }
+.container {
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+.notification-content {
+  position: absolute;
+  top: 30vh;
+  right: 0;
+  width: 670px;
+
+  max-width: 100%;
 }
