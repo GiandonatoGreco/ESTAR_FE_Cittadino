@@ -46,7 +46,7 @@
 
         .doctor-clinics-info-wrapper {
         display: flex;
-        gap: 23px;
+        gap: 24px;
 
         .doctor-clinics-info-container {
             display: grid;
@@ -63,10 +63,6 @@
             line-height: 28px;
             color: $grey-02;
             }
-        }
-
-        .doctor-clinics-map-container {
-
         }
         }
 
@@ -92,6 +88,7 @@
             font-size: 18px;
             font-weight: 600;
             line-height: 24px;
+            color: $black;
             }
 
             .declaration-text {
@@ -110,6 +107,85 @@
 
         .btn-wrapper {
         text-align: right;
+        }
+    }
+}
+
+/*Mobile*/
+@media  (max-width: 767px) {
+    .doctor-detail {
+        .container {
+            .doctor-detail-wrapper {
+               flex-direction: column;
+               gap:16px;
+    
+                .doctor-detail-personal-info {
+               
+            
+                    h5 {
+                        font-size: 20px;
+                    }
+                }
+              
+              .doctor-detail-address{
+                width:100%;
+          
+                .label {
+                 font-size:16px;
+                }
+              }
+            }
+        }
+    }
+      
+    .doctor-clinics {
+        margin-top:24px;
+        padding:32px 0;
+       
+    
+        .container {
+            gap:24px;
+    
+            .doctor-clinics-info-wrapper {
+                flex-direction: column-reverse;
+    
+            .doctor-clinics-info-container {
+                gap:8px;
+    
+                .doctor-clinic-card {
+                    padding:12px;
+                }
+            }
+    
+            .doctor-clinics-map-container {
+                height: 351px;
+            }
+            }
+        }
+    }
+    
+    .declaration-section {
+        padding: 24px 0 32px;
+    
+        .container {
+            .declaration-wrapper {
+           
+    
+            .declaration-container {
+                .declaration-title {
+                    font-size: 16px;
+                }
+    
+                .declaration-text {
+                    margin-top:8px;
+                    font-size: 14px;
+                }
+            }
+            }
+    
+            .separator {
+                margin: 24px 0;
+            }
         }
     }
 }

@@ -40,7 +40,7 @@
           <p class="label">Contatti</p>
           <div class="contacts-container">
             <app-icon type="envelope"></app-icon>
-            {{ currentDoctor.email }}
+            <a href=""> {{ currentDoctor.email }}</a>
           </div>
           <div class="contacts-container">
             <app-icon type="phone"></app-icon>
@@ -50,8 +50,8 @@
       </div>
       <div class="doctor-info-card-container button-wrapper">
         <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary">
-          Scarica attestato
           <app-icon type="download" fill="#fff" *ngIf="!isMobile"></app-icon>
+          Scarica attestato <span *ngIf="!isMobile">PDF (120KB)</span>
         </a>
       </div>
     </div>
@@ -135,38 +135,40 @@
 
 <section class="more-info">
   <div class="container">
-    <h2>A chi è rivolto il servizio di cambio medico</h2>
-    <div class="more-info-wrapper">
+  <div class="more-info-container">
+    <div class="info-wrapper"> 
+      <h2>A chi è rivolto il servizio</h2>
       <p>
-        Il servizio di scelta medico online è disponibile per le seguenti
-        tipologie di cittadino:
+        Il <strong>servizio di scelta medico online </strong> è disponibile per differenti <strong> cittadini.</strong>
       </p>
-      <div class="more-info-card-container">
-        <div class="more-info-card">
-          <app-icon type="circle-check"></app-icon>
-          <p>
-            <b>Cittadini italiani residenti in Toscana,</b> assistiti da un
-            medico toscano.
-          </p>
-        </div>
-
-        <div class="more-info-card">
-          <app-icon type="circle-check"></app-icon>
-          <p>
-            <b>Cittadini italiani, con domicilio sanitario Toscana,</b>
-            attualmente assistiti da un medico toscano.
-          </p>
-        </div>
-
-        <div class="more-info-card">
-          <app-icon type="circle-check"></app-icon>
-          <p>
-            <b>Cittadini comunitari o stranieri, residenti in Toscana,</b>
-            attualmente assistiti da un medico toscano.
-          </p>
-        </div>
+    </div>
+   
+      <div class="more-info-card">
+        <app-icon type="circle-check"></app-icon>
+        <p>
+          <b>Cittadini italiani residenti in Toscana,</b> assistiti da un
+          medico toscano.
+        </p>
       </div>
-      <p>
+
+      <div class="more-info-card">
+        <app-icon type="circle-check"></app-icon>
+        <p>
+          <b>Cittadini italiani, con domicilio sanitario Toscana,</b>
+          attualmente assistiti da un medico toscano.
+        </p>
+      </div>
+
+      <div class="more-info-card">
+        <app-icon type="circle-check"></app-icon>
+        <p>
+          <b>Cittadini comunitari o stranieri, residenti in Toscana,</b>
+          attualmente assistiti da un medico toscano.
+        </p>
+      </div>
+    
+  </div>
+      <p class="description">
         Oltre ai casi sopra evidenziati, è possibile scegliere il nuovo medico
         anche nel caso in cui il proprio medico toscano abbia cessato la propria
         attività. Il servizio sarà inizialmente disponibile per l’Azienda Usl
@@ -179,7 +181,6 @@
         consultare le sezione con le
         <a [routerLink]="['/']">domande frequenti</a>.
       </p>
-    </div>
   </div>
 </section>
 

@@ -11,8 +11,11 @@
   </it-breadcrumb>
   <h1 class="mb-2">Cambia medico</h1>
   <h5>
-    Puoi cambiare il medico di medicina generale. La ricerca sarà effettuata
-    nell'ambito della Azienda Socio-Sanitaria Territoriale (ASST) di competenza.
+    È possibile cambiare il
+    <strong>Medico di Medicina Generale </strong> (MMG) oppure, per i figli
+    minorenni, il <strong>Pediatra di Libera Scelta </strong>  (PLS). La ricerca
+    sarà effettuata nell'ambito della Azienda Socio-Sanitaria Territoriale
+    (ASST) di competenza.
   </h5>
   <div class="info-card">
     <div>
@@ -25,12 +28,13 @@
     </div>
   </div>
 </section>
-<section class="selct-doctor">
+<!--Desktop-->
+<section class="selct-doctor" *ngIf="!isMobile">
   <div class="container">
     <div class="filters-wrapper">Filters</div>
     <div class="separator"></div>
     <div class="btns-wrapper">
-      <p class="results">Mostrati {{ list.length }} risultati</p>
+      <p class="results">Trovati {{ list.length }} medici</p>
       <it-dropdown color="outline-primary">
         <span button>Ordina per</span>
         <ng-container list>
@@ -45,7 +49,7 @@
       </it-dropdown>
       <button itButton="outline-primary" (click)="sightToggle()">
         {{
-          currentSight === "map" ? "Mostra vista lista" : "Mostra vista mappa"
+          currentSight === "map" ? "Visualizza in lista" : "Visualizza in mappa"
         }}
       </button>
     </div>
@@ -115,3 +119,82 @@
     </div>
   </div>
 </section>
+
+<!--Mobile-->
+<it-tab-container *ngIf="isMobile">
+  <it-tab-item
+    [id]="'tab-' + index"
+    *ngFor="let tab of tabs; let index = index"
+    [label]="tab"
+    [active]="selectedIndex === index"
+  >
+    <div class="btns-wrapper">
+      <div class="filters">
+        <button class="btn btn-outline-primary">
+          <app-icon type="sliders" size="16" fill="#07768D"></app-icon> Filtri
+        </button>
+      </div>
+      
+      <div class="button-container"> 
+        <p class="results">Trovati {{ list.length }} medici</p>
+        <it-dropdown color="outline-primary">
+          <span button>Ordina per</span>
+          <ng-container list>
+            <it-dropdown-item
+              *ngFor="let item of orderByItems"
+              externalLink="true"
+              (click)="onChangeOrder(item.text)"
+            >
+              {{ item.text }}
+            </it-dropdown-item>
+          </ng-container>
+        </it-dropdown>
+      </div>
+    </div>
+    <!--Contenuto dei tab-->
+
+    <div *ngIf="tab === 'Mappa'">
+      <!-- Contenuto della mappa -->
+      <div class="map-container">
+        <app-custom-map [markers]="list"></app-custom-map>
+      </div>
+    </div>
+    <div *ngIf="tab === 'Lista'">
+      <!-- Contenuto della lista -->
+      <div class="cards-wrapper">
+        <a
+          class="doctor-card"
+          [ngClass]="{ active: activeMarker === item.id }"
+          *ngFor="let item of list"
+          [routerLink]="['/', routes.doctors.path, item.id]"
+        >
+          <div
+            (mouseover)="setActiveMarker(item.id)"
+            (mouseout)="setActiveMarker()"
+          >
+            <div class="card-header">
+              <p
+                class="available-badge"
+                [ngClass]="{
+                  available: item.available === 'yes',
+                  'only-desk': item.available === 'only_desk'
+                }"
+              >
+                <span>
+                  {{ item.available }}
+                </span>
+              </p>
+              <p>{{ item.company.name }}</p>
+            </div>
+            <h4>{{ item.name }}</h4>
+            <p>
+              <app-icon type="location-dot"></app-icon>{{ item.address.city }},
+              {{ item.address.street }}
+            </p>
+          </div>
+        </a>
+        <button class="btn btn-outline-primary">Mostra altri medici</button>
+      </div>
+    </div>
+  </it-tab-item>
+</it-tab-container>

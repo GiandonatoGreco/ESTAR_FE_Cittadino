@@ -48,6 +48,7 @@ import { ModalProfileComponent } from './components/modals/modal-profile/modal-p
 
 import { PrivateSiteComponent } from './private-site/private-site.component';
 import { TokenInterceptor } from 'token.interceptor';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   // components & directives
@@ -83,6 +84,7 @@ import { TokenInterceptor } from 'token.interceptor';
     ProfileComponent,
     ModalProfileComponent,
     PrivateSiteComponent,
+    NotificationComponent,
   ],
   // modules
   imports: [

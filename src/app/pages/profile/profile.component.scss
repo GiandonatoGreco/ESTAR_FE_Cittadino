@@ -91,9 +91,16 @@
         
         }
     }
-
-    
-
 }
 
+
+/*Mobile*/
+@media  (max-width: 767px) {
+    .hero-banner{
+    
+        .description{
+            width: 100%;
+        }
+    }
+}
 

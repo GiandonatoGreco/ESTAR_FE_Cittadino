@@ -10,7 +10,7 @@ section:nth-child(even) {
 }
 
 .personal-info {
-    padding: 24px 0 0;
+   
     .alert-container {
         margin-top: 24px;
     }
@@ -26,11 +26,11 @@ section:nth-child(even) {
             width: 33.3333333333%;
         }
         &.contacts {
-            width: 48%;
+            width: 33.3333333333%;
         }
         &.button-wrapper {
             text-align: right;
-            width: 16.82%;
+            width: 33.3333333333%;
         }
 
         .doctor-personal-info {
@@ -117,28 +117,56 @@ section:nth-child(even) {
 }
 
 .more-info {
-    .more-info-wrapper {
-        display: grid;
-        gap: 24px;
-        margin-top: 16px;
-
-        .more-info-card-container {
+    .container{
+        gap: 56px;
         display: flex;
-        gap: 24px;
+        flex-direction: column;
+    
+        .more-info-container{
+            display:flex;
+            gap:24px;
 
-        .more-info-card {
-            display: flex;
-            width: 33.333333333%;
-
-            p {
-            margin-left: 8px;
-            max-width: 300px;
-
-            b {
-                font-weight: 600;
+            .info-wrapper{
+                display: flex;
+                flex-direction: column;
+                gap:16px;
             }
+
+            .more-info-card{
+                background-color: $white;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                padding: 26px 24px;
+            }
+
+            .more-info-card-container {
+                display: flex;
+                gap: 24px;
+
+                .more-info-card {
+                    display: flex;
+                    width: 33.333333333%;
+
+                    p {
+                    margin-left: 8px;
+                    max-width: 300px;
+
+                        b {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        
+            .more-info-wrapper {
+                display: grid;
+                gap: 24px;
+                margin-top: 16px;
             }
         }
+
+        .description{
+            width: 856px;
         }
     }
 }
@@ -279,18 +307,37 @@ section:nth-child(even) {
     
     .more-info {
         .container{
-            .more-info-wrapper {
-                gap: 16px;
+            gap:16px;
         
+            .more-info-container{
+                flex-direction: column;
+                gap:16px;
+    
+                .info-wrapper{
+                   
+                }
+    
+                .more-info-card{
+                    display: flex;
+                    padding: 12px;
+                    gap:8px;
+                }
+    
                 .more-info-card-container {
-                    flex-direction: column;
-                    gap: 16px;
-        
+                   
+    
                     .more-info-card {
-                        width: 100%;
-                        justify-content: center;
+                       
                     }
                 }
+            
+                .more-info-wrapper {
+                  
+                }
+            }
+    
+            .description{
+                width:351px;
             }
         }
     }

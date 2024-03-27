@@ -10,6 +10,10 @@ $map-height: 776px;
   border-radius: $border-radius-xs;
   border: 1px solid $border-color;
   margin: 32px 0 40px;
+
+  .label{
+    font-weight: 600;
+  }
 }
 
 .selct-doctor {
@@ -91,3 +95,50 @@ $map-height: 776px;
 }
 
 //table sight
+
+
+/*Mobile*/
+@media  (max-width: 767px) {
+  h5{
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .info-card{
+    padding:12px;
+    gap:8px;
+    flex-direction: column;
+    margin: 24px 0;
+  }
+
+    .btns-wrapper{
+      flex-direction: column;
+
+      .filters{
+       text-align: right;
+      }
+
+      .button-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+  
+  .cards-wrapper{
+    button{
+      width: fit-content;
+      display: flex;
+      align-self: center;
+      margin-top:8px;
+    }
+    
+  }
+  .doctor-card {
+
+    > div {
+      margin-bottom: 16px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
-<it-modal #modalChangeDoctor id="modal-change-doctor" alignment="centered">
-  <div class="alert-container">
-    <it-alert color="success" dismissible="true" *ngIf="response">
+<p>notification works!</p>
+<div class="notification">
+  <div class="notification-content">
+    <it-alert color="success" *ngIf="response">
       <h5 heading>Il cambio medico è stato completato</h5>
       <p>
         Nella Scrivania trovi le informazioni relative al tuo nuovo medico:<br />
@@ -9,16 +10,13 @@
         nella sezione "Il tuo medico attuale".
       </p>
       <div class="btns-wrapper">
-        <a [routerLink]="['/']" class="btn btn-primary" data-bs-dismiss="modal">
-          Torna alla scrivania
-        </a>
-        <a class="btn btn-outline-primary" target="_blank">
+        <button class="btn btn-primary">Torna alla scrivania</button>
+        <button class="btn btn-outline-primary">
           Scarica Attestato PDF (120KB)
-          <app-icon type="download" fill="#07768D"></app-icon>
-        </a>
+        </button>
       </div>
     </it-alert>
-    <it-alert color="danger" dismissible="true" *ngIf="!response">
+    <it-alert color="danger" *ngIf="!response">
       <h5 heading>Qualcosa non ha funzionato</h5>
       <p>
         Il medico selezionato non è più disponibile e non è stato possibile
@@ -26,14 +24,8 @@
         medico.
       </p>
       <div class="btns-wrapper">
-        <a
-          [routerLink]="['/', routes.doctors.path]"
-          class="btn btn-primary"
-          data-bs-dismiss="modal"
-        >
-          Torna alla lista medici
-        </a>
+        <button class="btn btn-primary">Torna alla lista medici</button>
       </div>
     </it-alert>
   </div>
-</it-modal>
+</div>
