@@ -52,6 +52,7 @@ import { DocumentCardComponent } from './components/document-card/document-card.
 import { ModalDocumentUploadComponent } from './components/modals/modal-document-upload/modal-document-upload.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { LoaderInterceptor } from 'interceptors/loader.interceptor';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   // components & directives
@@ -87,6 +88,7 @@ import { LoaderInterceptor } from 'interceptors/loader.interceptor';
     ProfileComponent,
     ModalProfileComponent,
     PrivateSiteComponent,
+    NotificationComponent,
     DocumentCardComponent,
     ModalDocumentUploadComponent,
     FileUploaderComponent,

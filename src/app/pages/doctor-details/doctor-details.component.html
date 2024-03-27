@@ -13,7 +13,6 @@
 <section class="doctor-detail">
   <div class="container">
     <div class="doctor-detail-wrapper">
-
       <div class="doctor-detail-personal-info">
         <h1>{{ docDetail?.name }}</h1>
         <h5>{{ docDetail?.role }}</h5>
@@ -23,26 +22,21 @@
         <p class="label">Contatti</p>
         <div class="contacts-container">
           <app-icon type="envelope"></app-icon>
-          {{ docDetail?.email }}
+          <a [href]="'mailto:' + docDetail?.email">{{ docDetail?.email }} </a>
         </div>
         <div class="contacts-container">
           <app-icon type="phone"></app-icon>
           {{ docDetail?.phone }}
         </div>
       </div>
-
     </div>
-    
+
     <div class="btns-wrapper" *ngIf="isCurrentDoctor">
       <button class="btn btn-primary">
         Scarica attestato
         <app-icon type="download" fill="#fff"></app-icon>
       </button>
-      <a
-        [routerLink]="['/']"
-        class="btn btn-outline-primary"
-        >Cambia medico</a
-      >
+      <a [routerLink]="['/']" class="btn btn-outline-primary">Cambia medico</a>
     </div>
   </div>
 </section>
@@ -75,20 +69,39 @@
 <section class="declaration-section" *ngIf="!isCurrentDoctor">
   <div class="container">
     <div class="declaration-wrapper">
-      <it-checkbox (change)="toggleButtonState()" [checked]="checkboxChecked"></it-checkbox>
+      <it-checkbox
+        (change)="toggleButtonState()"
+        [checked]="checkboxChecked"
+      ></it-checkbox>
       <div class="declaration-container">
-        <p class="declaration-title">Dichiaro di non essere assicurato di altra istituzione estera (Obbligatorio)</p>
+        <p class="declaration-title">
+          Dichiaro di non essere assicurato di altra istituzione estera
+          (Obbligatorio)
+        </p>
         <p class="declaration-text">
-          Si è assicurati di una istituzione estera quando, pur vivendo in Italia, la sicurezza sociale (malattia, maternità, pensione, ecc) è garantita da un altro membro dell’UE o convenzionato con l’Italia. 
-          Se è assicurato di altra istituzione estera (es. lavoratore distaccato, pensionato e rispettivi familiari) deve recarsi al distretto socio sanitario dell’ASL e consegnare la documentazione in suo possesso 
-          (Formulario S1 oppure E106, E109, E120, E121 ecc) per procedere all’iscrizione. Ulteriori approfondimenti sono disponibili al seguente indirizzo: <a href="http://ec.europa.eu/social/main.jsp?catld=851&langld=it">http://ec.europa.eu/social/main.jsp?catld=851&langld=it</a>
+          Si è assicurati di una istituzione estera quando, pur vivendo in
+          Italia, la sicurezza sociale (malattia, maternità, pensione, ecc) è
+          garantita da un altro membro dell’UE o convenzionato con l’Italia. Se
+          è assicurato di altra istituzione estera (es. lavoratore distaccato,
+          pensionato e rispettivi familiari) deve recarsi al distretto socio
+          sanitario dell’ASL e consegnare la documentazione in suo possesso
+          (Formulario S1 oppure E106, E109, E120, E121 ecc) per procedere
+          all’iscrizione. Ulteriori approfondimenti sono disponibili al seguente
+          indirizzo:
+          <a href="http://ec.europa.eu/social/main.jsp?catld=851&langld=it"
+            >http://ec.europa.eu/social/main.jsp?catld=851&langld=it</a
+          >
         </p>
       </div>
     </div>
     <div class="separator"></div>
     <div class="btn-wrapper">
-      <button class="btn btn-primary" [disabled]="!checkboxChecked" (click)="changeDoctor()"
-        >Conferma scelta
+      <button
+        class="btn btn-primary"
+        [disabled]="!checkboxChecked"
+        (click)="changeDoctor()"
+      >
+        Conferma scelta
       </button>
     </div>
   </div>

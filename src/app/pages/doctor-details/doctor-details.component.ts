@@ -5,6 +5,8 @@ import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { routes } from '../../../utils/routes';
 import { ModalChangeDoctorComponent } from 'components/modals/modal-change-doctor/modal-change-doctor.component';
+import { NotificationsService } from 'services/notifications.service';
+
 
 @Component({
   selector: 'app-doctor-details',
@@ -49,9 +51,11 @@ export class DoctorDetailsComponent implements OnInit {
   checkboxChecked: boolean = false;
   isCurrentDoctor: boolean = false; //TODO da rendere dinamico
 
+  
   constructor(
     private route: ActivatedRoute,
-    private doctorService: DoctorsService
+    private doctorService: DoctorsService,
+    private notificationsService: NotificationsService    
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +67,7 @@ export class DoctorDetailsComponent implements OnInit {
           const details = data.find((d) => d.id.toString() === this.id);
           this.docDetail = details;
           this.crumbs.push({
-            label: `Dettaglio ${details?.name || ''}`,
+            label: ` ${details?.name || ''}`,
             icon: undefined,
           });
         });
@@ -83,9 +87,21 @@ export class DoctorDetailsComponent implements OnInit {
     this.checkboxChecked = !this.checkboxChecked;
   }
 
-  changeDoctor() {
+  changeDoctor(): void {
+    this.doctorService.changeDoctor().subscribe((data) => {
+      if (data) {
+        // Se l'operazione di cambio medico è stata completata con successo
+        this.notificationsService.showNotification('Il cambio medico è stato completato con successo.', 'success');
+      } else {
+        // Se c'è stato un errore durante l'operazione di cambio medico
+        this.notificationsService.showNotification('Si è verificato un errore durante il cambio medico.', 'error');
+      }
+    });
+
+  /*changeDoctor() {
     this.doctorService.changeDoctor().subscribe((data) => {
         this.modalChangeDoctor.modalOpen(data);
     });
+    */
   }
 }

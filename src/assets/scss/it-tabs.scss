@@ -1,0 +1,23 @@
+.tab-content{
+    background-color: $bg-light;
+}
+
+.p-4{
+    padding: 12px 12px 20px !important;
+} 
+
+.nav-tabs .nav-item {
+    flex: 1;
+}
+
+.btns-wrapper{
+    gap:16px !important;
+
+    span{
+        font-size: 14px;
+    }
+
+    .btn-primary{
+        font-size: 14px;
+    }
+}
