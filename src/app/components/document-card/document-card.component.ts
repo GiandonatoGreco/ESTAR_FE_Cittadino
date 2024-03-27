@@ -5,7 +5,7 @@ import {
   formatSize,
   getExpiration,
 } from '../../../utils/documents';
-import { DocumentsService } from 'services/documents.service';
+import { DocumentsService } from '../../services/documents.service';
 
 @Component({
   selector: 'app-document-card',
