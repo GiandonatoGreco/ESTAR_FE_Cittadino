@@ -8,10 +8,9 @@ describe('ModalChangeDoctorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalChangeDoctorComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ModalChangeDoctorComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ModalChangeDoctorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -29,5 +29,5 @@ export interface DoctorI {
 }
 
 export interface ChangeDoctorResponse {
-  response: boolean
+  response: boolean;
 }

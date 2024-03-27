@@ -1,139 +1,135 @@
 @import "../../../../assets/scss/colors.scss";
 @import "../../../../assets/scss/variables.scss";
 
-.body-container{
+.body-container {
+  .description-container {
+    padding: 0 0 32px 0;
 
-    .description-container{
-        padding:0 0 32px 0;
-    
-       .description-title{
-        display: flex;
-        flex-direction: column;
+    .description-title {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      line-height: 24px;
+      color: $grey-01;
+
+      .description-details {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28px;
+        color: $grey-02;
+      }
+    }
+
+    .description-paragraph {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+      color: $grey-02;
+      display: flex;
+      flex-direction: column;
+
+      .description {
+        font-size: 18px;
         font-weight: 600;
-        line-height: 24px; 
-        color:$grey-01;
-    
-            .description-details{
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 28px;
-                color:$grey-02;
-            }
-        }
-
-        .description-paragraph{
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 28px; 
-            color: $grey-02;
-            display: flex;
-            flex-direction: column;
-
-            .description{
-                font-size: 18px;
-                font-weight: 600;
-                line-height: 28px;
-                color: $grey-02;
-            }
-        }
+        line-height: 28px;
+        color: $grey-02;
+      }
     }
+  }
 
-    .otp-container{
-        display:flex;
-        padding:0 0 32px 0;
-        gap:8px;
-        justify-content: center;
-        align-items: flex-end;
-        
-        input {
-            width: 51px;
-            text-align: center; 
-            border-bottom: 2px solid $border-color-blue;
-            // border-radius: $border-radius-xs;
-        }
+  .otp-container {
+    display: flex;
+    padding: 0 0 32px 0;
+    gap: 8px;
+    justify-content: center;
+    align-items: flex-end;
+
+    input {
+      width: 51px;
+      text-align: center;
+      border-bottom: 2px solid $border-color-blue;
+      // border-radius: $border-radius-xs;
     }
+  }
 
-    .verification-container{
+  .verification-container {
+    display: flex;
+    flex-direction: column;
+    color: $grey-02;
+    padding: 0 0 32px 0;
+    font-size: 18px;
+    line-height: 28px;
+
+    .detail {
+      font-weight: 600;
+    }
+  }
+
+  .code-container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+    font-size: 18px;
+    line-height: 28px;
+
+    .text {
+      color: $grey-02;
+      font-weight: 400;
+    }
+    .btn-tetriary {
+      &.btn-code {
         display: flex;
-        flex-direction: column;
-        color:$grey-02;
-        padding:0 0 32px 0;
+        justify-content: flex-start;
         font-size: 18px;
         line-height: 28px;
-       
-        .detail{
-            font-weight: 600;
-        }
+        font-weight: 600;
+      }
+    }
+  }
+
+  .btn-tetriary {
+    &.btn-change {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+  }
+
+  .input-container {
+    padding: 32px 0 0 0;
+
+    .label-text {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 24px;
+      color: $black;
     }
 
-    .code-container{
-        display: flex;
-        flex-direction: column;
-        padding: 32px 0;
-        font-size: 18px;
-        line-height: 28px; 
-        
-        .text{
-            color: $grey-02;
-            font-weight: 400;
-        }
-        .btn-tetriary{ 
-            &.btn-code{
-                display: flex;
-                justify-content: flex-start;
-                font-size: 18px;
-                line-height: 28px; 
-                font-weight: 600;
-            }
-        }
+    .add-input {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .btn-tetriary{
-        &.btn-change{
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 28px;
-        }
+    .input-style {
+      padding: 8px;
+      border-radius: $border-radius-xs;
+      border: 1px solid $grey-01;
+      color: $grey-02;
     }
-    
-    
-    .input-container{
-        padding: 32px 0 0 0;
 
-        .label-text{
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 24px; 
-            color:$black;
-        }
-       
-        .add-input{
-            margin-bottom: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .input-style{
-            padding: 8px;
-            border-radius: $border-radius-xs;
-            border: 1px solid $grey-01;
-            color: $grey-02;
-        }
-    
-    
-        .confirm-input{
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+    .confirm-input {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
+  }
 }
 
-.footer-container{
-    display: flex;
-    justify-content: flex-start;
-    margin:0; 
-    gap: 24px;
+.footer-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  gap: 24px;
 }
-

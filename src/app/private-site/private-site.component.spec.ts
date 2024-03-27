@@ -8,10 +8,9 @@ describe('PrivateSiteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrivateSiteComponent]
-    })
-    .compileComponents();
-    
+      declarations: [PrivateSiteComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PrivateSiteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

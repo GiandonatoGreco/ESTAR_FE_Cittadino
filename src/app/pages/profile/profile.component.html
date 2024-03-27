@@ -69,7 +69,11 @@
               {{ profileDetail?.email || "-" }}
             </span>
           </p>
-          <button class="btn btn-primary" *ngIf="!profileDetail?.email" (click)="openModal('email')">
+          <button
+            class="btn btn-primary"
+            *ngIf="!profileDetail?.email"
+            (click)="openModal('email')"
+          >
             Aggiungi
           </button>
           <button
@@ -94,7 +98,6 @@
           </button>
           <button
             class="btn btn-primary"
-            
             *ngIf="profileDetail?.phone"
             (click)="openModal('phone')"
           >

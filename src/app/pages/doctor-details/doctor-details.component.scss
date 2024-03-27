@@ -1,191 +1,186 @@
 @import "../../../assets/scss/colors.scss";
 
 .doctor-detail {
-    .container {
-        .doctor-detail-wrapper {
-            display: flex;
-            gap: 24px;
+  .container {
+    .doctor-detail-wrapper {
+      display: flex;
+      gap: 24px;
 
-            .doctor-detail-personal-info {
-                width: 69%;
-        
-                h5 {
-                margin-top: 16px;
-                }
-            }
-          
-          .doctor-detail-address{
-            width: 31%;
-      
-            .label {
-              color: $grey-01;
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 24px;
-            }
-          }
-        }
+      .doctor-detail-personal-info {
+        width: 69%;
 
-        .btns-wrapper {
-            margin-top: 24px;
-            display: flex;
-            gap: 24px;
+        h5 {
+          margin-top: 16px;
         }
+      }
+
+      .doctor-detail-address {
+        width: 31%;
+
+        .label {
+          color: $grey-01;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+      }
     }
+
+    .btns-wrapper {
+      margin-top: 24px;
+      display: flex;
+      gap: 24px;
+    }
+  }
 }
-  
+
 .doctor-clinics {
-    background-color: $bg-light;
-    padding: 40px 24px;
-    margin-top: 2rem;
+  background-color: $bg-light;
+  padding: 40px 24px;
+  margin-top: 2rem;
 
-    .container {
+  .container {
+    display: grid;
+    gap: 32px;
+
+    .doctor-clinics-info-wrapper {
+      display: flex;
+      gap: 24px;
+
+      .doctor-clinics-info-container {
         display: grid;
-        gap: 32px;
-
-        .doctor-clinics-info-wrapper {
-        display: flex;
         gap: 24px;
 
-        .doctor-clinics-info-container {
-            display: grid;
-            gap: 24px;
+        .doctor-clinic-card {
+          border-radius: 4px;
+          border: 1px solid $border-color;
+          background: #fff;
+          padding: 24px;
 
-            .doctor-clinic-card {
-            border-radius: 4px;
-            border: 1px solid $border-color;
-            background: #FFF;
-            padding: 24px;
-
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 28px;
-            color: $grey-02;
-            }
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 28px;
+          color: $grey-02;
         }
-        }
-
-        .disclaimer {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        color: $grey-02;
-        }
+      }
     }
+
+    .disclaimer {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: $grey-02;
+    }
+  }
 }
 
 .declaration-section {
-    padding: 40px 24px;
+  padding: 40px 24px;
 
-    .container {
-        .declaration-wrapper {
-        display: flex;
-        gap: 16px;
+  .container {
+    .declaration-wrapper {
+      display: flex;
+      gap: 16px;
 
-        .declaration-container {
-            .declaration-title {
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 24px;
-            color: $black;
-            }
-
-            .declaration-text {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            color: $grey-02;
-            margin-top: 6px;
-            }
-        }
+      .declaration-container {
+        .declaration-title {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 24px;
+          color: $black;
         }
 
-        .separator {
-        margin: 40px 0 32px;
+        .declaration-text {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          color: $grey-02;
+          margin-top: 6px;
         }
-
-        .btn-wrapper {
-        text-align: right;
-        }
+      }
     }
+
+    .separator {
+      margin: 40px 0 32px;
+    }
+
+    .btn-wrapper {
+      text-align: right;
+    }
+  }
 }
 
 /*Mobile*/
-@media  (max-width: 767px) {
-    .doctor-detail {
-        .container {
-            .doctor-detail-wrapper {
-               flex-direction: column;
-               gap:16px;
-    
-                .doctor-detail-personal-info {
-               
-            
-                    h5 {
-                        font-size: 20px;
-                    }
-                }
-              
-              .doctor-detail-address{
-                width:100%;
-          
-                .label {
-                 font-size:16px;
-                }
-              }
-            }
+@media (max-width: 767px) {
+  .doctor-detail {
+    .container {
+      .doctor-detail-wrapper {
+        flex-direction: column;
+        gap: 16px;
+
+        .doctor-detail-personal-info {
+          h5 {
+            font-size: 20px;
+          }
         }
-    }
-      
-    .doctor-clinics {
-        margin-top:24px;
-        padding:32px 0;
-       
-    
-        .container {
-            gap:24px;
-    
-            .doctor-clinics-info-wrapper {
-                flex-direction: column-reverse;
-    
-            .doctor-clinics-info-container {
-                gap:8px;
-    
-                .doctor-clinic-card {
-                    padding:12px;
-                }
-            }
-    
-            .doctor-clinics-map-container {
-                height: 351px;
-            }
-            }
+
+        .doctor-detail-address {
+          width: 100%;
+
+          .label {
+            font-size: 16px;
+          }
         }
+      }
     }
-    
-    .declaration-section {
-        padding: 24px 0 32px;
-    
-        .container {
-            .declaration-wrapper {
-           
-    
-            .declaration-container {
-                .declaration-title {
-                    font-size: 16px;
-                }
-    
-                .declaration-text {
-                    margin-top:8px;
-                    font-size: 14px;
-                }
-            }
-            }
-    
-            .separator {
-                margin: 24px 0;
-            }
+  }
+
+  .doctor-clinics {
+    margin-top: 24px;
+    padding: 32px 0;
+
+    .container {
+      gap: 24px;
+
+      .doctor-clinics-info-wrapper {
+        flex-direction: column-reverse;
+
+        .doctor-clinics-info-container {
+          gap: 8px;
+
+          .doctor-clinic-card {
+            padding: 12px;
+          }
         }
+
+        .doctor-clinics-map-container {
+          height: 351px;
+        }
+      }
     }
+  }
+
+  .declaration-section {
+    padding: 24px 0 32px;
+
+    .container {
+      .declaration-wrapper {
+        .declaration-container {
+          .declaration-title {
+            font-size: 16px;
+          }
+
+          .declaration-text {
+            margin-top: 8px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .separator {
+        margin: 24px 0;
+      }
+    }
+  }
 }

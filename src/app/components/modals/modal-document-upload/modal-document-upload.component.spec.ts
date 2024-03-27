@@ -8,10 +8,9 @@ describe('ModalDocumentUploadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalDocumentUploadComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ModalDocumentUploadComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ModalDocumentUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

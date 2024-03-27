@@ -1,8 +1,7 @@
 {
-    "code": 200,
-    "status": "ok",
-    "data": {
-            "response" : true
-        }
+  "code": 200,
+  "status": "ok",
+  "data": {
+    "response": true
   }
-  
+}

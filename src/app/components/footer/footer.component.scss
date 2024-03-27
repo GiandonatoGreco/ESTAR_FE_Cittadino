@@ -8,54 +8,53 @@ footer {
   left: 0;
   width: 100%;
 
-  .separator{
-    &.dark{
+  .separator {
+    &.dark {
       background-color: $border-color-dark;
     }
   }
-  .footer-top{
+  .footer-top {
     display: flex;
     flex-direction: column;
-    gap:40px;
+    gap: 40px;
     padding: 0 0 40px 0;
 
-    .title{
-      display:flex;
+    .title {
+      display: flex;
       align-items: center;
       gap: 16px;
-      padding:48px 0 8px 0;
-      
+      padding: 48px 0 8px 0;
     }
 
-    .footer-contact{
+    .footer-contact {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 24px;
 
-      .title{
+      .title {
         text-transform: uppercase;
-        padding:0;
+        padding: 0;
       }
-      
+
       .contact-details {
         color: $white;
         display: flex;
         flex-direction: column;
-        gap:8px 0;
+        gap: 8px 0;
 
-        .paragraph{
+        .paragraph {
           color: $white;
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
-          line-height: 24px; 
-          
-          .info{
+          line-height: 24px;
+
+          .info {
             font-weight: 600;
             color: $white;
 
-            .link{
+            .link {
               color: $white;
               text-decoration: underline;
             }
@@ -65,30 +64,30 @@ footer {
     }
   }
 
-  .footer-bottom{
+  .footer-bottom {
     .footer-copyright {
       display: flex;
       padding: 0 0 24px 0;
-      gap:24px;
+      gap: 24px;
       align-items: center;
 
-      .copyright{
+      .copyright {
         color: $white;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        line-height: 16px; 
+        line-height: 16px;
 
-        .link{
+        .link {
           color: $white;
           text-decoration: underline;
 
-          &:hover{
+          &:hover {
             text-decoration: none;
           }
         }
       }
-      .privacy{
+      .privacy {
         color: $white;
         font-size: 14px;
         font-style: normal;
@@ -99,22 +98,21 @@ footer {
   }
 }
 
-
 /*Mobile*/
-@media  (max-width: 767px) {
+@media (max-width: 767px) {
   footer {
-    .footer-top{
-      gap:32px;
+    .footer-top {
+      gap: 32px;
     }
 
-    .footer-bottom{
+    .footer-bottom {
       .footer-copyright {
         flex-direction: column;
         align-items: flex-start;
-        gap:16px;
+        gap: 16px;
 
-        .privacy{
-         text-decoration: none;
+        .privacy {
+          text-decoration: none;
         }
       }
     }

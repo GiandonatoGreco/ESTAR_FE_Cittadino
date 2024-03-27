@@ -1,6 +1,5 @@
 export interface FaqI {
-    question: string;
-    answer: string;
-    expanded?: boolean;
+  question: string;
+  answer: string;
+  expanded?: boolean;
 }
-  

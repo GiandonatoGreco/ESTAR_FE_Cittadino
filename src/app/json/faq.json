@@ -1,50 +1,46 @@
 {
-    "code": 200,
-    "status": "ok",
-    "data": [
-        {
-            "id": 1,
-            "question": "Chi può accedere al servizio di cambio medico?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-        },
-        {
-            "id": 2,
-            "question": "Che cosa consente di fare il servizio?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-        },
-        {
-            "id": 3,
-            "question": "Che cosa non consente di fare il servizio?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-        },
-        {
-            "id": 4,
-            "question": "Posso scegliere qualunque medico?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-        },
-        {
-            "id": 5,
-            "question": "Come può essere selezionato un medico o un pediatra per un soggetto minorenne?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem." 
-            
-        },
-        {
-            "id": 6,
-            "question": "Il sistema consente di fare anche la prima scelta, oppure per la prima scelta è necessario recarsi agli sportelli USL?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-            
-        },
-        {
-            "id": 7,
-            "question": "Da quando decorre la scelta del nuovo medico?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem." 
-            
-        },
-        {
-            "id": 8,
-            "question": "Cosa succede nel caso in cui il suo medico cessi la propria attività?", 
-            "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
-        }
-    ]
-  }
-  
+  "code": 200,
+  "status": "ok",
+  "data": [
+    {
+      "id": 1,
+      "question": "Chi può accedere al servizio di cambio medico?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 2,
+      "question": "Che cosa consente di fare il servizio?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 3,
+      "question": "Che cosa non consente di fare il servizio?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 4,
+      "question": "Posso scegliere qualunque medico?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 5,
+      "question": "Come può essere selezionato un medico o un pediatra per un soggetto minorenne?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 6,
+      "question": "Il sistema consente di fare anche la prima scelta, oppure per la prima scelta è necessario recarsi agli sportelli USL?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 7,
+      "question": "Da quando decorre la scelta del nuovo medico?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    },
+    {
+      "id": 8,
+      "question": "Cosa succede nel caso in cui il suo medico cessi la propria attività?",
+      "answer": "Lorem ipsum dolor sit amet consectetur. Vestibulum quis ipsum venenatis at diam tortor morbi leo sem."
+    }
+  ]
+}

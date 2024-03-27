@@ -6,17 +6,15 @@ import { DoctorsService } from 'services/doctors.service';
 @Component({
   selector: 'app-modal-change-doctor',
   templateUrl: './modal-change-doctor.component.html',
-  styleUrl: './modal-change-doctor.component.scss'
+  styleUrl: './modal-change-doctor.component.scss',
 })
-export class ModalChangeDoctorComponent implements AfterViewInit  {
+export class ModalChangeDoctorComponent implements AfterViewInit {
   @ViewChild('modalChangeDoctor') modalChangeDoctor!: ItModalComponent;
 
   routes = utilsRoutes;
-  response!: boolean
+  response!: boolean;
 
-  constructor(
-    private doctorService: DoctorsService
-  ) {}
+  constructor(private doctorService: DoctorsService) {}
 
   ngAfterViewInit(): void {
     //this.modalChangeDoctor.toggle();

@@ -8,10 +8,9 @@ describe('ModalProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalProfileComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ModalProfileComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ModalProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

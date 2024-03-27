@@ -1,74 +1,67 @@
 @import "../../../assets/scss/colors.scss";
 
-.breadcrumb-container{ 
-    .breadcrumb{
-        &.padding{
-            padding:24px 0;
-            margin:0;
-        }
-        .breadcrumb-item{
-            .item-link{
-                font-size: 18px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 28px;
-
-                &.faq{
-                    text-decoration: none;
-                    font-weight: 400;
-                    color:$grey-02  !important;
-                }
-            }
-
-            .separator{
-                &.grey{
-                    color:$grey-01;
-                    padding: 0 4px;
-                }
-            }
-        }
+.breadcrumb-container {
+  .breadcrumb {
+    &.padding {
+      padding: 24px 0;
+      margin: 0;
     }
+    .breadcrumb-item {
+      .item-link {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+
+        &.faq {
+          text-decoration: none;
+          font-weight: 400;
+          color: $grey-02 !important;
+        }
+      }
+
+      .separator {
+        &.grey {
+          color: $grey-01;
+          padding: 0 4px;
+        }
+      }
+    }
+  }
 }
 
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 32px;
 
-.faq-container{
-    display:flex;
-    flex-direction: column;
-    gap:16px;
-    padding-bottom: 32px;
-
-    .accordion{
-        &.padding-top{
-            padding-top:24px;
-        }
-
-        .accordion-item{
-            &.expanded {
-                background-color: $bg-light;
-            }
-        }
-
-        
-        .accordion-button {
-            &.padding {
-            padding: 16px 24px 24px 24px;
-            color: $faq-question;
-            }
-        
-            &.opened {
-            background-color: $bg-light;
-
-            }
-        }
-
-        .accordion-body {
-            &.padding{
-                padding: 0 24px 24px;
-            }
-        }
+  .accordion {
+    &.padding-top {
+      padding-top: 24px;
     }
+
+    .accordion-item {
+      &.expanded {
+        background-color: $bg-light;
+      }
+    }
+
+    .accordion-button {
+      &.padding {
+        padding: 16px 24px 24px 24px;
+        color: $faq-question;
+      }
+
+      &.opened {
+        background-color: $bg-light;
+      }
+    }
+
+    .accordion-body {
+      &.padding {
+        padding: 0 24px 24px;
+      }
+    }
+  }
 }
-
-
-
-

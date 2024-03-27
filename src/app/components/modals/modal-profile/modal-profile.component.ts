@@ -1,20 +1,19 @@
-import { AfterViewInit, Component, ViewChild, Input} from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Input } from '@angular/core';
 import { ItModalComponent } from 'design-angular-kit';
- 
+
 @Component({
   selector: 'app-modal-profile',
   templateUrl: './modal-profile.component.html',
-  styleUrl: './modal-profile.component.scss'
+  styleUrl: './modal-profile.component.scss',
 })
-
 export class ModalProfileComponent implements AfterViewInit {
   @ViewChild('modalProfile') modalProfile!: ItModalComponent;
 
   @Input() profileDetail: any;
-  
+
   isEmailType: boolean = false;
   remainingTime: number = 60;
-  timerInterval: any; 
+  timerInterval: any;
 
   firstModalVisible = true;
   secondModalVisible = false;
@@ -26,8 +25,12 @@ export class ModalProfileComponent implements AfterViewInit {
     // Rimuovo questa riga, poiché non voglio aprire automaticamente la modale all'inizio
     // this.modalProfile.toggle();
 
-    document.getElementById('newInput')!.addEventListener('input', () => this.setUserInputDisplay());
-    document.getElementById('confirmInput')!.addEventListener('input', () => this.setUserInputDisplay());
+    document
+      .getElementById('newInput')!
+      .addEventListener('input', () => this.setUserInputDisplay());
+    document
+      .getElementById('confirmInput')!
+      .addEventListener('input', () => this.setUserInputDisplay());
   }
 
   openModal(type: 'email' | 'phone'): void {
@@ -36,25 +39,27 @@ export class ModalProfileComponent implements AfterViewInit {
 
     this.timerInterval = setInterval(() => {
       if (this.remainingTime > 0) {
-        this.remainingTime -= 1; 
+        this.remainingTime -= 1;
       } else {
-        clearInterval(this.timerInterval); 
+        clearInterval(this.timerInterval);
       }
-    }, 1000); 
+    }, 1000);
 
     this.modalProfile.toggle();
   }
 
   setUserInputDisplay(): void {
-    const displayValue = this.isEmailType ? this.userInput : this.profileDetail?.phone;
+    const displayValue = this.isEmailType
+      ? this.userInput
+      : this.profileDetail?.phone;
     document.getElementById('userInputDisplay')!.innerText = displayValue || '';
-  } 
-  
+  }
+
   showFirstModal() {
     this.firstModalVisible = true;
     this.secondModalVisible = false;
-    this.userInput = ''; 
-    this.confirmInput = ''; 
+    this.userInput = '';
+    this.confirmInput = '';
     this.setUserInputDisplay();
   }
 
@@ -63,7 +68,7 @@ export class ModalProfileComponent implements AfterViewInit {
     this.secondModalVisible = true;
     this.setUserInputDisplay();
   }
-  
+
   // converto il tempo rimanente in formato mm:ss
   formatTime(): string {
     const minutes: number = Math.floor(this.remainingTime / 60);
