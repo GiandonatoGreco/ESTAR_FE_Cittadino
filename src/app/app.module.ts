@@ -47,7 +47,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
 
 import { PrivateSiteComponent } from './private-site/private-site.component';
-import { TokenInterceptor } from 'token.interceptor';
+import { TokenInterceptor } from 'interceptors/token.interceptor';
+import { DocumentCardComponent } from './components/document-card/document-card.component';
+import { ModalDocumentUploadComponent } from './components/modals/modal-document-upload/modal-document-upload.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import { LoaderInterceptor } from 'interceptors/loader.interceptor';
 import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
@@ -85,6 +89,9 @@ import { NotificationComponent } from './components/notification/notification.co
     ModalProfileComponent,
     PrivateSiteComponent,
     NotificationComponent,
+    DocumentCardComponent,
+    ModalDocumentUploadComponent,
+    FileUploaderComponent,
   ],
   // modules
   imports: [
@@ -101,6 +108,11 @@ import { NotificationComponent } from './components/notification/notification.co
   // services
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],

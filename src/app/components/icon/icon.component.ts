@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class IconComponent {
   @Input() type!: string;
   @Input() size: number | string = 24;
-  @Input() fill: string = '#9C0769';
+  @Input() fill = '#9C0769';
+  @Input() classes = '';
 }

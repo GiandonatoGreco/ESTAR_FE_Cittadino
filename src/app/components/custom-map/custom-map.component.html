@@ -1,1 +1,10 @@
-<div id="map"></div>
+<div class="map-container">
+  <div id="map"></div>
+  <div
+    class="link go-to-my-position"
+    (click)="goToMyPosition()"
+    *ngIf="userLocation"
+  >
+    <app-icon type="current-position" size="20"></app-icon>
+  </div>
+</div>

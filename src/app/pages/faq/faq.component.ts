@@ -4,16 +4,13 @@ import { routes as utilsRoutes } from '../../../utils/routes';
 import { BreadcrumbI } from 'models/common';
 import { FaqI } from 'models/faq';
 import { FaqService } from 'services/faq.service';
-import { LoadingService } from 'services/loading.service';
-
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrl: './faq.component.scss'
+  styleUrl: './faq.component.scss',
 })
 export class FaqComponent implements OnInit {
- 
   routes = utilsRoutes;
   crumbs: BreadcrumbI[] = [
     {
@@ -27,28 +24,24 @@ export class FaqComponent implements OnInit {
   ];
 
   list: FaqI[] = [];
-  activeMarker?: number;
 
   toggleAnswer(faqItem: FaqI): void {
-
-    this.list.forEach(item => {
+    this.list.forEach((item) => {
       if (item !== faqItem) {
         item.expanded = false;
       }
     });
-  
+
     faqItem.expanded = !faqItem.expanded;
   }
 
   constructor(
     private faqService: FaqService,
-    private loadingService: LoadingService,
-    private readonly notificationService: ItNotificationService,
+    private readonly notificationService: ItNotificationService
   ) {}
 
   ngOnInit(): void {
     // get Faq list
-    this.loadingService.showLoading();
     this.faqService.getFaqList().subscribe({
       next: (data) => {
         this.list = data;
@@ -56,20 +49,7 @@ export class FaqComponent implements OnInit {
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
-
-    // subscribe to activeMarker
-    this.faqService.activeMarker$.subscribe(
-      (data) => (this.activeMarker = data)
-    );
-  }
-
-  setActiveMarker(id?: any): void {
-    this.faqService.setActiveMarker(id);
   }
 }

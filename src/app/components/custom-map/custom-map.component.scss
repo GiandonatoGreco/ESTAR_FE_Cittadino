@@ -1,3 +1,27 @@
+@import "../../../assets/scss/colors.scss";
+
+.map-container {
+  position: relative;
+  height: 100%;
+}
+
 #map {
   height: 100%;
+}
+
+div.go-to-my-position {
+  position: absolute;
+  bottom: 115px;
+  right: 20px;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 2px solid var(--bs-link-color);
+  background: $white;
+
+  &:hover {
+    background-color: #f4f4f4;
+  }
 }

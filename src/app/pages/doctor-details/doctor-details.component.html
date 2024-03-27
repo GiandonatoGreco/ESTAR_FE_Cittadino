@@ -22,7 +22,7 @@
         <p class="label">Contatti</p>
         <div class="contacts-container">
           <app-icon type="envelope"></app-icon>
-          <a href="">{{ docDetail?.email }} </a>
+          <a [href]="'mailto:' + docDetail?.email">{{ docDetail?.email }} </a>
         </div>
         <div class="contacts-container">
           <app-icon type="phone"></app-icon>

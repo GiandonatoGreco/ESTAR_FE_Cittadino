@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { BarChartDataI } from 'models/charts';
+import { routes } from '../../../utils/routes';
 
 @Component({
   selector: 'app-bar-chart',
@@ -30,9 +32,10 @@ export class BarChartComponent {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#0066CC'],
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onSelect(event: any) {
+    this.router.navigate(['/', routes.documents.path]);
     console.log(event);
   }
 }

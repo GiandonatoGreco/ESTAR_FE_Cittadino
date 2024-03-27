@@ -6,7 +6,7 @@ import {
   HttpEvent,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import storage from '../utils/storage';
+import storage from '../../utils/storage';
 import { AuthStorage } from 'auth/auth.service';
 
 @Injectable()

@@ -1,173 +1,178 @@
-<section class="personal-info">
-  <div class="container">
-    <h1 class="personal-name">
-      Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}
-    </h1>
+<div class="alternate-bg">
+  <section class="personal-info">
+    <div class="container">
+      <h1 class="personal-name">
+        Benvenut{{ gender === "m" ? "o" : "a" }} {{ name }}
+      </h1>
 
-    <div class="alert-container">
-      <it-alert color="warning" dismissible="true">
-        Aggiorna i <strong>dati di contatto</strong> per ricevere comunicazioni
-        e documenti. <a [routerLink]="['/']">Vai al tuo profilo.</a>
-      </it-alert>
-      <it-alert color="warning" dismissible="true">
-        Hai ricevuto un <strong>nuovo documento</strong> dal tuo medico. Sarà
-        disponibile solo per 48h!
-        <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
-      </it-alert>
+      <div class="alert-container">
+        <it-alert color="warning" dismissible="true">
+          Aggiorna i <strong>dati di contatto</strong> per ricevere
+          comunicazioni e documenti.
+          <a [routerLink]="['/']">Vai al tuo profilo.</a>
+        </it-alert>
+        <it-alert color="warning" dismissible="true">
+          Hai ricevuto un <strong>nuovo documento</strong> dal tuo medico. Sarà
+          disponibile solo per 48h!
+          <a [routerLink]="['/']">Vai ai tuoi documenti.</a>
+        </it-alert>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="doctor-info">
-  <div class="container" *ngIf="currentDoctor">
-    <h4>Il tuo medico attuale</h4>
-    <div class="doctor-info-wrapper">
-      <div class="doctor-info-card-container d-flex personal-info">
-        <app-icon
-          type="stethoscope"
-          [size]="isMobile ? 32 : 40"
-          fill="#9C0769"
-        ></app-icon>
-        <div class="doctor-personal-info">
-          <h3>{{ currentDoctor.name }}</h3>
-          <p class="doctor-personal-info-role">
-            {{ currentDoctor.role }}
+  <section class="doctor-info">
+    <div class="container" *ngIf="currentDoctor">
+      <h4>Il tuo medico attuale</h4>
+      <div class="doctor-info-wrapper">
+        <div class="doctor-info-card-container d-flex personal-info">
+          <app-icon
+            type="stethoscope"
+            [size]="isMobile ? 32 : 40"
+            fill="#9C0769"
+          ></app-icon>
+          <div class="doctor-personal-info">
+            <h3>{{ currentDoctor.name }}</h3>
+            <p class="doctor-personal-info-role">
+              {{ currentDoctor.role }}
+            </p>
+          </div>
+        </div>
+        <div class="doctor-info-card-container contacts">
+          <div class="contacts-wrapper">
+            <p class="label">Contatti</p>
+            <div class="contacts-container">
+              <app-icon type="envelope"></app-icon>
+              <a [href]="'mailto:' + currentDoctor.email">
+                {{ currentDoctor.email }}</a
+              >
+            </div>
+            <div class="contacts-container">
+              <app-icon type="phone"></app-icon>
+              {{ currentDoctor.phone }}
+            </div>
+          </div>
+        </div>
+        <div class="doctor-info-card-container button-wrapper">
+          <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary">
+            Scarica attestato <span *ngIf="!isMobile">PDF (120KB)</span>
+            <app-icon type="download" fill="#fff" *ngIf="!isMobile"></app-icon>
+          </a>
+        </div>
+      </div>
+      <div class="clinic-text">
+        <p class="label">Ambulatori personali</p>
+        <div class="clinic-card-wrapper">
+          <div
+            class="clinic-card"
+            *ngFor="let clinic of clinics; let i = index"
+            [hidden]="i >= 3 && !showAllCards"
+          >
+            <div class="address-container">
+              <app-icon type="location-dot"></app-icon>
+              {{ clinic.address }}
+            </div>
+            <div class="availability-container">
+              <app-icon type="calendar-days"></app-icon>
+              {{ clinic.availability }}
+            </div>
+          </div>
+        </div>
+        <div class="button-container">
+          <p>*Il medico riceve solo su appuntamento</p>
+          <button
+            class="btn btn-tetriary show-more-clinic-card"
+            (click)="toggleShowAllCards()"
+          >
+            {{ showAllCards ? "Mostra di meno" : "Mostra di più" }}
+            <app-icon
+              type="chevron-{{ showAllCards ? 'top' : 'bottom' }}"
+              fill="#07768D"
+            ></app-icon>
+          </button>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="btns-wrapper">
+        <a
+          [routerLink]="['/', routes.doctors.path, currentDoctor.id]"
+          class="btn btn-outline-primary"
+          >Scheda medico</a
+        >
+        <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary"
+          >Cambia medico</a
+        >
+      </div>
+    </div>
+    <div class="container" *ngIf="!currentDoctor">
+      <h4>Il tuo medico attuale</h4>
+      <div class="empty-doctor-info-wrapper">
+        Il tuo medico risulta non più attivo (es. è andato in pensione, ha
+        cessato l'attività in Regione Toscana, ecc). Puoi scegliere un nuovo
+        medico selezionando Cambia medico.
+      </div>
+      <div class="separator"></div>
+      <div class="btns-wrapper">
+        <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary"
+          >Cambia medico</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="documents" *ngIf="lastDocument">
+    <div class="container">
+      <div class="docs-title">
+        <h2>Documenti ricevuti dal tuo medico</h2>
+        <a class="link" [routerLink]="['/', routes.documents.path]"
+          >Vai ai documenti
+          <app-icon type="arrow-right"></app-icon>
+        </a>
+      </div>
+      <div class="documents-wrapper">
+        <p>
+          Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà
+          disponibile solo per 48h!
+        </p>
+        <app-document-card [document]="lastDocument"></app-document-card>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-info">
+    <div class="container">
+      <div class="more-info-container">
+        <div class="info-wrapper">
+          <h2>A chi è rivolto il servizio</h2>
+          <p>
+            Il <strong>servizio di scelta medico online </strong> è disponibile
+            per differenti <strong> cittadini.</strong>
+          </p>
+        </div>
+
+        <div class="more-info-card">
+          <app-icon type="circle-check"></app-icon>
+          <p>
+            <b>Cittadini italiani residenti in Toscana,</b> assistiti da un
+            medico toscano.
+          </p>
+        </div>
+
+        <div class="more-info-card">
+          <app-icon type="circle-check"></app-icon>
+          <p>
+            <b>Cittadini italiani, con domicilio sanitario Toscana,</b>
+            attualmente assistiti da un medico toscano.
+          </p>
+        </div>
+
+        <div class="more-info-card">
+          <app-icon type="circle-check"></app-icon>
+          <p>
+            <b>Cittadini comunitari o stranieri, residenti in Toscana,</b>
+            attualmente assistiti da un medico toscano.
           </p>
         </div>
       </div>
-      <div class="doctor-info-card-container contacts">
-        <div class="contacts-wrapper">
-          <p class="label">Contatti</p>
-          <div class="contacts-container">
-            <app-icon type="envelope"></app-icon>
-            <a href=""> {{ currentDoctor.email }}</a>
-          </div>
-          <div class="contacts-container">
-            <app-icon type="phone"></app-icon>
-            {{ currentDoctor.phone }}
-          </div>
-        </div>
-      </div>
-      <div class="doctor-info-card-container button-wrapper">
-        <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary">
-          <app-icon type="download" fill="#fff" *ngIf="!isMobile"></app-icon>
-          Scarica attestato <span *ngIf="!isMobile">PDF (120KB)</span>
-        </a>
-      </div>
-    </div>
-    <div class="clinic-text">
-      <p class="label">Ambulatori personali</p>
-      <div class="clinic-card-wrapper">
-        <div
-          class="clinic-card"
-          *ngFor="let clinic of clinics; let i = index"
-          [hidden]="i >= 3 && !showAllCards"
-        >
-          <div class="address-container">
-            <app-icon type="location-dot"></app-icon>
-            {{ clinic.address }}
-          </div>
-          <div class="availability-container">
-            <app-icon type="calendar-days"></app-icon>
-            {{ clinic.availability }}
-          </div>
-        </div>
-      </div>
-      <div class="button-container">
-        <p>*Il medico riceve solo su appuntamento</p>
-        <button
-          class="btn btn-tetriary show-more-clinic-card"
-          (click)="toggleShowAllCards()"
-        >
-          {{ showAllCards ? "Mostra di meno" : "Mostra di più" }}
-          <app-icon
-            type="chevron-{{ showAllCards ? 'top' : 'bottom' }}"
-            fill="#07768D"
-          ></app-icon>
-        </button>
-      </div>
-    </div>
-    <div class="separator"></div>
-    <div class="btns-wrapper">
-      <a
-        [routerLink]="['/', routes.doctors.path, currentDoctor.id]"
-        class="btn btn-outline-primary"
-        >Scheda medico</a
-      >
-      <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary"
-        >Cambia medico</a
-      >
-    </div>
-  </div>
-  <div class="container" *ngIf="!currentDoctor">
-    <h4>Il tuo medico attuale</h4>
-    <div class="empty-doctor-info-wrapper">
-      Il tuo medico risulta non più attivo (es. è andato in pensione, ha cessato
-      l'attività in Regione Toscana, ecc). Puoi scegliere un nuovo medico
-      selezionando Cambia medico.
-    </div>
-    <div class="separator"></div>
-    <div class="btns-wrapper">
-      <a [routerLink]="['/', routes.doctors.path]" class="btn btn-primary"
-        >Cambia medico</a
-      >
-    </div>
-  </div>
-</section>
-
-<section class="documents">
-  <div class="container">
-    <div class="faq-title">
-      <h2>Documenti ricevuti dal tuo medico</h2>
-      <a class="link" [routerLink]="['/', routes.faq.path]"
-        >Vai ai documenti
-        <app-icon type="arrow-right"></app-icon>
-      </a>
-    </div>
-    <div class="documents-wrapper">
-      <p>
-        Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà disponibile
-        solo per 48h!
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="more-info">
-  <div class="container">
-  <div class="more-info-container">
-    <div class="info-wrapper"> 
-      <h2>A chi è rivolto il servizio</h2>
-      <p>
-        Il <strong>servizio di scelta medico online </strong> è disponibile per differenti <strong> cittadini.</strong>
-      </p>
-    </div>
-   
-      <div class="more-info-card">
-        <app-icon type="circle-check"></app-icon>
-        <p>
-          <b>Cittadini italiani residenti in Toscana,</b> assistiti da un
-          medico toscano.
-        </p>
-      </div>
-
-      <div class="more-info-card">
-        <app-icon type="circle-check"></app-icon>
-        <p>
-          <b>Cittadini italiani, con domicilio sanitario Toscana,</b>
-          attualmente assistiti da un medico toscano.
-        </p>
-      </div>
-
-      <div class="more-info-card">
-        <app-icon type="circle-check"></app-icon>
-        <p>
-          <b>Cittadini comunitari o stranieri, residenti in Toscana,</b>
-          attualmente assistiti da un medico toscano.
-        </p>
-      </div>
-    
-  </div>
       <p class="description">
         Oltre ai casi sopra evidenziati, è possibile scegliere il nuovo medico
         anche nel caso in cui il proprio medico toscano abbia cessato la propria
@@ -181,35 +186,37 @@
         consultare le sezione con le
         <a [routerLink]="['/']">domande frequenti</a>.
       </p>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="container">
-    <div class="faq-title">
-      <h2>Domande frequenti</h2>
-      <a class="link" [routerLink]="['/', routes.faq.path]"
-        >Vai alle domande frequenti
-        <app-icon type="arrow-right"></app-icon>
-      </a>
     </div>
+  </section>
 
-    <div class="faq-card-wrapper">
-      <div class="faq-card" *ngFor="let faqItem of faqList">
-        <div class="faq-card-title">
-          <a class="link" [routerLink]="['/', routes.faq.path]">
-            {{ faqItem.question }}
-          </a>
-          <app-icon
-            class="faq-card-icon"
-            type="chevron-right"
-            fill="#07768D"
-          ></app-icon>
+  <section class="faq">
+    <div class="container">
+      <div class="faq-title">
+        <h2>Domande frequenti</h2>
+        <a class="link" [routerLink]="['/', routes.faq.path]"
+          >Vai alle domande frequenti
+          <app-icon type="arrow-right"></app-icon>
+        </a>
+      </div>
+
+      <div class="faq-card-wrapper">
+        <div class="faq-card" *ngFor="let faqItem of faqList">
+          <div class="faq-card-title">
+            <a class="link" [routerLink]="['/', routes.faq.path]">
+              {{ faqItem.question }}
+            </a>
+            <app-icon
+              class="faq-card-icon"
+              type="chevron-right"
+              fill="#07768D"
+            ></app-icon>
+          </div>
+          <p>
+            Hai ricevuto un <b>nuovo documento</b> dal tuo medico. Sarà
+            disponibile solo per 48h!
+          </p>
         </div>
-        <p>
-          {{ faqItem.answer }}
-        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

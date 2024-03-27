@@ -1,106 +1,100 @@
 @import "../../../assets/scss/colors.scss";
 @import "../../../assets/scss/variables.scss";
 
-.hero-banner{
-    display:flex;
-    flex-direction: column;
-    gap:16px;
-    padding: 0 0 32px 0;
+.hero-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 0 32px 0;
 
-    .description{
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 32px; 
-        width: 856px;
-    }
+  .description {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    width: 856px;
+  }
 }
 
-.details-container{
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    line-height: 24px;
+
+    &.margin {
+      margin-bottom: 16px;
+    }
+
+    .label-detail {
+      color: $grey-02;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+  .profile-card {
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-bottom: 40px;
+    border-radius: $border-radius-xs;
+    border: 1px solid $border-color;
 
-    .label{
-        display: flex;
-        flex-direction: column;
-        font-weight: 600;
-        line-height: 24px;
+    .info-section {
+      display: flex;
+      gap: 8px;
 
-        &.margin{
-            margin-bottom: 16px;
+      .name-section {
+        .name {
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 40px;
+          color: $grey-01;
         }
 
-        .label-detail{
-            color:$grey-02;
+        .tax-code {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 28px;
+          color: $grey-01;
+
+          .person-tax-code {
+            font-size: 18px;
+            font-style: normal;
             font-weight: 400;
             line-height: 28px;
+            color: $grey-02;
+          }
         }
+      }
     }
-    .profile-card {
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        border-radius: $border-radius-xs;
-        border: 1px solid $border-color;
 
-        .info-section{
-            display: flex;
-            gap: 8px;
-
-            .name-section{
-                .name{
-                    font-size: 32px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: 40px;
-                    color:$grey-01;
-                }
-
-                .tax-code{
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 28px;
-                    color:$grey-01;
-
-                    .person-tax-code{
-                        font-size: 18px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 28px;
-                        color:$grey-02;
-                    }
-                }
-            }
-        }
-
-        .additional-info{
-            display: flex;
-            gap:24px;
-
-            
-        }
-        
-        .contact-section{
-            display: flex;
-            gap:24px;
-
-        
-        }
+    .additional-info {
+      display: flex;
+      gap: 24px;
     }
+
+    .contact-section {
+      display: flex;
+      gap: 24px;
+    }
+  }
 }
-
 
 /*Mobile*/
-@media  (max-width: 767px) {
-    .hero-banner{
-    
-        .description{
-            width: 100%;
-        }
+@media (max-width: 767px) {
+  .hero-banner {
+    .description {
+      width: 100%;
+      font-size: 18px;
     }
+  }
 }
-

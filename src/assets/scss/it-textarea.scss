@@ -1,0 +1,9 @@
+div.form-group label {
+  padding-left: 0;
+}
+
+textarea.form-control {
+  border-radius: $border-radius-xs;
+  border: 1px solid $grey-01;
+  background: $white;
+}

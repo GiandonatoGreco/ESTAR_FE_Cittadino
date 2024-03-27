@@ -44,6 +44,20 @@ body {
     fill: var(--bs-link-hover-color);
   }
 }
+.errorMsg {
+  color: $badge-date-error !important;
+}
+// alternate bg
+.alternate-bg section {
+  padding: 40px 0;
+
+  &:nth-child(even) {
+    background-color: $bg-light;
+  }
+  &:first-child {
+    padding-top: unset;
+  }
+}
 // separator
 div.separator {
   height: 1px;

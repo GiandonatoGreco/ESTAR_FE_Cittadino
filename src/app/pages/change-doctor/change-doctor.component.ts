@@ -3,7 +3,6 @@ import { IconName, ItNotificationService } from 'design-angular-kit';
 import { BreadcrumbI } from 'models/common';
 import { DoctorI, GeoI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
-import { LoadingService } from 'services/loading.service';
 import { routes as utilsRoutes } from '../../../utils/routes';
 import { CustomMapComponent } from 'components/custom-map/custom-map.component';
 import storage from '../../../utils/storage';
@@ -66,7 +65,6 @@ export class ChangeDoctorComponent implements OnInit {
 
   constructor(
     private doctorService: DoctorsService,
-    private loadingService: LoadingService,
     private readonly notificationService: ItNotificationService,
     private breakpointObserver: BreakpointObserver
   ) {}
@@ -74,35 +72,31 @@ export class ChangeDoctorComponent implements OnInit {
   ngOnInit(): void {
     this.currentSight = storage.read('changeDoctorSight')?.value || 'map';
     // get Doctors list
-    this.loadingService.showLoading();
     this.doctorService.getDoctorsList().subscribe({
       next: (data) => {
         this.list = data;
-
       }, // nextHandler
       error: (error) => {
         console.log('Error:', error);
         this.notificationService.error('Notifica Errore', error?.message);
-        this.loadingService.hideLoading();
       }, // errorHandler
-      complete: () => {
-        this.loadingService.hideLoading();
-      }, // completeHandler
     });
 
     // subscribe to activeMarker
     this.doctorService.activeMarker$.subscribe(
       (data) => (this.activeMarker = data)
     );
-    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe((result) => {
-      this.isMobile = result.matches;
-    });
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
   }
 
   setActiveMarker(id?: any): void {
     this.doctorService.setActiveMarker(id);
   }
-  
+
   selectTab(index: number): void {
     this.selectedIndex = index;
   }
