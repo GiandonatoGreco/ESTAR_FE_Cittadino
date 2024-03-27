@@ -108,7 +108,7 @@
 </it-header>
 
 <div class="header-sticky-wrapper navbar">
-  <div class="container">
+  <div class="container" *ngIf="!isMobile">
     <div class="row">
       <div class="col-12">
         <nav
@@ -144,5 +144,26 @@
         </nav>
       </div>
     </div>
+  </div>
+  <div class="container" *ngIf="isMobile">
+    <a routerLink="/">
+      <img
+        class="it-brand-logo-img"
+        aria-hidden="true"
+        src="../../../assets/img/logo_regione_toscana.png"
+      />
+    </a>
+    <button
+      type="button"
+      class="custom-navbar-toggler"
+      aria-label="Mostra/Nascondi la navigazione"
+    >
+      <it-icon
+        name="burger"
+        color="white"
+        size="sm"
+        (click)="openMobileMenu()"
+      ></it-icon>
+    </button>
   </div>
 </div>

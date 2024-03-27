@@ -1,3 +1,7 @@
+.it-header-wrapper {
+  position: relative;
+  z-index: 1100;
+}
 .navbar
   .navbar-collapsable
   .navbar-nav
@@ -206,3 +210,47 @@
     right: 0;
   }
 }
+
+/* MOBILE SIDEBAR */
+@media (max-width: 767px) {
+  .navbar {
+    .navbar-collapsable {
+      .close-div {
+        top: 12px;
+        &::after {
+          content: "Menu";
+          position: relative;
+          top: -32px;
+          left: 28px;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+
+        button {
+          margin-right: 12px;
+          margin-left: auto;
+
+          &.close-menu .icon {
+            fill: $grey-01;
+          }
+        }
+      }
+
+      .menu-wrapper .navbar-nav {
+        padding-top: 64px;
+
+        .nav-item::after {
+          content: "";
+          display: block;
+          width: calc(100% - 24px);
+          height: 1px;
+          background-color: $border-grey;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+/* END MOBILE SIDEBAR */

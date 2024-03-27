@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'auth/auth.service';
 import { routes } from '../../../utils/routes';
@@ -10,12 +10,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private authService: AuthService,
     private breakpointObserver: BreakpointObserver
   ) {}
+
   isMobile = false;
   isLogged: boolean = false;
   name = 'Gloria Rossi';
@@ -112,5 +113,30 @@ export class HeaderComponent implements OnInit {
       .subscribe((result) => {
         this.isMobile = result.matches;
       });
+  }
+
+  ngAfterViewInit(): void {
+    // add event listners to sidebar links to hide sidebar on click
+    const mobileLinks = document.querySelectorAll(
+      '.navbar-collapsable .nav-link'
+    );
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (this.isMobile) {
+          (document.querySelector('.btn.close-menu') as HTMLElement)?.click();
+        }
+      });
+    });
+
+    // hide header dorpdowns on scroll
+    const dropdowns = document.querySelectorAll('header .dropdown-menu');
+    document.addEventListener('scroll', () => {
+      dropdowns.forEach((d) => d.classList.remove('show'));
+    });
+  }
+
+  openMobileMenu() {
+    // toggle mobile sidebar in custom sticky header
+    (document.querySelector('.custom-navbar-toggler') as HTMLElement)?.click();
   }
 }
