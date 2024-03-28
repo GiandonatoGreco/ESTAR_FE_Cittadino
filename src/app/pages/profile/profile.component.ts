@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { routes } from '../../../utils/routes';
 import { BreadcrumbI } from 'models/common';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProfileService } from 'services/profile.service';
 import { ProfileI } from 'models/profile';
 import { ModalProfileComponent } from 'components/modals/modal-profile/modal-profile.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   isEmailType: boolean = false;
   isCellulareType: boolean = false;
 
+  isMobile: boolean = false;
+
   crumbs: BreadcrumbI[] = [
     {
       link: '/' + routes.dashboard.path,
@@ -32,13 +34,19 @@ export class ProfileComponent implements OnInit {
   ];
 
   constructor(
-    private route: ActivatedRoute,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private breakpointObserver: BreakpointObserver
   ) {}
   ngOnInit(): void {
     this.profileService.getProfileDetails().subscribe((details) => {
       this.profileDetail = details;
     });
+
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
   }
 
   openModal(type: 'email' | 'phone'): void {

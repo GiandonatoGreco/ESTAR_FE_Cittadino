@@ -30,3 +30,16 @@ section {
     padding-left: 34px;
   }
 }
+
+
+/*Mobile*/
+@media (max-width: 767px) {
+  .subtitle{
+    flex-direction: column;
+    margin-top: 16px;
+  }
+
+  section {
+    padding: 32px 16px;
+  }
+}

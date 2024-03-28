@@ -1,20 +1,23 @@
 <div class="document-card">
   <div class="card-header">
     <!-- TODO logica per capire come/quando mostrare badge -->
-    <div class="badge">Nuovo</div>
-    <div [class]="'badge ' + fileExpiration">
-      {{
-        fileExpiration === "today" ? "In scadenza oggi" : "Disponibile per 48h"
-      }}
+    <div class="badge-container">
+      <div class="badge">Nuovo</div>
+      <div [class]="'badge ' + fileExpiration">
+        {{
+          fileExpiration === "today" ? "In scadenza oggi" : "Disponibile per 48h"
+        }}
+      </div>
     </div>
     <p class="date">{{ fileCreationDate }}</p>
   </div>
   <a [href]="document.url" target="_blank" *ngIf="isSent"
     ><b>{{ document.title }}</b></a
   >
+  <a [href]="document.url" target="_blank" *ngIf="!isSent">{{ document.title }}</a>
   <p *ngIf="document.description">{{ document.description }}</p>
   <div class="card-footer" *ngIf="!isSent">
-    <a [href]="document.url" target="_blank">{{ document.title }}</a>
+
     <a [href]="document.url" [download]="document.title" class="link"
       >Scarica {{ document.format | uppercase }} ({{ fileSize }})
       <app-icon type="download"></app-icon
@@ -32,7 +35,7 @@
       data-bs-toggle="modal"
       data-bs-target="#modal-confirm"
     >
-      Elimina <app-icon type="trash-can"></app-icon>
+      Elimina <app-icon type="trash-can"  [size]="isMobile ? 18 : 32"></app-icon>
     </button>
   </div>
 </div>

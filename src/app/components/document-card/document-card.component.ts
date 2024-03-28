@@ -5,7 +5,8 @@ import {
   formatSize,
   getExpiration,
 } from '../../../utils/documents';
-import { DocumentsService } from 'services/documents.service';
+import { DocumentsService } from '../../services/documents.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-document-card',
@@ -16,12 +17,24 @@ export class DocumentCardComponent implements OnChanges {
   @Input() document!: DocumentI;
   @Input() isSent: boolean = false;
 
-  constructor(private documentsService: DocumentsService) {}
+  isMobile: boolean = false;
+
+  constructor(private documentsService: DocumentsService,
+    private breakpointObserver: BreakpointObserver
+    ) {}
 
   fileSize: string = '';
   fileCreationDate: string = '';
   fileExpiration: 'tomorrow' | 'today' = 'tomorrow';
 
+  ngOnInit(): void {
+  this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
+  }
+  
   ngOnChanges(changes: SimpleChanges): void {
     this.fileSize = formatSize(this.document.size);
     this.fileCreationDate = formatDate(this.document);

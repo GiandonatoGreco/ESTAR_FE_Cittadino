@@ -136,12 +136,14 @@ section:nth-child(even) {
     line-height: 32px;
   }
 }
+.documents{
 
-.docs-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
+  .docs-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
 }
 
 .more-info {
@@ -469,6 +471,24 @@ section:nth-child(even) {
     }
   }
 
+  .documents{
+    padding:32px 0;
+    
+    .docs-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap:16px;
+    
+
+      .link{
+        display: flex;
+        gap: 8px;
+        font-size: 14px;
+        align-items: center;  
+      }
+    }
+
+  }
   .more-info {
     .container {
       gap: 16px;
@@ -509,6 +529,10 @@ section:nth-child(even) {
       gap: 16px;
       align-items: flex-start;
       padding-bottom: 24px;
+
+      .link{
+        font-size:14px;
+      }
     }
 
     .faq-card-wrapper {

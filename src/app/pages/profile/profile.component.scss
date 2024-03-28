@@ -94,7 +94,55 @@
   .hero-banner {
     .description {
       width: 100%;
-      font-size: 18px;
+      font-size: 20px;
     }
   }
+
+  .details-container {
+
+  
+    .label {
+      
+  
+      &.margin {
+
+      }
+  
+      .label-detail {
+  
+      }
+    }
+    .profile-card {
+      gap:16px;
+      padding:12px;
+  
+      .info-section {
+        
+  
+        .name-section {
+          .name {
+            font-size: 28px;
+          }
+  
+          .tax-code {
+           
+  
+            .person-tax-code {
+             
+            }
+          }
+        }
+      }
+  
+      .additional-info {
+        flex-direction: column;
+        gap: 8px;
+      }
+  
+      .contact-section {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }  
 }
