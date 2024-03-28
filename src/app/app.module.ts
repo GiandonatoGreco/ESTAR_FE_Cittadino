@@ -25,8 +25,10 @@ import { CustomMapComponent } from './components/custom-map/custom-map.component
 import { TableComponent } from './components/tables/table/table.component';
 
 // modals
-import ModalNotificationComponent from './components/modals/modal-notification/modal-notification.component';
 import { ModalConfirmComponent } from './components/modals/modal-confirm/modal-confirm.component';
+import { ModalDocumentUploadComponent } from './components/modals/modal-document-upload/modal-document-upload.component';
+import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -42,14 +44,13 @@ import { AllIconsComponent } from './components/all-icons/all-icons.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { TableDoctorsComponent } from './components/tables/table-doctors/table-doctors.component';
-import { ModalChangeDoctorComponent } from './components/modals/modal-change-doctor/modal-change-doctor.component';
+
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ModalProfileComponent } from './components/modals/modal-profile/modal-profile.component';
 
 import { PrivateSiteComponent } from './private-site/private-site.component';
 import { TokenInterceptor } from 'interceptors/token.interceptor';
 import { DocumentCardComponent } from './components/document-card/document-card.component';
-import { ModalDocumentUploadComponent } from './components/modals/modal-document-upload/modal-document-upload.component';
+
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { LoaderInterceptor } from 'interceptors/loader.interceptor';
 import { NotificationComponent } from './components/notification/notification.component';
@@ -71,7 +72,6 @@ import { NotificationComponent } from './components/notification/notification.co
     AccordionComponent,
     CustomMapComponent,
     TableComponent,
-    ModalNotificationComponent,
     ModalConfirmComponent,
     FooterComponent,
     BarChartComponent,
@@ -84,7 +84,6 @@ import { NotificationComponent } from './components/notification/notification.co
     IconComponent,
     AllIconsComponent,
     TableDoctorsComponent,
-    ModalChangeDoctorComponent,
     ProfileComponent,
     ModalProfileComponent,
     PrivateSiteComponent,

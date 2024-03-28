@@ -1,4 +1,9 @@
-<it-modal id="modal-document-upload" alignment="centered">
+<it-modal
+  id="modal-document-upload"
+  alignment="centered"
+  #uploadDocModal
+  footerShadow="true"
+>
   <ng-container modalTitle>Invia nuovo documento al tuo medico</ng-container>
 
   <it-textarea
@@ -14,7 +19,6 @@
     ></app-file-uploader>
   </div>
 
-  <div class="separator"></div>
   <ng-container footer>
     <button
       itButton="primary"

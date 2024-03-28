@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BreadcrumbI } from 'models/common';
 import { DoctorI } from 'models/doctors';
 import { DoctorsService } from 'services/doctors.service';
 import { routes } from '../../../utils/routes';
-import { ModalChangeDoctorComponent } from 'components/modals/modal-change-doctor/modal-change-doctor.component';
 import { NotificationsService } from 'services/notifications.service';
 
 @Component({
@@ -13,9 +12,6 @@ import { NotificationsService } from 'services/notifications.service';
   styleUrl: './doctor-details.component.scss',
 })
 export class DoctorDetailsComponent implements OnInit {
-  @ViewChild(ModalChangeDoctorComponent)
-  modalChangeDoctor!: ModalChangeDoctorComponent;
-
   id: string | null = null;
   docDetail?: DoctorI;
 

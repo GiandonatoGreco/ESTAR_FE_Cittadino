@@ -8,6 +8,7 @@ import { FileUploaderComponent } from 'components/file-uploader/file-uploader.co
 })
 export class ModalDocumentUploadComponent {
   @ViewChild(FileUploaderComponent) fileUploader!: FileUploaderComponent;
+
   description: string = '';
   acceptedFormats = ['.pdf', 'image/*'];
 
